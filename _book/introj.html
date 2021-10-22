@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Getting started with jamovi | Learning statistics with jamovi: a tutorial for psychology students and other beginners (Version 0.70)</title>
+  <meta name="description" content="learning statistics with jamovi covers the contents of an introductory statistics class, as typically taught to undergraduate psychology students. The book discusses how to get started in jamovi as well as giving an introduction to data manipulation. From a statistical perspective, the book discusses descriptive statistics and graphing first, followed by chapters on probability theory, sampling and estimation, and null hypothesis testing. After introducing the theory, the book covers the analysis of contingency tables, correlation, \(t\)-tests, regression, ANOVA and factor analysis. Bayesian statistics are covered at the end of the book." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Getting started with jamovi | Learning statistics with jamovi: a tutorial for psychology students and other beginners (Version 0.70)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="learning statistics with jamovi covers the contents of an introductory statistics class, as typically taught to undergraduate psychology students. The book discusses how to get started in jamovi as well as giving an introduction to data manipulation. From a statistical perspective, the book discusses descriptive statistics and graphing first, followed by chapters on probability theory, sampling and estimation, and null hypothesis testing. After introducing the theory, the book covers the analysis of contingency tables, correlation, \(t\)-tests, regression, ANOVA and factor analysis. Bayesian statistics are covered at the end of the book." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Getting started with jamovi | Learning statistics with jamovi: a tutorial for psychology students and other beginners (Version 0.70)" />
+  
+  <meta name="twitter:description" content="learning statistics with jamovi covers the contents of an introductory statistics class, as typically taught to undergraduate psychology students. The book discusses how to get started in jamovi as well as giving an introduction to data manipulation. From a statistical perspective, the book discusses descriptive statistics and graphing first, followed by chapters on probability theory, sampling and estimation, and null hypothesis testing. After introducing the theory, the book covers the analysis of contingency tables, correlation, \(t\)-tests, regression, ANOVA and factor analysis. Bayesian statistics are covered at the end of the book." />
+  
+
+<meta name="author" content="Danielle Navarro and David Foxcroft" />
+
+
+<meta name="date" content="2021-10-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="part-ii.-an-introduction-to-jamovi.html"/>
+<link rel="next" href="part-iii.-working-with-data.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Learning Statistics with Jamovi</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="citation.html"><a href="citation.html"><i class="fa fa-check"></i>Citation</a></li>
+<li class="chapter" data-level="" data-path="licensing.html"><a href="licensing.html"><i class="fa fa-check"></i>Licensing</a></li>
+<li class="chapter" data-level="" data-path="dedication.html"><a href="dedication.html"><i class="fa fa-check"></i>Dedication</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="preface.html"><a href="preface.html#preface-to-version-0.70"><i class="fa fa-check"></i><b>0.1</b> Preface to Version 0.70</a></li>
+<li class="chapter" data-level="0.2" data-path="preface.html"><a href="preface.html#preface-to-version-0.65"><i class="fa fa-check"></i><b>0.2</b> Preface to Version 0.65</a></li>
+<li class="chapter" data-level="0.3" data-path="preface.html"><a href="preface.html#preface-to-version-0.6"><i class="fa fa-check"></i><b>0.3</b> Preface to Version 0.6</a></li>
+<li class="chapter" data-level="0.4" data-path="preface.html"><a href="preface.html#preface-to-version-0.5"><i class="fa fa-check"></i><b>0.4</b> Preface to Version 0.5</a></li>
+<li class="chapter" data-level="0.5" data-path="preface.html"><a href="preface.html#preface-to-version-0.4"><i class="fa fa-check"></i><b>0.5</b> Preface to Version 0.4</a></li>
+<li class="chapter" data-level="0.6" data-path="preface.html"><a href="preface.html#preface-to-version-0.3"><i class="fa fa-check"></i><b>0.6</b> Preface to Version 0.3</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-i.-background.html"><a href="part-i.-background.html"><i class="fa fa-check"></i>Part I. Background</a></li>
+<li class="chapter" data-level="1" data-path="why-do-we-learn-statistics.html"><a href="why-do-we-learn-statistics.html"><i class="fa fa-check"></i><b>1</b> Why do we learn statistics?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="why-do-we-learn-statistics.html"><a href="why-do-we-learn-statistics.html#whywhywhy"><i class="fa fa-check"></i><b>1.1</b> On the psychology of statistics</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="why-do-we-learn-statistics.html"><a href="why-do-we-learn-statistics.html#the-curse-of-belief-bias"><i class="fa fa-check"></i><b>1.1.1</b> The curse of belief bias</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="why-do-we-learn-statistics.html"><a href="why-do-we-learn-statistics.html#the-cautionary-tale-of-simpsons-paradox"><i class="fa fa-check"></i><b>1.2</b> The cautionary tale of Simpson’s paradox</a></li>
+<li class="chapter" data-level="1.3" data-path="why-do-we-learn-statistics.html"><a href="why-do-we-learn-statistics.html#statistics-in-psychology"><i class="fa fa-check"></i><b>1.3</b> Statistics in psychology</a></li>
+<li class="chapter" data-level="1.4" data-path="why-do-we-learn-statistics.html"><a href="why-do-we-learn-statistics.html#statistics-in-everyday-life"><i class="fa fa-check"></i><b>1.4</b> Statistics in everyday life</a></li>
+<li class="chapter" data-level="1.5" data-path="why-do-we-learn-statistics.html"><a href="why-do-we-learn-statistics.html#theres-more-to-research-methods-than-statistics"><i class="fa fa-check"></i><b>1.5</b> There’s more to research methods than statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="studydesign.html"><a href="studydesign.html"><i class="fa fa-check"></i><b>2</b> A brief introduction to research design</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="studydesign.html"><a href="studydesign.html#measurement"><i class="fa fa-check"></i><b>2.1</b> Introduction to psychological measurement</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="studydesign.html"><a href="studydesign.html#some-thoughts-about-psychological-measurement"><i class="fa fa-check"></i><b>2.1.1</b> Some thoughts about psychological measurement</a></li>
+<li class="chapter" data-level="2.1.2" data-path="studydesign.html"><a href="studydesign.html#operationalisation-defining-your-measurement"><i class="fa fa-check"></i><b>2.1.2</b> Operationalisation: defining your measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="studydesign.html"><a href="studydesign.html#scales"><i class="fa fa-check"></i><b>2.2</b> Scales of measurement</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="studydesign.html"><a href="studydesign.html#nominal-scale"><i class="fa fa-check"></i><b>2.2.1</b> Nominal scale</a></li>
+<li class="chapter" data-level="2.2.2" data-path="studydesign.html"><a href="studydesign.html#ordinal-scale"><i class="fa fa-check"></i><b>2.2.2</b> Ordinal scale</a></li>
+<li class="chapter" data-level="2.2.3" data-path="studydesign.html"><a href="studydesign.html#interval-scale"><i class="fa fa-check"></i><b>2.2.3</b> Interval scale</a></li>
+<li class="chapter" data-level="2.2.4" data-path="studydesign.html"><a href="studydesign.html#ratio-scale"><i class="fa fa-check"></i><b>2.2.4</b> Ratio scale</a></li>
+<li class="chapter" data-level="2.2.5" data-path="studydesign.html"><a href="studydesign.html#continuousdiscrete"><i class="fa fa-check"></i><b>2.2.5</b> Continuous versus discrete variables</a></li>
+<li class="chapter" data-level="2.2.6" data-path="studydesign.html"><a href="studydesign.html#some-complexities"><i class="fa fa-check"></i><b>2.2.6</b> Some complexities</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="studydesign.html"><a href="studydesign.html#reliability"><i class="fa fa-check"></i><b>2.3</b> Assessing the reliability of a measurement</a></li>
+<li class="chapter" data-level="2.4" data-path="studydesign.html"><a href="studydesign.html#ivdv"><i class="fa fa-check"></i><b>2.4</b> The “role” of variables: predictors and outcomes</a></li>
+<li class="chapter" data-level="2.5" data-path="studydesign.html"><a href="studydesign.html#researchdesigns"><i class="fa fa-check"></i><b>2.5</b> Experimental and non-experimental research</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="studydesign.html"><a href="studydesign.html#experimental-research"><i class="fa fa-check"></i><b>2.5.1</b> Experimental research</a></li>
+<li class="chapter" data-level="2.5.2" data-path="studydesign.html"><a href="studydesign.html#non-experimental-research"><i class="fa fa-check"></i><b>2.5.2</b> Non-experimental research</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="studydesign.html"><a href="studydesign.html#validity"><i class="fa fa-check"></i><b>2.6</b> Assessing the validity of a study</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="studydesign.html"><a href="studydesign.html#internal-validity"><i class="fa fa-check"></i><b>2.6.1</b> Internal validity</a></li>
+<li class="chapter" data-level="2.6.2" data-path="studydesign.html"><a href="studydesign.html#external-validity"><i class="fa fa-check"></i><b>2.6.2</b> External validity</a></li>
+<li class="chapter" data-level="2.6.3" data-path="studydesign.html"><a href="studydesign.html#construct-validity"><i class="fa fa-check"></i><b>2.6.3</b> Construct validity</a></li>
+<li class="chapter" data-level="2.6.4" data-path="studydesign.html"><a href="studydesign.html#face-validity"><i class="fa fa-check"></i><b>2.6.4</b> Face validity</a></li>
+<li class="chapter" data-level="2.6.5" data-path="studydesign.html"><a href="studydesign.html#ecological-validity"><i class="fa fa-check"></i><b>2.6.5</b> Ecological validity</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="studydesign.html"><a href="studydesign.html#confounds-artifacts-and-other-threats-to-validity"><i class="fa fa-check"></i><b>2.7</b> Confounds, artifacts and other threats to validity</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="studydesign.html"><a href="studydesign.html#history-effects"><i class="fa fa-check"></i><b>2.7.1</b> History effects</a></li>
+<li class="chapter" data-level="2.7.2" data-path="studydesign.html"><a href="studydesign.html#maturation-effects"><i class="fa fa-check"></i><b>2.7.2</b> Maturation effects</a></li>
+<li class="chapter" data-level="2.7.3" data-path="studydesign.html"><a href="studydesign.html#repeated-testing-effects"><i class="fa fa-check"></i><b>2.7.3</b> Repeated testing effects</a></li>
+<li class="chapter" data-level="2.7.4" data-path="studydesign.html"><a href="studydesign.html#selection-bias"><i class="fa fa-check"></i><b>2.7.4</b> Selection bias</a></li>
+<li class="chapter" data-level="2.7.5" data-path="studydesign.html"><a href="studydesign.html#differentialattrition"><i class="fa fa-check"></i><b>2.7.5</b> Differential attrition</a></li>
+<li class="chapter" data-level="2.7.6" data-path="studydesign.html"><a href="studydesign.html#non-response-bias"><i class="fa fa-check"></i><b>2.7.6</b> Non-response bias</a></li>
+<li class="chapter" data-level="2.7.7" data-path="studydesign.html"><a href="studydesign.html#regression-to-the-mean"><i class="fa fa-check"></i><b>2.7.7</b> Regression to the mean</a></li>
+<li class="chapter" data-level="2.7.8" data-path="studydesign.html"><a href="studydesign.html#experimenter-bias"><i class="fa fa-check"></i><b>2.7.8</b> Experimenter bias</a></li>
+<li class="chapter" data-level="2.7.9" data-path="studydesign.html"><a href="studydesign.html#demand-effects-and-reactivity"><i class="fa fa-check"></i><b>2.7.9</b> Demand effects and reactivity</a></li>
+<li class="chapter" data-level="2.7.10" data-path="studydesign.html"><a href="studydesign.html#placebo-effects"><i class="fa fa-check"></i><b>2.7.10</b> Placebo effects</a></li>
+<li class="chapter" data-level="2.7.11" data-path="studydesign.html"><a href="studydesign.html#situation-measurement-and-subpopulation-effects"><i class="fa fa-check"></i><b>2.7.11</b> Situation, measurement and subpopulation effects</a></li>
+<li class="chapter" data-level="2.7.12" data-path="studydesign.html"><a href="studydesign.html#fraud-deception-and-self-deception"><i class="fa fa-check"></i><b>2.7.12</b> Fraud, deception and self-deception</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="studydesign.html"><a href="studydesign.html#summary"><i class="fa fa-check"></i><b>2.8</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-ii.-an-introduction-to-jamovi.html"><a href="part-ii.-an-introduction-to-jamovi.html"><i class="fa fa-check"></i>Part II. An introduction to jamovi</a></li>
+<li class="chapter" data-level="3" data-path="introj.html"><a href="introj.html"><i class="fa fa-check"></i><b>3</b> Getting started with jamovi</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introj.html"><a href="introj.html#gettingjamovi"><i class="fa fa-check"></i><b>3.1</b> Installing jamovi</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="introj.html"><a href="introj.html#starting-up-jamovi"><i class="fa fa-check"></i><b>3.1.1</b> Starting up jamovi</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="introj.html"><a href="introj.html#analyses"><i class="fa fa-check"></i><b>3.2</b> Analyses</a></li>
+<li class="chapter" data-level="3.3" data-path="introj.html"><a href="introj.html#spreadsheet"><i class="fa fa-check"></i><b>3.3</b> The spreadsheet</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="introj.html"><a href="introj.html#variables"><i class="fa fa-check"></i><b>3.3.1</b> Variables</a></li>
+<li class="chapter" data-level="3.3.2" data-path="introj.html"><a href="introj.html#computed-variables"><i class="fa fa-check"></i><b>3.3.2</b> Computed variables</a></li>
+<li class="chapter" data-level="3.3.3" data-path="introj.html"><a href="introj.html#copypaste"><i class="fa fa-check"></i><b>3.3.3</b> Copy and Paste</a></li>
+<li class="chapter" data-level="3.3.4" data-path="introj.html"><a href="introj.html#syntaxmode"><i class="fa fa-check"></i><b>3.3.4</b> Syntax mode</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="introj.html"><a href="introj.html#load"><i class="fa fa-check"></i><b>3.4</b> Loading data in jamovi</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="introj.html"><a href="introj.html#importing-data-from-csv-files"><i class="fa fa-check"></i><b>3.4.1</b> Importing data from csv files</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="introj.html"><a href="introj.html#importing"><i class="fa fa-check"></i><b>3.5</b> Importing unusual data files</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="introj.html"><a href="introj.html#loading-data-from-text-files"><i class="fa fa-check"></i><b>3.5.1</b> Loading data from text files</a></li>
+<li class="chapter" data-level="3.5.2" data-path="introj.html"><a href="introj.html#loading-data-from-spss-and-other-statistics-packages"><i class="fa fa-check"></i><b>3.5.2</b> Loading data from SPSS (and other statistics packages)</a></li>
+<li class="chapter" data-level="3.5.3" data-path="introj.html"><a href="introj.html#loading-excel-files"><i class="fa fa-check"></i><b>3.5.3</b> Loading Excel files</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="introj.html"><a href="introj.html#coercion"><i class="fa fa-check"></i><b>3.6</b> Changing data from one level to another</a></li>
+<li class="chapter" data-level="3.7" data-path="introj.html"><a href="introj.html#jamovimodules"><i class="fa fa-check"></i><b>3.7</b> Installing add-on modules into jamovi</a></li>
+<li class="chapter" data-level="3.8" data-path="introj.html"><a href="introj.html#quittingjamovi"><i class="fa fa-check"></i><b>3.8</b> Quitting jamovi</a></li>
+<li class="chapter" data-level="3.9" data-path="introj.html"><a href="introj.html#summary-1"><i class="fa fa-check"></i><b>3.9</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-iii.-working-with-data.html"><a href="part-iii.-working-with-data.html"><i class="fa fa-check"></i>Part III. Working with data</a></li>
+<li class="chapter" data-level="4" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>4</b> Descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="descriptives.html"><a href="descriptives.html#centraltendency"><i class="fa fa-check"></i><b>4.1</b> Measures of central tendency</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="descriptives.html"><a href="descriptives.html#mean"><i class="fa fa-check"></i><b>4.1.1</b> The mean</a></li>
+<li class="chapter" data-level="4.1.2" data-path="descriptives.html"><a href="descriptives.html#calculating-the-mean-in-jamovi"><i class="fa fa-check"></i><b>4.1.2</b> Calculating the mean in jamovi</a></li>
+<li class="chapter" data-level="4.1.3" data-path="descriptives.html"><a href="descriptives.html#median"><i class="fa fa-check"></i><b>4.1.3</b> The median</a></li>
+<li class="chapter" data-level="4.1.4" data-path="descriptives.html"><a href="descriptives.html#mean-or-median-whats-the-difference"><i class="fa fa-check"></i><b>4.1.4</b> Mean or median? What’s the difference?</a></li>
+<li class="chapter" data-level="4.1.5" data-path="descriptives.html"><a href="descriptives.html#housingpriceexample"><i class="fa fa-check"></i><b>4.1.5</b> A real life example</a></li>
+<li class="chapter" data-level="4.1.6" data-path="descriptives.html"><a href="descriptives.html#mode"><i class="fa fa-check"></i><b>4.1.6</b> Mode</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="descriptives.html"><a href="descriptives.html#var"><i class="fa fa-check"></i><b>4.2</b> Measures of variability</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="descriptives.html"><a href="descriptives.html#range"><i class="fa fa-check"></i><b>4.2.1</b> Range</a></li>
+<li class="chapter" data-level="4.2.2" data-path="descriptives.html"><a href="descriptives.html#interquartile-range"><i class="fa fa-check"></i><b>4.2.2</b> Interquartile range</a></li>
+<li class="chapter" data-level="4.2.3" data-path="descriptives.html"><a href="descriptives.html#aad"><i class="fa fa-check"></i><b>4.2.3</b> Mean absolute deviation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="descriptives.html"><a href="descriptives.html#variance"><i class="fa fa-check"></i><b>4.2.4</b> Variance</a></li>
+<li class="chapter" data-level="4.2.5" data-path="descriptives.html"><a href="descriptives.html#sd"><i class="fa fa-check"></i><b>4.2.5</b> Standard deviation</a></li>
+<li class="chapter" data-level="4.2.6" data-path="descriptives.html"><a href="descriptives.html#which-measure-to-use"><i class="fa fa-check"></i><b>4.2.6</b> Which measure to use?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="descriptives.html"><a href="descriptives.html#skewkurt"><i class="fa fa-check"></i><b>4.3</b> Skew and kurtosis</a></li>
+<li class="chapter" data-level="4.4" data-path="descriptives.html"><a href="descriptives.html#groupdescriptives"><i class="fa fa-check"></i><b>4.4</b> Descriptive statistics separately for each group</a></li>
+<li class="chapter" data-level="4.5" data-path="descriptives.html"><a href="descriptives.html#zscore"><i class="fa fa-check"></i><b>4.5</b> Standard scores</a></li>
+<li class="chapter" data-level="4.6" data-path="descriptives.html"><a href="descriptives.html#summarydesc"><i class="fa fa-check"></i><b>4.6</b> Summary</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="descriptives.html"><a href="descriptives.html#epilogue-good-descriptive-statistics-are-descriptive"><i class="fa fa-check"></i><b>4.6.1</b> Epilogue: Good descriptive statistics are descriptive!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>5</b> Drawing graphs</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="graphics.html"><a href="graphics.html#hist"><i class="fa fa-check"></i><b>5.1</b> Histograms</a></li>
+<li class="chapter" data-level="5.2" data-path="graphics.html"><a href="graphics.html#boxplots"><i class="fa fa-check"></i><b>5.2</b> Boxplots</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="graphics.html"><a href="graphics.html#violinplots"><i class="fa fa-check"></i><b>5.2.1</b> Violin plots</a></li>
+<li class="chapter" data-level="5.2.2" data-path="graphics.html"><a href="graphics.html#multipleboxplots"><i class="fa fa-check"></i><b>5.2.2</b> Drawing multiple boxplots</a></li>
+<li class="chapter" data-level="5.2.3" data-path="graphics.html"><a href="graphics.html#boxplotoutliers"><i class="fa fa-check"></i><b>5.2.3</b> Using box plots to detect outliers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="graphics.html"><a href="graphics.html#bargraph"><i class="fa fa-check"></i><b>5.3</b> Bar graphs</a></li>
+<li class="chapter" data-level="5.4" data-path="graphics.html"><a href="graphics.html#saveimage"><i class="fa fa-check"></i><b>5.4</b> Saving image files using jamovi</a></li>
+<li class="chapter" data-level="5.5" data-path="graphics.html"><a href="graphics.html#summary-2"><i class="fa fa-check"></i><b>5.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datahandling.html"><a href="datahandling.html"><i class="fa fa-check"></i><b>6</b> Pragmatic matters</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datahandling.html"><a href="datahandling.html#freqtables"><i class="fa fa-check"></i><b>6.1</b> Tabulating and cross-tabulating data</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="datahandling.html"><a href="datahandling.html#creating-tables-for-single-variables"><i class="fa fa-check"></i><b>6.1.1</b> Creating tables for single variables</a></li>
+<li class="chapter" data-level="6.1.2" data-path="datahandling.html"><a href="datahandling.html#adding-percentages-to-a-contingency-table"><i class="fa fa-check"></i><b>6.1.2</b> Adding percentages to a contingency table</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="datahandling.html"><a href="datahandling.html#logicals"><i class="fa fa-check"></i><b>6.2</b> Logical expressions in jamovi</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="datahandling.html"><a href="datahandling.html#assessing-mathematical-truths"><i class="fa fa-check"></i><b>6.2.1</b> Assessing mathematical truths</a></li>
+<li class="chapter" data-level="6.2.2" data-path="datahandling.html"><a href="datahandling.html#logical-operations"><i class="fa fa-check"></i><b>6.2.2</b> Logical operations</a></li>
+<li class="chapter" data-level="6.2.3" data-path="datahandling.html"><a href="datahandling.html#logictext"><i class="fa fa-check"></i><b>6.2.3</b> Applying logical operation to text</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="datahandling.html"><a href="datahandling.html#transform"><i class="fa fa-check"></i><b>6.3</b> Transforming and recoding a variable</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="datahandling.html"><a href="datahandling.html#creating-a-transformed-variable"><i class="fa fa-check"></i><b>6.3.1</b> Creating a transformed variable</a></li>
+<li class="chapter" data-level="6.3.2" data-path="datahandling.html"><a href="datahandling.html#collapsing-a-variable-into-a-smaller-number-of-discrete-levels-or-categories"><i class="fa fa-check"></i><b>6.3.2</b> Collapsing a variable into a smaller number of discrete levels or categories</a></li>
+<li class="chapter" data-level="6.3.3" data-path="datahandling.html"><a href="datahandling.html#creating-a-transformation-that-can-be-applied-to-multiple-variables"><i class="fa fa-check"></i><b>6.3.3</b> Creating a transformation that can be applied to multiple variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="datahandling.html"><a href="datahandling.html#mathfunc"><i class="fa fa-check"></i><b>6.4</b> A few more mathematical functions and operations</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="datahandling.html"><a href="datahandling.html#logarithms-and-exponentials"><i class="fa fa-check"></i><b>6.4.1</b> Logarithms and exponentials</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="datahandling.html"><a href="datahandling.html#subset"><i class="fa fa-check"></i><b>6.5</b> Extracting a subset of the data</a></li>
+<li class="chapter" data-level="6.6" data-path="datahandling.html"><a href="datahandling.html#summary-3"><i class="fa fa-check"></i><b>6.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>7</b> Introduction to probability</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="probability.html"><a href="probability.html#probstats"><i class="fa fa-check"></i><b>7.1</b> How are probability and statistics different?</a></li>
+<li class="chapter" data-level="7.2" data-path="probability.html"><a href="probability.html#probmeaning"><i class="fa fa-check"></i><b>7.2</b> What does probability mean?</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="probability.html"><a href="probability.html#the-frequentist-view"><i class="fa fa-check"></i><b>7.2.1</b> The frequentist view</a></li>
+<li class="chapter" data-level="7.2.2" data-path="probability.html"><a href="probability.html#the-bayesian-view"><i class="fa fa-check"></i><b>7.2.2</b> The Bayesian view</a></li>
+<li class="chapter" data-level="7.2.3" data-path="probability.html"><a href="probability.html#whats-the-difference-and-who-is-right"><i class="fa fa-check"></i><b>7.2.3</b> What’s the difference? And who is right?</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="probability.html"><a href="probability.html#basicprobability"><i class="fa fa-check"></i><b>7.3</b> Basic probability theory</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="probability.html"><a href="probability.html#introducing-probability-distributions"><i class="fa fa-check"></i><b>7.3.1</b> Introducing probability distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="probability.html"><a href="probability.html#binomial"><i class="fa fa-check"></i><b>7.4</b> The binomial distribution</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="probability.html"><a href="probability.html#introducing-the-binomial"><i class="fa fa-check"></i><b>7.4.1</b> Introducing the binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="probability.html"><a href="probability.html#normal"><i class="fa fa-check"></i><b>7.5</b> The normal distribution</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="probability.html"><a href="probability.html#density"><i class="fa fa-check"></i><b>7.5.1</b> Probability density</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="probability.html"><a href="probability.html#otherdists"><i class="fa fa-check"></i><b>7.6</b> Other useful distributions</a></li>
+<li class="chapter" data-level="7.7" data-path="probability.html"><a href="probability.html#summary-4"><i class="fa fa-check"></i><b>7.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>8</b> Estimating unknown quantities from a sample</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="estimation.html"><a href="estimation.html#srs"><i class="fa fa-check"></i><b>8.1</b> Samples, populations and sampling</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="estimation.html"><a href="estimation.html#pop"><i class="fa fa-check"></i><b>8.1.1</b> Defining a population</a></li>
+<li class="chapter" data-level="8.1.2" data-path="estimation.html"><a href="estimation.html#simple-random-samples"><i class="fa fa-check"></i><b>8.1.2</b> Simple random samples</a></li>
+<li class="chapter" data-level="8.1.3" data-path="estimation.html"><a href="estimation.html#most-samples-are-not-simple-random-samples"><i class="fa fa-check"></i><b>8.1.3</b> Most samples are not simple random samples</a></li>
+<li class="chapter" data-level="8.1.4" data-path="estimation.html"><a href="estimation.html#how-much-does-it-matter-if-you-dont-have-a-simple-random-sample"><i class="fa fa-check"></i><b>8.1.4</b> How much does it matter if you don’t have a simple random sample?</a></li>
+<li class="chapter" data-level="8.1.5" data-path="estimation.html"><a href="estimation.html#population-parameters-and-sample-statistics"><i class="fa fa-check"></i><b>8.1.5</b> Population parameters and sample statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="estimation.html"><a href="estimation.html#lawlargenumbers"><i class="fa fa-check"></i><b>8.2</b> The law of large numbers</a></li>
+<li class="chapter" data-level="8.3" data-path="estimation.html"><a href="estimation.html#samplesandclt"><i class="fa fa-check"></i><b>8.3</b> Sampling distributions and the central limit theorem</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="estimation.html"><a href="estimation.html#samplingdists"><i class="fa fa-check"></i><b>8.3.1</b> Sampling distribution of the mean</a></li>
+<li class="chapter" data-level="8.3.2" data-path="estimation.html"><a href="estimation.html#sampling-distributions-exist-for-any-sample-statistic"><i class="fa fa-check"></i><b>8.3.2</b> Sampling distributions exist for any sample statistic!</a></li>
+<li class="chapter" data-level="8.3.3" data-path="estimation.html"><a href="estimation.html#clt"><i class="fa fa-check"></i><b>8.3.3</b> The central limit theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="estimation.html"><a href="estimation.html#pointestimates"><i class="fa fa-check"></i><b>8.4</b> Estimating population parameters</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="estimation.html"><a href="estimation.html#estimating-the-population-mean"><i class="fa fa-check"></i><b>8.4.1</b> Estimating the population mean</a></li>
+<li class="chapter" data-level="8.4.2" data-path="estimation.html"><a href="estimation.html#estimating-the-population-standard-deviation"><i class="fa fa-check"></i><b>8.4.2</b> Estimating the population standard deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="estimation.html"><a href="estimation.html#ci"><i class="fa fa-check"></i><b>8.5</b> Estimating a confidence interval</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="estimation.html"><a href="estimation.html#a-slight-mistake-in-the-formula"><i class="fa fa-check"></i><b>8.5.1</b> A slight mistake in the formula</a></li>
+<li class="chapter" data-level="8.5.2" data-path="estimation.html"><a href="estimation.html#interpreting-a-confidence-interval"><i class="fa fa-check"></i><b>8.5.2</b> Interpreting a confidence interval</a></li>
+<li class="chapter" data-level="8.5.3" data-path="estimation.html"><a href="estimation.html#calculating-confidence-intervals-in-jamovi"><i class="fa fa-check"></i><b>8.5.3</b> Calculating confidence intervals in jamovi</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="estimation.html"><a href="estimation.html#summary-5"><i class="fa fa-check"></i><b>8.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Learning statistics with jamovi: a tutorial for psychology students and other beginners (Version 0.70)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introj" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Getting started with jamovi</h1>
+<blockquote>
+<p>Robots are nice to work with.
+–Roger Zelazny<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
+</blockquote>
+<p>In this chapter I’ll discuss how to get started in jamovi. I’ll briefly talk about how to download and install jamovi, but most of the chapter will be focused on getting you started with finding your way around the jamovi GUI. Our goal in this chapter is not to learn any statistical concepts: we’re just trying to learn the basics of how jamovi works and get comfortable interacting with the system. To do this we’ll spend a bit of time looking at datasets and variables. In doing so, you’ll get a bit of a feel for what it’s like to work in jamovi.</p>
+<p>However, before going into any of the specifics, it’s worth talking a little about why you might want to use jamovi at all. Given that you’re reading this you’ve probably got your own reasons. However, if those reasons are “because that’s what my stats class uses,” it might be worth explaining a little why your lecturer has chosen to use jamovi for the class. Of course, I don’t really know why <em>other</em> people choose jamovi so I’m really talking about why I use it.</p>
+<ul>
+<li>It’s sort of obvious but worth saying anyway: doing your statistics on a computer is faster, easier and more powerful than doing statistics by hand. Computers excel at mindless repetitive tasks, and a lot of statistical calculations are both mindless and repetitive. For most people the only reason to ever do statistical calculations with pencil and paper is for learning purposes. In my class I do occasionally suggest doing some calculations that way, but the only real value to it is pedagogical. It does help you to get a “feel” for statistics to do some calculations yourself, so it’s worth doing it once. But only once!</li>
+<li>Doing statistics in a conventional spreadsheet (e.g., Microsoft Excel) is generally a bad idea in the long run. Although many people likely feel more familiar with them, spreadsheets are very limited in terms of what analyses they allow you do. If you get into the habit of trying to do your real life data analysis using spreadsheets then you’ve dug yourself into a very deep hole.</li>
+<li>Avoiding proprietary software is a very good idea. There are a lot of commercial packages out there that you can buy, some of which I like and some of which I don’t. They’re usually very glossy in their appearance and generally very powerful (much more powerful than spreadsheets). However, they’re also very expensive. Usually, the company sells “student versions” (crippled versions of the real thing) very cheaply, and then they they sell full powered “educational versions” at a price that makes me wince. They will also sell commercial licences with a staggeringly high price tag. The business model here is to suck you in during your student days and then leave you dependent on their tools when you go out into the real world. It’s hard to blame them for trying, but personally I’m not in favour of shelling out thousands of dollars if I can avoid it. And you can avoid it. If you make use of packages like jamovi that are open source and free you never get trapped having to pay exorbitant licensing fees.</li>
+<li>Something that you might not appreciate now, but will love later on if you do anything involving data analysis, is the fact that jamovi is basically a sophisticated front end for the free R statistical programming language. When you download and install R you get all the basic “packages” and those are very powerful on their own. However, because R is so open and so widely used, it’s become something of a standard tool in statistics and so lots of people write their own packages that extend the system. And these are freely available too. One of the consequences of this, I’ve noticed, is that if you look at recent advanced data analysis textbooks then a <em>lot</em> of them use R.</li>
+</ul>
+<p>Those are the main reasons I use jamovi. It’s not without its flaws, though. It’s relatively new<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> so there is not a huge set of textbooks and other resources to support it, and it has a few annoying quirks that we’re all pretty much stuck with, but on the whole I think the strengths outweigh the weakness; more so than any other option I’ve encountered so far.</p>
+<div id="gettingjamovi" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Installing jamovi</h2>
+<p>Okay, enough with the sales pitch. Let’s get started. Just as with any piece of software, jamovi needs to be installed on a “computer,” which is a magical box that does cool things and delivers free ponies. Or something along those lines; I may be confusing computers with the iPad marketing campaigns. Anyway, jamovi is freely distributed online and you can download it from the jamovi homepage, which is:</p>
+<p><a href="https://www.jamovi.org/" class="uri">https://www.jamovi.org/</a></p>
+<p>At the top of the page, under the heading “Download,” you’ll see separate links for Windows users, Mac users, and Linux users. If you follow the relevant link you’ll see that the online instructions are pretty self-explanatory. As of this writing, the current version of jamovi is 0.9, but they usually issue updates every few months, so you’ll probably have a newer version.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a></p>
+<div id="starting-up-jamovi" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Starting up jamovi</h3>
+<p>One way or another, regardless of what operating system you’re using, it’s time to open
+jamovi and get started. When first starting jamovi you will be presented with a user interface
+which looks something like Figure <a href="introj.html#fig:startingjamovi">3.1</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:startingjamovi"></span>
+<img src="img/introj/startingjamovi.png" alt="jamovi looks like this when you start it" width="100%" />
+<p class="caption">
+Figure 3.1: jamovi looks like this when you start it
+</p>
+</div>
+<p>To the left is the spreadsheet view, and to the right is where the results of statistical tests appear. Down the middle is a bar separating these two regions and this can be dragged to the left or the right to change their sizes.</p>
+<p>It is possible to simply begin typing values into the jamovi spreadsheet as you would in any other spreadsheet software. Alternatively, existing data sets in the CSV (.csv) file format can be opened in jamovi. Additionally, you can easily import SPSS, SAS, Stata and JASP files directly into jamovi. To open a file select the File tab (three horizontal lines signify this tab) at the top left hand corner, select ‘Open’ and then choose from the files listed on ‘Browse’ depending on whether you want to open an example or a file stored on your computer.</p>
+</div>
+</div>
+<div id="analyses" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Analyses</h2>
+<p>Analyses can be selected from the analysis ribbon or menu along the top. Selecting an analysis will present an ‘options panel’ for that particular analysis, allowing you to assign different variables to different parts of the analysis, and select different options. At the same time, the results for the analysis will appear in the right ‘Results panel’ and will update in real-time as you make changes to the options.</p>
+<p>When you have the analysis set up correctly you can dismiss the analysis options by clicking the arrow to the top right of the optional panel. If you wish to return to these options, you can click on the results that were produced. In this way, you can return to any analysis that you (or say, a colleague) created earlier.</p>
+<p>If you decide you no longer need a particular analysis, you can remove it with the results context menu. Right-clicking on the analysis results will bring up a menu and by selecting ‘Analysis’ and then ‘Remove’ the analysis can be removed. But more on this later. First, let’s take a more detailed look at the spreadsheet view.</p>
+</div>
+<div id="spreadsheet" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> The spreadsheet</h2>
+<p>In jamovi data is represented in a spreadsheet with each column representing a ‘variable’ and each row representing a ‘case’ or ‘participant.’</p>
+<div id="variables" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Variables</h3>
+<p>The most commonly used variables in jamovi are ‘Data Variables,’ these variables simply contain data either loaded from a data file, or ‘typed in’ by the user. Data variables can be one of three measurement levels:</p>
+<p><img src="img/introj/measurementlevels.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>These levels are designated by the symbol in the header of the variable’s column.</p>
+<p>The <em>ID</em> variable type is unique to jamovi. It’s intended for variables that contain identifiers that you would almost never want to analyse. For example, a persons name, or a participant ID. Specifying an ID variable type can improve performance when interacting with very large data sets.</p>
+<ul>
+<li><em>Nominal</em> variables are for categorical variables which are text labels, for example a column called Gender with the values Male and Female would be nominal. So would a person’s name. Nominal variable values can also have a numeric value. These variables are used most often when importing data which codes values with numbers rather than text. For example, a column in a dataset may contain the values 1 for males, and 2 for females. It is possible to add nice ‘human-readable’ labels to these values with the variable editor (more on this later).</li>
+<li><em>Ordinal</em> variables are like Nominal variables, except the values have a specific order. An example is a Likert scale with 3 being ‘strongly agree’ and -3 being ‘strongly disagree.’</li>
+<li><em>Continuous</em> variables are variables which exist on a continuous scale. Examples might be height or weight. This is also referred to as ‘Interval’ or ‘Ratio scale.’</li>
+</ul>
+<p>In addition, you can also specify different data types: variables have a data type of either ‘Text,’ ‘Integer’ or ‘Decimal.’</p>
+<p>When starting with a blank spreadsheet and typing values in the variable type will change automatically depending on the data you enter. This is a good way to get a feel for which variable types go with which sorts of data. Similarly, when opening a data file jamovi will try and guess the variable type from the data in each column. In both cases this automatic approach may not be correct, and it may be necessary to manually specify the variable type with the variable editor.</p>
+<p>The variable editor can be opened by selecting ‘Setup’ from the data tab or by double-clicking on the variable column header. The variable editor allows you to change the name of the variable and, for data variables, the variable type, the order of the levels, and the label displayed for each level. Changes can be applied by clicking the ‘tick’ to the top right. The variable editor can be dismissed by clicking the ‘Hide’ arrow.</p>
+<p>New variables can be inserted or appended to the data set using the ‘add’ button from the data ribbon. The ‘add’ button also allows the addition of computed variables.</p>
+</div>
+<div id="computed-variables" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Computed variables</h3>
+<p>Computed Variables are those which take their value by performing a computation on other variables. Computed Variables can be used for a range of purposes, including log transforms, z-scores, sum-scores, negative scoring and means.</p>
+<p>Computed variables can be added to the data set with the ‘add’ button available on the data tab. This will produce a formula box where you can specify the formula. The usual arithmetic operators are available. Some examples of formulas are:</p>
+<p><code>A + B</code></p>
+<p><code>LOG10(len)</code></p>
+<p><code>MEAN(A, B)</code></p>
+<p><code>(dose - VMEAN(dose)) / VSTDEV(dose)</code></p>
+<p>In order, these are the sum of A and B, a log (base 10) transform of len, the mean of A and B, and the z-score of the variable dose. Figure <a href="introj.html#fig:computedvariable">3.2</a> below shows the jamovi screen for the new variable computed as the z-score of dose (from the ‘Tooth Growth’ example data set).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:computedvariable"></span>
+<img src="img/introj/computedvariable.png" alt="A newly computed variable, the z-score of ‘dose’" width="100%" />
+<p class="caption">
+Figure 3.2: A newly computed variable, the z-score of ‘dose’
+</p>
+</div>
+<p><em>V-functions</em>
+Several functions are already available in jamovi and available from the drop down box labelled <em>f<sub>x</sub></em>. A number of functions appear in pairs, one prefixed with a V and the other not. V functions perform their calculation on a variable as a whole, where as non-V functions perform their calculation row by row. For example, MEAN(A, B) will produce the mean of A and B for each row. Where as VMEAN(A) gives the mean of all the values in A.</p>
+</div>
+<div id="copypaste" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Copy and Paste</h3>
+<p>jamovi produces nice American Psychological Association (APA) formatted tables and attractive plots. It is often useful to be able to copy and paste these, perhaps into a Word document, or into an email to a colleague. To copy results right click on the object of interest and from the menu select exactly what you want to copy. The menu allows you to choose to copy only the image or the entire analysis. Selecting “copy” copies the content to the clipboard and this can be pasted into other programs in the usual way. You can practice this later on when we do some analyses.</p>
+</div>
+<div id="syntaxmode" class="section level3" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Syntax mode</h3>
+<p>jamovi also provides an “R Syntax Mode.” In this mode jamovi produces equivalent R code for each analysis. To change to syntax mode, select the Application menu to the top right of jamovi (a button with three vertical dots) and click the “Syntax mode” checkbox there. You can turn off syntax mode by clicking this a second time.</p>
+<p>In syntax mode analyses continue to operate as before but now they produce R syntax, and ‘ascii output’ like an R session. Like all results objects in jamovi, you can right click on these items (including the R syntax) and copy and paste them, for example into an R session. At present, the provided R syntax does not include the data import step and so this must be performed manually in R. There are many resources explaining how to import data into R and if you are interested we recommend you take a look at these; just search on the interweb.</p>
+</div>
+</div>
+<div id="load" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Loading data in jamovi</h2>
+<p>There are several different types of files that are likely to be relevant to us when doing data analysis. There are two in particular that are especially important from the perspective of this book:</p>
+<ul>
+<li><em>jamovi files</em> are those with a <code>.omv</code> file extension. This is the standard kind of file that jamovi uses to store data, and variables and analyses.</li>
+<li>Comma separated value (csv) files} are those with a <code>.csv</code> file extension. These are just regular old text files and they can be opened with many different software programs. It’s quite typical for people to store data in csv files, precisely because they’re so simple.</li>
+</ul>
+<p>There are also several other kinds of data file that you might want to import into jamovi. For instance, you might want to open Microsoft Excel spreadsheets <code>.xls</code> files), or data files that have been saved in the native file formats for other statistics software, such as SPSS or SAS. Whichever file formats you are using, it’s a good idea to create a folder or folders especially for your jamovi data sets and analyses and to make sure you keep these backed up regularly.</p>
+<div id="importing-data-from-csv-files" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Importing data from csv files</h3>
+<p>One quite commonly used data format is the humble “comma separated value” file, also called a csv file, and usually bearing the file extension <code>.csv</code>. csv files are just plain old-fashioned text files and what they store is basically just a table of data. This is illustrated in Figure <a href="introj.html#fig:booksalescsv">3.3</a>, which shows a file called <code>booksales.csv</code> that I’ve created. As you can see, each row represents the book sales data for one month. The first row doesn’t contain actual data though, it has the names of the variables.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:booksalescsv"></span>
+<img src="img/mechanics/booksalescsv.jpg" alt="The booksales.csv data file. On the left I’ve opened the file using a spreadsheet program (OpenOffice), which shows that the file is basically a table. On the right the same file is open in a standard text editor (the TextEdit program on a Mac), which shows how the file is formatted. The entries in the table are wrapped in quote marks and separated by commas." width="100%" />
+<p class="caption">
+Figure 3.3: The booksales.csv data file. On the left I’ve opened the file using a spreadsheet program (OpenOffice), which shows that the file is basically a table. On the right the same file is open in a standard text editor (the TextEdit program on a Mac), which shows how the file is formatted. The entries in the table are wrapped in quote marks and separated by commas.
+</p>
+</div>
+<p>It’s easy to open csv files in jamovi. From the top left menu (the button with three parallel lines) choose ‘Open’ and browse to where you have stored the csv file on your computer. If you’re on a Mac, it’ll look like the usual Finder window that you use to choose a file; on Windows it looks like an Explorer window. An example of what it looks like on a Mac is shown in Figure (fig:fileopen). I’m assuming that you’re familiar with your own computer, so you should have no problem finding the csv file that you want to import! Find the one you want, then click on the ‘Open’ button.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fileopen"></span>
+<img src="img/mechanics/openscreen.png" alt="A dialog box on a Mac asking you to select the csv file jamovi should try to import. Mac users will recognise this immediately, it’s the usual way in which a Mac asks you to find a file. Windows users won’t see this, instead they’ll see the usual explorer window that Windows always gives you when it wants you to select a file." width="100%" />
+<p class="caption">
+Figure 3.4: A dialog box on a Mac asking you to select the csv file jamovi should try to import. Mac users will recognise this immediately, it’s the usual way in which a Mac asks you to find a file. Windows users won’t see this, instead they’ll see the usual explorer window that Windows always gives you when it wants you to select a file.
+</p>
+</div>
+<p>There are a few things that you can check to make sure that the data gets imported correctly:</p>
+<ul>
+<li>Heading. Does the first row of the file contain the names for each variable - a “header” row? The <code>booksales.csv</code> file has a header, so that’s a yes.</li>
+<li>Separator. What character is used to separate different entries? In most csv files this will be a comma (it is “comma separated” after all).</li>
+<li>Decimal. What character is used to specify the decimal point? In English speaking countries this is almost always a period (i.e., <code>.</code>). That’s not universally true though, many European countries use a comma.</li>
+<li>Quote. What character is used to denote a block of text? That’s usually going to be a double quote mark ". It is for the <code>booksales.csv</code> file.</li>
+</ul>
+</div>
+</div>
+<div id="importing" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Importing unusual data files</h2>
+<p>Throughout this book I’ve assumed that your data are stored as a jamovi <code>.omv</code> file or as a “properly”’ formatted csv file. However, in real life that’s not a terribly plausible assumption to make so I’d better talk about some of the other possibilities that you might run into.</p>
+<div id="loading-data-from-text-files" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Loading data from text files</h3>
+<p>The first thing I should point out is that if your data are saved as a text file but aren’t <em>quite</em> in the proper csv format then there’s still a pretty good chance that jamovi will be able to open it. You just need to try it and see if it works. Sometimes though you will need to change some of the formatting. The ones that I’ve often found myself needing to change are:</p>
+<ul>
+<li><code>header</code>. A lot of the time when you’re storing data as a csv file the first row actually contains the column names and not data. If that’s not true then it’s a good idea to open up the csv file in a spreadsheet programme such as Open Office and add the header row manually.</li>
+<li><code>sep</code>. As the name “comma separated value” indicates, the values in a row of a csv file are usually separated by commas. This isn’t universal, however. In Europe the decimal point is typically written as <code>,</code> instead of <code>.</code> and as a consequence it would be somewhat awkward to use <code>,</code> as the separator. Therefore it is not unusual to use <code>;</code> instead of <code>,</code> as the separator. At other times, I’ve seen a TAB character used.</li>
+<li><code>quote</code>. It’s conventional in csv files to include a quoting character for textual data. As you can see by looking at the <code>booksales.csv</code> file, this is usually a double quote character, <code>"</code>. But sometimes there is no quoting character at all, or you might see a single quote mark <code>'</code> used instead.</li>
+<li><code>skip</code>. It’s actually very common to receive CSV files in which the first few rows have nothing to do with the actual data. Instead, they provide a human readable summary of where the data came from, or maybe they include some technical info that doesn’t relate to the data.</li>
+<li><code>missing values</code>. Often you’ll get given data with missing values. For one reason or another, some entries in the table are missing. The data file needs to include a “special” value to indicate that the entry is missing. By default jamovi assumes that this value is <code>99</code><a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>, for both numeric and text data, so you should make sure that, where necessary, all missing values in the csv file are replaced with <code>99</code> (or <code>-9999</code>; whichever you choose) before opening / importing the file into jamovi. Once you have opened / imported the file into jamovi all the missing values are converted to blank cells in the jamovi spreadsheet view.</li>
+</ul>
+</div>
+<div id="loading-data-from-spss-and-other-statistics-packages" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Loading data from SPSS (and other statistics packages)</h3>
+<p>The commands listed above are the main ones we’ll need for data files in this book. But in real life we have many more possibilities. For example, you might want to read data files in from other statistics programs. Since SPSS is probably the most widely used statistics package in psychology, it’s worth mentioning that jamovi can also import SPSS data files (file extension <code>.sav</code>). Just follow the instructions above for how to open a csv file, but this time navigate to the .sav file you want to import. For SPSS files, jamovi will regard all values as missing if they are regarded as “system missing” files in SPSS. The ‘Default missings’ value does not seem to work as expected when importing SPSS files, so be aware of this - you might need another step: import the SPSS file into jamovi, then export as a csv file before re-opening in jamovi.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>.</p>
+<p>And that’s pretty much it, at least as far as SPSS goes. As far as other statistical software goes, jamovi can also directly open / import SAS and STATA files.</p>
+</div>
+<div id="loading-excel-files" class="section level3" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Loading Excel files</h3>
+<p>A different problem is posed by Excel files. Despite years of yelling at people for sending data to me encoded in a proprietary data format, I get sent a lot of Excel files. The way to handle Excel files is to open them up first in Excel or another spreadsheet programme that can handle Excel files, and then export the data as a csv file before opening / importing the csv file into jamovi.</p>
+</div>
+</div>
+<div id="coercion" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Changing data from one level to another</h2>
+<p>Sometimes you want to change the variable level. This can happen for all sorts of reasons. Sometimes when you import data from files, it can come to you in the wrong format. Numbers sometimes get imported as nominal, text values. Dates may get imported as text. ParticipantID values can sometimes be read as continuous: nominal values can sometimes be read as ordinal or even continuous. There’s a good chance that sometimes you’ll want to convert a variable from one measurement level into another one. Or, to use the correct term, you want to <strong><em>coerce</em></strong> the variable from one class into another.</p>
+<p>In <a href="introj.html#spreadsheet">3.3</a> we saw how to specify different variable levels, and if you want to change a variable’s measurement level then you can do this in the jamovi data view for that variable. Just click the check box for the measurement level you want - continuous, ordinal, or nominal.</p>
+</div>
+<div id="jamovimodules" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Installing add-on modules into jamovi</h2>
+<p>A really great feature of jamovi is the ability to install add-on modules from the jamovi library. These add-on modules have been developed by the jamovi community, i.e., jamovi users and developers who have created special software add-ons that do other, usually more advanced, analyses that go beyond the capabilities of the base jamovi program.</p>
+<p>To install add-on modules, just click on the large “+” in the top right of the jamovi window, select ‘jamovi-library’ and then browse through the various add-on modules that are available. Choose the one(s) you want, and then install them, as in Figure <a href="introj.html#fig:modules">3.5</a>. It’s that easy. The newly installed modules can then be accessed from the “Analyses” button bar. Try it…useful add-on modules to install include “scatr” (added under “Descriptives”) and “R j.”</p>
+<div class="figure"><span style="display:block;" id="fig:modules"></span>
+<img src="img/graphics/modules.png" alt="Installing add-on modules in jamovi" width="960" />
+<p class="caption">
+Figure 3.5: Installing add-on modules in jamovi
+</p>
+</div>
+</div>
+<div id="quittingjamovi" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Quitting jamovi</h2>
+<p>There’s one last thing I should cover in this chapter: how to quit jamovi. It’s not hard, just close the program the same way you would any other program. However, what you might want to do before you quit is save your work! There are two parts to this: saving any changes to the data set, and saving the analyses that you ran.</p>
+<p>It is good practice to save any changes to the data set as a <em>new</em> data set. That way you can always go back to the original data. To save any changes in jamovi, select “Export”…“Data” from the main jamovi menu (button with three horizontal bars in the top left) and create a new file name for the changed data set.</p>
+<p>Alternatively, you can save <em>both</em> the changed data and any analyses you have undertaken by saving as a jamovi file. To do this, from the main jamovi menu select “Save as” and type in a file name for this “jamovi file (.omv).” Remember to save the file in a location where you can find it again later. I usually create a new folder for specific data sets and analyses.</p>
+</div>
+<div id="summary-1" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> Summary</h2>
+<ul>
+<li>Section <a href="introj.html#gettingjamovi">3.1</a>. We downloaded and installed jamovi, and started it up.</li>
+<li>Section <a href="introj.html#analyses">3.2</a>. We very briefly oriented to the part of jamovi where analyses are done and results appear, but then deferred this until later in the book.</li>
+<li>Section <a href="introj.html#spreadsheet">3.3</a>. We spent more time looking at the spreadsheet part of jamovi, and considered different variable types, and how to compute new variables.</li>
+<li>Section <a href="introj.html#load">3.4</a>. We also saw how to load data files in jamovi.</li>
+<li>Section <a href="introj.html#importing">3.5</a>. Then we figured out how to open other data files, from different file types.</li>
+<li>Section <a href="introj.html#coercion">3.6</a>. And saw that sometimes we need to coerce data from one type to another.</li>
+<li>Section <a href="introj.html#jamovimodules">3.7</a>. Installing add-on modules from the jamovi community really extends jamovi capabilities.</li>
+<li>Section <a href="introj.html#quittingjamovi">3.8</a>. Finally, we looked at good practice in terms of saving your data set and analyses when you have finished and are about to quit jamovi.</li>
+</ul>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="13">
+<li id="fn13"><p>Source: <em>Dismal Light</em> (1968)<a href="introj.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>As of writing this in August 2018.<a href="introj.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Although jamovi is updated frequently it doesn’t usually make much of a difference for the sort of work we’ll do in this book. In fact, during the writing of the book I upgraded several times and it didn’t make much difference at all to what is in this book.<a href="introj.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>You can change the default value for missing values in jamovi from the top right menu (three vertical dots), but this only works at the time of importing data files into jamovi. The default missing value in the dataset should not be a valid number associated with any of the variables, e.g. you could use <code>-9999</code> as this is unlikely to be a valid value.<a href="introj.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>I know this is a bot of a fudge, but it does work and hopefully this will be fixed in a later version of jamovi.<a href="introj.html#fnref17" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="part-ii.-an-introduction-to-jamovi.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="part-iii.-working-with-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["lsj.pdf", "lsj.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
