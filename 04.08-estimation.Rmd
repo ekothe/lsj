@@ -36,42 +36,32 @@ Again, it's not obvious what the population is.
 
 ### Simple random samples
 
-\begin{figure}[t]
-\begin{center}
-\epsfig{file=../img/estimation/srs1.eps,clip=true,width=8.8cm}
-\end{center}
-\caption{Simple random sampling without replacement from a finite population}
-\label{fig:srs1}
-\HR
-\end{figure}
-
 Irrespective of how I define the population, the critical point is that the sample is a subset of the population and our goal is to use our knowledge of the sample to draw inferences about the properties of the population. The relationship between the two depends on the *procedure* by which the sample was selected. This procedure is referred to as a ***sampling method*** and it is important to understand why it matters.
 
 To keep things simple, let's imagine that we have a bag containing 10 chips. Each chip has a unique letter printed on it so we can distinguish between the 10 chips. The chips come in two colours, black and white. This set of chips is the population of interest and it is depicted graphically on the left of Figure \@ref(fig:srs1). As you can see from looking at the picture there are 4 black chips and 6 white chips, but of course in real life we wouldn't know that unless we looked in the bag. Now imagine you run the following 'experiment': you shake up the bag, close your eyes, and pull out 4 chips without putting any of them back into the bag. First out comes the $a$ chip (black), then the $c$ chip (white), then $j$ (white) and then finally $b$ (black). If you wanted you could then put all the chips back in the bag and repeat the experiment, as depicted on the right hand side of Figure \@ref(fig:srs1). Each time you get different results but the procedure is identical in each case. The fact that the same procedure can lead to different results each time we refer to as a *random* process.^[The proper mathematical definition of randomness is extraordinarily technical, and way beyond the scope of this book. We'll be non-technical here and say that a process has an element of randomness to it whenever it is possible to repeat the process and get different answers each time.] However, because we shook the bag before pulling any chips out, it seems reasonable to think that every chip has the same chance of being selected. A procedure in which every member of the population has the same chance of being selected is called a ***simple random sample***. The fact that we did *not* put the chips back in the bag after pulling them out means that you can't observe the same thing twice, and in such cases the observations are said to have been sampled ***without replacement***. 
 
+```{r srs1, fig.cap="Simple random sampling without replacement from a finite population", echo=FALSE, fig.align="center", out.width="100%"}
+
+knitr::include_graphics("img/estimation/srs1.png", error = TRUE)
+
+```
+
 To help make sure you understand the importance of the sampling procedure, consider an alternative way in which the experiment could have been run. Suppose that my 5-year old son had opened the bag and decided to pull out four black chips without putting any of them back in the bag. This *biased* sampling scheme is depicted in Figure \@ref(fig:brs). Now consider the evidential value of seeing 4 black chips and 0 white chips. Clearly it depends on the sampling scheme, does it not? If you know that the sampling scheme is biased to select only black chips then a sample that consists of only black chips doesn't tell you very much about the population! For this reason statisticians really like it when a data set can be considered a simple random sample, because it makes the data analysis *much* easier.  
 
-\begin{figure}[t]
-\begin{center}
-\epsfig{file=../img/estimation/brs.eps,clip=true,width=8.8cm}
-%\includegraphics[scale=.3]{../img/estimation/brs.pdf}
-\end{center}
-\caption{Biased sampling without replacement from a finite population}
-\label{fig:brs}
-\HR
-\end{figure}
+```{r brs, fig.cap="Biased sampling without replacement from a finite population", echo=FALSE, fig.align="center", out.width="100%"}
 
-\begin{figure}[t]
-\begin{center}
-\epsfig{file=../img/estimation/srs2.eps,clip=true,width=8.8cm}
-%\includegraphics[scale=.3]{../img/estimation/srs2.pdf}
-\end{center}
-\caption{Simple random sampling *with} replacement from a finite population}
-\label{fig:srs2}
-\HR
-\end{figure}
+knitr::include_graphics("img/estimation/brs.png", error = TRUE)
+
+```
+
 
 A third procedure is worth mentioning. This time around we close our eyes, shake the bag, and pull out a chip. This time, however, we record the observation and then put the chip back in the bag. Again we close our eyes, shake the bag, and pull out a chip. We then repeat this procedure until we have 4 chips. Data sets generated in this way are still simple random samples, but because we put the chips back in the bag immediately after drawing them it is referred to as a sample ***with replacement***. The difference between this situation and the first one is that it is possible to observe the same population member multiple times, as illustrated in Figure \@ref(fig:srs2). 
+
+```{r srs2, fig.cap="Simple random sampling *with* replacement from a finite population", echo=FALSE, fig.align="center", out.width="100%"}
+
+knitr::include_graphics("img/estimation/srs2.png", error = TRUE)
+
+```
 
 In my experience, most psychology experiments tend to be sampling without replacement, because the same person is not allowed to participate in the experiment twice. However, most statistical theory is based on the assumption that the data arise from a simple random sample *with* replacement. In real life this very rarely matters. If the population of interest is large (e.g., has more than 10 entities!) the difference between sampling with- and without- replacement is too small to be concerned with. The difference between simple random samples and biased samples, on the other hand, is not such an easy thing to dismiss.
 
@@ -97,114 +87,26 @@ There are two points hidden in this discussion. First, when designing your own s
 
 Okay. Setting aside the thorny methodological issues associated with obtaining a random sample, let's consider a slightly different issue. Up to this point we have been talking about populations the way a scientist might. To a psychologist a population might be a group of people. To an ecologist a population might be a group of bears. In most cases the populations that scientists care about are concrete things that actually exist in the real world. Statisticians, however, are a funny lot. On the one hand, they *are* interested in real world data and real science in the same way that scientists are. On the other hand, they also operate in the realm of pure abstraction in the way that mathematicians do. As a consequence, statistical theory tends to be a bit abstract in how a population is defined. In much the same way that psychological researchers operationalise our abstract theoretical ideas in terms of concrete measurements (Section \@ref(measurement)), statisticians operationalise the concept of a 'population' in terms of mathematical objects that they know how to work with. You've already come across these objects in Chapter \@ref(probability). They're called probability distributions.
 
-The idea is quite simple. Let's say we're talking about IQ scores. To a psychologist the population of interest is a group of actual humans who have IQ scores. A statistician 'simplifies' this by operationally defining the population as the probability distribution depicted in Figure \@ref(fig:IQdista). IQ tests are designed so that the average IQ is 100, the standard deviation of IQ scores is 15, and the distribution of IQ scores is normal. These values are referred to as the ***population parameters*** because they are characteristics of the entire population. That is, we say that the population mean $\mu$ is 100 and the population standard deviation $\sigma$ is 15.
+The idea is quite simple. Let's say we're talking about IQ scores. To a psychologist the population of interest is a group of actual humans who have IQ scores. A statistician 'simplifies' this by operationally defining the population as the probability distribution depicted in Figure \@ref(fig:IQdist)a. IQ tests are designed so that the average IQ is 100, the standard deviation of IQ scores is 15, and the distribution of IQ scores is normal. These values are referred to as the ***population parameters*** because they are characteristics of the entire population. That is, we say that the population mean $\mu$ is 100 and the population standard deviation $\sigma$ is 15.
 
-```{r IQdista, fig.cap="The population distribution of IQ scores", echo=FALSE, fig.align="center", out.width="100%"}
-emphCol <- rgb(0,0,1)
-emphColLight <- rgb(.5,.5,1)
-emphGrey <- grey(.5)
 
-eps <- FALSE
-colour <- TRUE
+```{r IQdist, fig.cap="The population distribution of IQ scores (panel a) and two samples drawn randomly from it. In panel b we have a sample of 100 observations, and panel c we have a sample of 10,000 observations.", echo=FALSE, fig.align="center", out.width="33%", fig.show = "hold"}
 
-IQpop <- function() {
-	
-	# plots the normal population for IQ
-	
-	# needed for printing
-	#fileName <- "IQpopulation.eps"
-	width <- 4.5
-	height <- 4.5
-	
-	# plot
-	x <- 60:140
-	y <- dnorm(x,100,15)
-	plot(x,y,lwd=3,type="l",col=ifelse(colour,emphCol,"black"),
-		xlab="IQ Score", ylab="Probability Density",frame.plot=FALSE
-	)
-	
-	# print
-	if( eps ) makeEps( paste(dir, fileName, sep=""), width, height )
-}
-IQpop()
+knitr::include_graphics("img/estimation/IQpopulation.png", error = TRUE)
+knitr::include_graphics("img/estimation/IQsample100.png", error = TRUE)
+knitr::include_graphics("img/estimation/IQsample10000.png", error = TRUE)
+
 ```
 
 
-
-
-
-
-
-\begin{figure}[t]
-\begin{center}
-\begin{tabular}{ccc}
-\hspace*{-3mm}\epsfig{file=../img/estimation/IQpopulation.eps,clip=true,width=4.5cm} &
-\epsfig{file=../img/estimation/IQsample100.eps,clip=true,width=4.5cm} &
-\epsfig{file=../img/estimation/IQsample10000.eps,clip=true,width=4.5cm} \\
-(a) & (b) & (c)
-\end{tabular}
-\end{center}
-\caption{The population distribution of IQ scores (panel a) and two samples drawn randomly from it. In panel b we have a sample of 100 observations, and panel c we have a sample of 10,000 observations.}
-\label{fig:IQdist}
-\HR
-\end{figure}
 
 Now suppose I run an experiment. I select 100 people at random and administer an IQ test, giving me a simple random sample from the population. My sample would consist of a collection of numbers like this:
 
 <center>`106 101 98 80 74 ... 107 72 100`</center>
 
-Each of these IQ scores is sampled from a normal distribution with mean 100 and standard deviation 15. So if I  plot a histogram of the sample I get something like the one shown in Figure \@ref(fig:IQdistb). As you can see, the histogram is *roughly* the right shape but it's a very crude approximation to the true population distribution shown in Figure \@ref(fig:IQdista). When I calculate the mean of my sample, I get a number that is fairly close to the population mean 100 but not identical. In this case, it turns out that the people in my sample have a mean IQ of 98.5, and the standard deviation of their IQ scores is 15.9. These ***sample statistics*** are properties of my data set, and although they are fairly similar to the true population values they are not the same. In general, sample statistics are the things you can calculate from your data set and the population parameters are the things you want to learn about. Later on in this chapter I'll talk about how you can estimate population parameters using your sample statistics (Section \@ref(pointestimates)) and how to work out how confident you are in your estimates (Section \@ref(ci)) but before we get to that there's a few more ideas in sampling theory that you need to know about. 
-
-```{r IQdistb, fig.cap="IQ distribution in a sample of 100 observations", echo=FALSE, fig.align="center", out.width="100%"}
-
-IQsamples <- function() {
-	
-	# plots histograms of IQ samples
-	
-	# needed for printing
-	width <- 4.5
-	height <- 4.5
-	
-	# function to do all the work
-	plotSamples <- function( n ) {
-		
-		IQ <- rnorm(100, 100, 15)
-		hist( IQ, breaks=seq(10,180,5), border="white", 
-			col=ifelse(colour,emphColLight,emphGrey),
-			xlab="IQ Score", ylab="Frequency", xlim=c(60,140),
-			main=""
-		)
-		#print( paste( "n=",n,"mean=",mean(IQ), "sd=",sd(IQ) ) )
-	}
-	
-	# plot two different sample sizes
-	#fileName <- "IQsample100.eps"
-	plotSamples(100)
-	#if( eps ) makeEps( paste(dir, fileName, sep=""), width, height )
-	
-	# plot two different sample sizes
-	#fileName <- "IQsample10000.eps"
-	plotSamples(10000)
-	#if( eps ) makeEps( paste(dir, fileName, sep=""), width, height )	
-}
+Each of these IQ scores is sampled from a normal distribution with mean 100 and standard deviation 15. So if I  plot a histogram of the sample I get something like the one shown in Figure \@ref(fig:IQdist)b. As you can see, the histogram is *roughly* the right shape but it's a very crude approximation to the true population distribution shown in Figure \@ref(fig:IQdist)a. When I calculate the mean of my sample, I get a number that is fairly close to the population mean 100 but not identical. In this case, it turns out that the people in my sample have a mean IQ of 98.5, and the standard deviation of their IQ scores is 15.9. These ***sample statistics*** are properties of my data set, and although they are fairly similar to the true population values they are not the same. In general, sample statistics are the things you can calculate from your data set and the population parameters are the things you want to learn about. Later on in this chapter I'll talk about how you can estimate population parameters using your sample statistics (Section \@ref(pointestimates)) and how to work out how confident you are in your estimates (Section \@ref(ci)) but before we get to that there's a few more ideas in sampling theory that you need to know about. 
 
 
-		IQ <- rnorm(100, 100, 15)
-		plot <- hist( IQ, breaks=seq(10,180,5), border="white", 
-			col=ifelse(colour,emphColLight,emphGrey),
-			xlab="IQ Score", ylab="Frequency", xlim=c(60,140),
-			main=""
-		)
-		
-				IQ <- rnorm(1000, 100, 15)
-		plot <- hist( IQ, breaks=seq(10,180,5), border="white", 
-			col=ifelse(colour,emphColLight,emphGrey),
-			xlab="IQ Score", ylab="Frequency", xlim=c(60,140),
-			main=""
-		)
-
-
-```
 
 ## The law of large numbers{#lawlargenumbers}
 
@@ -212,14 +114,11 @@ In the previous section I showed you the results of one fictitious IQ experiment
 
 The obvious answer is to collect more data. Suppose that we ran a much larger experiment, this time measuring the IQs of 10,000 people. We can simulate the results of this experiment using jamovi. The `IQsim.omv` file is a jamovi data file. In this file I have generated 10,000 random numbers sampled from a normal distribution for a population with `mean = 100` and `sd = 15`. This was done by computing a new variable using the ` = NORM(100,15)` function. A histogram and density plot shows that this larger sample is a much better approximation to the true population distribution than the smaller one. This is reflected in the sample statistics. The mean IQ for the larger sample turns out to be 99.68 and the standard deviation is 14.90. These values are now very close to the true population. See Figure \@ref(fig:iqsim)
 
-\begin{figure}[p]
-\begin{center}
-\epsfig{file=../img/estimation/IQsim.png,clip=true,width=14cm}
-\end{center}
-\caption{A random sample drawn from a normal distribution using jamovi}
-\label{fig:iqsim}
-\HR
-\end{figure}
+```{r iqsim, fig.cap="A random sample drawn from a normal distribution using jamovi", echo=FALSE, fig.align="center", out.width="100%"}
+
+knitr::include_graphics("img/estimation/IQsim.png", error = TRUE)
+
+```
 
 I feel a bit silly saying this, but the thing I want you to take away from this is that large samples generally give you better information. I feel silly saying it because it's so bloody obvious that it shouldn't need to be said. In fact, it's such an obvious point that when Jacob Bernoulli, one of the founders of probability theory, formalised this idea back in 1713 he was kind of a jerk about it. Here's how he described the fact that we all share this intuition:
 
@@ -256,28 +155,21 @@ The mean IQ in this sample turns out to be exactly 95. Not surprisingly, this is
 
 This time around, the mean IQ in my sample is 101. If I repeat the experiment 10 times I obtain the results shown in Table \@ref(tab:replications), and as you can see the sample mean varies from one replication to the next. 
 
-\begin{table}[t]
-\centering
-\caption{Ten replications of the IQ experiment, each with a sample size of $N=5$.}
-\label{tab:replications}
-\begin{tabular}{l|rrrrr|r}
- \multicolumn{6}{c}{} \\
- & Person 1 & Person 2 & Person 3 & Person 4 & Person 5 & Sample Mean \\ 
-  \hline
-Replication 1 & 90 & 82 & 94 & 99 & 110 & 95.0 \\ 
-  Replication 2 & 78 & 88 & 111 & 111 & 117 & 101.0 \\ 
-  Replication 3 & 111 & 122 & 91 & 98 & 86 & 101.6 \\ 
-  Replication 4 & 98 & 96 & 119 & 99 & 107 & 103.8 \\ 
-  Replication 5 & 105 & 113 & 103 & 103 & 98 & 104.4 \\ 
-  Replication 6 & 81 & 89 & 93 & 85 & 114 & 92.4 \\ 
-  Replication 7 & 100 & 93 & 108 & 98 & 133 & 106.4 \\ 
-  Replication 8 & 107 & 100 & 105 & 117 & 85 & 102.8 \\ 
-  Replication 9 & 86 & 119 & 108 & 73 & 116 & 100.4 \\ 
-  Replication 10 & 95 & 126 & 112 & 120 & 76 & 105.8 \\ 
-  \multicolumn{6}{c}{} \\
-\end{tabular}
-\HR
-\end{table}
+
+```{r replications, echo=FALSE}
+knitr::kable(data.frame(stringsAsFactors=FALSE,
+NANA = c("Replication 1", "Replication 2", "Replication 3", "Replication 4",
+         "Replication 5", "Replication 6", "Replication 7", "Replication 8",
+         "Replication 9", "Replication 10"),
+Person.1 = c(90, 78, 111, 98, 105, 81, 100, 107, 86, 95),
+Person.2 = c(82, 88, 122, 96, 113, 89, 93, 100, 119, 126),
+Person.3 = c(94, 111, 91, 119, 103, 93, 108, 105, 108, 112),
+Person.4 = c(99, 111, 98, 99, 103, 85, 98, 117, 73, 120),
+Person.5 = c(110, 117, 86, 107, 98, 114, 133, 85, 116, 76),
+Sample.Mean = c(95, 101, 101.6, 103.8, 104.4, 92.4, 106.4, 102.8, 100.4,
+                  105.8)), col.names = c("", "Person 1", "Person 2", "Person 3", "Person 4", "Person 5", "Sample mean"), caption = "Ten replications of the IQ experiment, each with a sample size of $N=5$.")
+
+```
 
 Now suppose that I decided to keep going in this fashion, replicating this 'five IQ scores' experiment over and over again. Every time I replicate the experiment I write down the sample mean. Over time, I'd be amassing a new data set, in which every experiment generates a single data point. The first 10 observations from my data set are the sample means listed in Table \@ref(tab:replications), so my data set starts out like this:
 
@@ -287,24 +179,13 @@ What if I continued like this for 10,000 replications, and then drew a histogram
 
 Sampling distributions are another important theoretical idea in statistics, and they're crucial for understanding the behaviour of small samples. For instance, when I ran the very first 'five IQ scores' experiment, the sample mean turned out to be 95. What the sampling distribution in Figure \@ref(fig:sampdistmean) tells us, though, is that the 'five IQ scores' experiment is not very accurate. If I repeat the experiment, the sampling distribution tells me that I can expect to see a sample mean anywhere between 80 and 120. 
 
-\begin{figure}[!htb]
-\begin{center}
-\epsfig{file=../img/estimation/samplingDist4.png,clip=true,width=7cm} 
-\caption{The sampling distribution of the mean for the 'five IQ scores experiment'. If you sample 5 people at random and calculate their *average} IQ you'll almost certainly get a number between 80 and 120, even though there are quite a lot of individuals who have IQs above 120 or below 80. For comparison, the black line plots the population distribution of IQ scores.}
-\label{fig:sampdistmean}
-\HR
-\end{center}
-\end{figure}
+```{r sampdistmean, fig.cap="The sampling distribution of the mean for the 'five IQ scores experiment'. If you sample 5 people at random and calculate their *average} IQ you'll almost certainly get a number between 80 and 120, even though there are quite a lot of individuals who have IQs above 120 or below 80. For comparison, the black line plots the population distribution of IQ scores.", echo=FALSE, fig.align="center", out.width="100%"}
+
+knitr::include_graphics("img/estimation/samplingDist4.png", error = TRUE)
+
+```
 
 
-\begin{figure}[!htb]
-\begin{center}
-\epsfig{file=../img/estimation/samplingDistMax.png,clip=true,width=8cm} 
-\caption{The sampling distribution of the *maximum* for the 'five IQ scores experiment'. If you sample 5 people at random and select the one with the highest IQ score you'll probably see someone with an IQ between 100 and 140.}
-\label{fig:sampdistmax}
-\HR
-\end{center}
-\end{figure}
 
 
 ### Sampling distributions exist for any sample statistic!
@@ -315,41 +196,36 @@ One thing to keep in mind when thinking about sampling distributions is that *an
 
 Doing this over and over again would give me a very different sampling distribution, namely the *sampling distribution of the maximum*. The sampling distribution of the maximum of 5 IQ scores is shown in Figure \@ref(fig:sampdistmax). Not surprisingly, if you pick 5 people at random and then find the person with the highest IQ score, they're going to have an above average IQ. Most of the time you'll end up with someone whose IQ is measured in the 100 to 140 range. 
 
+
+```{r sampdistmax, fig.cap="The sampling distribution of the *maximum* for the 'five IQ scores experiment'. If you sample 5 people at random and select the one with the highest IQ score you'll probably see someone with an IQ between 100 and 140.", echo=FALSE, fig.align="center", out.width="100%"}
+
+knitr::include_graphics("img/estimation/samplingDistMax.png", error = TRUE)
+
+```
+
 ### The central limit theorem{#clt}
 
-\begin{figure}[t]
-\begin{center}
-\begin{tabular}{ccc}
-\hspace*{-5mm}\epsfig{file=../img/estimation/samplingDist1.eps,clip=true,width=4.5cm} &
-\epsfig{file=../img/estimation/samplingDist2.eps,clip=true,width=4.5cm} &
-\epsfig{file=../img/estimation/samplingDist3.eps,clip=true,width=4.5cm} \\
-(a) & (b) & (c)
-\end{tabular}
-\caption{An illustration of the how sampling distribution of the mean depends on sample size. In each panel I generated 10,000 samples of IQ data and calculated the mean IQ observed within each of these data sets. The histograms in these plots show the distribution of these means (i.e., the sampling distribution of the mean). Each individual IQ score was drawn from a normal distribution with mean 100 and standard deviation 15, which is shown as the solid black line. In panel a, each data set contained only a single observation, so the mean of each sample is just one person's IQ score. As a consequence, the sampling distribution of the mean is of course identical to the population distribution of IQ scores. However, when we raise the sample size to 2 the mean of any one sample tends to be closer to the population mean than a one person's IQ score, and so the histogram (i.e., the sampling distribution) is a bit narrower than the population distribution. By the time we raise the sample size to 10 (panel c), we can see that the distribution of sample means tend to be fairly tightly clustered around the true population mean.}
-\label{fig:IQsamp}
-\HR
-\end{center}
-\end{figure}
+```{r IQsamp, fig.cap="An illustration of the how sampling distribution of the mean depends on sample size. In each panel I generated 10,000 samples of IQ data and calculated the mean IQ observed within each of these data sets. The histograms in these plots show the distribution of these means (i.e., the sampling distribution of the mean). Each individual IQ score was drawn from a normal distribution with mean 100 and standard deviation 15, which is shown as the solid black line. In panel a, each data set contained only a single observation, so the mean of each sample is just one person's IQ score. As a consequence, the sampling distribution of the mean is of course identical to the population distribution of IQ scores. However, when we raise the sample size to 2 the mean of any one sample tends to be closer to the population mean than a one person's IQ score, and so the histogram (i.e., the sampling distribution) is a bit narrower than the population distribution. By the time we raise the sample size to 10 (panel c), we can see that the distribution of sample means tend to be fairly tightly clustered around the true population mean.", echo=FALSE, fig.align="center", out.width="33%", fig.show='hold'}
+
+knitr::include_graphics("img/estimation/samplingDist1.png", error = TRUE)
+knitr::include_graphics("img/estimation/samplingDist2.png", error = TRUE)
+knitr::include_graphics("img/estimation/samplingDist3.png", error = TRUE)
+```
 
 At this point I hope you have a pretty good sense of what sampling distributions are, and in particular what the sampling distribution of the mean is. In this section I want to talk about how the sampling distribution of the mean changes as a function of sample size. Intuitively, you already know part of the answer. If you only have a few observations, the sample mean is likely to be quite inaccurate. If you replicate a small experiment and recalculate the mean you'll get a very different answer. In other words, the sampling distribution is quite wide. If you replicate a large experiment and recalculate the sample mean you'll probably get the same answer you got last time, so the sampling distribution will be very narrow. You can see this visually in Figure \@ref(fig:IQsamp), showing that the bigger the sample size, the narrower the sampling distribution gets. We can quantify this effect by calculating the standard deviation of the sampling distribution, which is referred to as the ***standard error***. The standard error of a statistic is often denoted SE, and since we're usually interested in the standard error of the sample *mean*, we often use the acronym SEM. As you can see just by looking at the picture, as the sample size $N$ increases, the SEM decreases.  
 
 Okay, so that's one part of the story. However, there's something I've been glossing over so far. All my examples up to this point have been based on the 'IQ scores' experiments, and because IQ scores are roughly normally distributed I've assumed that the population distribution is normal. What if it isn't normal? What happens to the sampling distribution of the mean? The remarkable thing is this, no matter what shape your population distribution is, as $N$ increases the sampling distribution of the mean starts to look more like a normal distribution. To give you a sense of this I ran some simulations. To do this, I started with the 'ramped' distribution shown in the histogram in Figure \@ref(fig:cltdemo). As you can see by comparing the triangular shaped histogram to the bell curve plotted by the black line, the population distribution doesn't look very much like a normal distribution at all. Next, I simulated the results of a large number of experiments. In each experiment I took $N=2$ samples from this distribution, and then calculated the sample mean. Figure \@ref(fig:cltdemo)b plots the histogram of these sample means (i.e., the sampling distribution of the mean for $N=2$). This time, the histogram produces a $\cap$-shaped distribution. It's still not normal, but it's a lot closer to the black line than the population distribution in Figure \@ref(fig:cltdemo)a. When I increase the sample size to $N=4$, the sampling distribution of the mean is very close to normal (Figure \@ref(fig:cltdemo)c), and by the time we reach a sample size of $N=8$ it's almost perfectly normal. In other words, as long as your sample size isn't tiny, the sampling distribution of the mean will be approximately normal no matter what your population distribution looks like!
 
-\begin{figure}[p]
-\begin{center}
-\begin{tabular}{cc}
-\epsfig{file = ../img/estimation/cltDemo1.eps, clip=true,width = 7cm} &
-\epsfig{file = ../img/estimation/cltDemo2.eps, clip=true,width = 7cm} \\
-(a) & (b) \\
-\epsfig{file = ../img/estimation/cltDemo4.eps, clip=true,width = 7cm} &
-\epsfig{file = ../img/estimation/cltDemo8.eps, clip=true,width = 7cm} \\
-(c) & (d)
-\end{tabular}
-\caption{A demonstration of the central limit theorem. In panel a, we have a non-normal population distribution, and panels b-d show the sampling distribution of the mean for samples of size 2,4 and 8 for data drawn from the distribution in panel a. As you can see, even though the original population distribution is non-normal the sampling distribution of the mean becomes pretty close to normal by the time you have a sample of even 4 observations. }
-\HR
-\label{fig:cltdemo}
-\end{center}
-\end{figure}
+
+```{r cltdemo, fig.cap="A demonstration of the central limit theorem. In panel a, we have a non-normal population distribution, and panels b-d show the sampling distribution of the mean for samples of size 2,4 and 8 for data drawn from the distribution in panel a. As you can see, even though the original population distribution is non-normal the sampling distribution of the mean becomes pretty close to normal by the time you have a sample of even 4 observations. ", echo=FALSE, fig.align="center", out.width="25%", fig.show="hold"}
+
+knitr::include_graphics("img/estimation/cltDemo1.png", error = TRUE)
+knitr::include_graphics("img/estimation/cltDemo2.png", error = TRUE)
+knitr::include_graphics("img/estimation/cltDemo4.png", error = TRUE)
+knitr::include_graphics("img/estimation/cltDemo8.png", error = TRUE)
+
+```
+
 
 On the basis of these figures, it seems like we have evidence for all of the following claims about the sampling distribution of the mean.
 
@@ -378,16 +254,16 @@ Suppose we go to Port Pirie and 100 of the locals are kind enough to sit through
 
 In this example estimating the unknown poulation parameter is straightforward. I calculate the sample mean and I use that as my ***estimate of the population mean***. It's pretty simple, and in the next section I'll explain the statistical justification for this intuitive answer. However, for the moment what I want to do is make sure you recognise that the sample statistic and the estimate of the population parameter are conceptually different things. A sample statistic is a description of your data, whereas the estimate is a guess about the population. With that in mind, statisticians often different notation to refer to them. For instance, if the true population mean is denoted $\mu$, then we would use $\hat\mu$ to refer to our estimate of the population mean. In contrast, the sample mean is denoted $\bar{X}$ or sometimes $m$. However, in simple random samples the estimate of the population mean is identical to the sample mean. If I observe a sample mean of $\bar{X} = 98.5$ then my estimate of the population mean is also $\hat\mu = 98.5$. To help keep the notation clear, here's a handy table:
 
-\smallskip
-\begin{center}
-\small 
-\begin{tabular}{clp{6cm}}
-Symbol & What is it? & Do we know what it is? \\ \hline \\[-6pt]
-$\bar{X}$ & Sample mean & Yes, calculated from the raw data \\
-$\mu$ & True population mean & Almost never known for sure \\
-$\hat{\mu}$ & Estimate of the population mean & Yes, identical to the sample mean in simple random samples
-\end{tabular}
-\end{center}
+```{r echo = FALSE}
+knitr::kable(data.frame(stringsAsFactors=FALSE,
+                   Symbol = c("$\\bar{X}$", "$\\mu$", "$\\hat{\\mu}$"),
+              `What is it` = c("Sample mean", "True population mean",
+                              "Estimate of the population mean"),
+   `Do we know what it is` = c("Yes  calculated from the raw data",
+                              "Almost never known for sure",
+                              "Yes  identical to the sample mean")), col.names = c("Symbol", "What is it?", "Do we know what it is"))
+```
+
 
 ### Estimating the population standard deviation
 
@@ -407,31 +283,25 @@ Let's extend this example a little. Suppose I now make a second observation. My 
 
 This time around, our sample is *just* large enough for us to be able to observe some variability: two observations is the bare minimum number needed for any variability to be observed! For our new data set, the sample mean is $\bar{X}=21$, and the sample standard deviation is $s=1$. What intuitions do we have about the population? Again, as far as the population mean goes, the best guess we can possibly make is the sample mean. If forced to guess we'd probably guess that the population mean cromulence is 21. What about the standard deviation? This is a little more complicated. The sample standard deviation is only based on two observations, and if you're at all like me you probably have the intuition that, with only two observations we haven't given the population 'enough of a chance' to reveal its true variability to us. It's not just that we suspect that the estimate is *wrong*, after all with only two observations we expect it to be wrong to some degree. The worry is that the error is *systematic*. Specifically, we suspect that the sample standard deviation is likely to be smaller than the population standard deviation. 
 
-\begin{figure}[p]
-\begin{center}
-\epsfig{file=../img/estimation/samplingDistSampleSD.eps,clip=true,width=12cm} 
-\caption{The sampling distribution of the sample standard deviation for a 'two IQ scores' experiment. The true population standard deviation is 15 (dashed line), but as you can see from the histogram the vast majority of experiments will produce a much smaller sample standard deviation than this. On average, this experiment would produce a sample standard deviation of only 8.5, well below the true value! In other words, the sample standard deviation is a *biased* estimate of the population standard deviation.}
-\label{fig:sampdistsd}
-\HR
-\end{center}
-\end{figure}
+```{r sampdistsd, fig.cap="The sampling distribution of the sample standard deviation for a 'two IQ scores' experiment. The true population standard deviation is 15 (dashed line), but as you can see from the histogram the vast majority of experiments will produce a much smaller sample standard deviation than this. On average, this experiment would produce a sample standard deviation of only 8.5, well below the true value! In other words, the sample standard deviation is a *biased* estimate of the population standard deviation.", echo=FALSE, fig.align="center", out.width="100%"}
+
+knitr::include_graphics("img/estimation/samplingDistSampleSD.png", error = TRUE)
+
+```
 
 This intuition feels right, but it would be nice to demonstrate this somehow. There are in fact mathematical proofs that confirm this intuition, but unless you have the right mathematical background they don't help very much. Instead, what I'll do is simulate the results of some experiments. With that in mind, let's return to our IQ studies. Suppose the true population mean IQ is 100 and the standard deviation is 15. First I'll conduct an experiment in which I measure $N=2$ IQ scores and I'll calculate the sample standard deviation. If I do this over and over again, and plot a histogram of these sample standard deviations, what I have is the *sampling distribution of the standard deviation*. I've plotted this distribution in Figure \@ref(fig:sampdistsd). Even though the true population standard deviation is 15 the average of the *sample* standard deviations is only 8.5. Notice that this is a very different result to what we found in Figure \@ref(fig:IQsamp)b when we plotted the sampling distribution of the mean, where the population mean is 100 and the average of the sample means is also 100. 
 
 Now let's extend the simulation. Instead of restricting ourselves to the situation where $N=2$, let's repeat the exercise for sample sizes from 1 to 10. If we plot the average sample mean and average sample standard deviation as a function of sample size, you get the results shown in Figure \@ref(fig:estimatorbias). On the left hand side (panel a) I've plotted the average sample mean and on the right hand side (panel b) I've plotted the average standard deviation. The two plots are quite different:*on average*, the average sample mean is equal to the population mean. It is an ***unbiased estimator***, which is essentially the reason why your best estimate for the population mean is the sample mean.^[I should note that I'm hiding something here. Unbiasedness is a desirable characteristic for an estimator, but there are other things that matter besides bias. However, it's beyond the scope of this book to discuss this in any detail. I just want to draw your attention to the fact that there's some hidden complexity here.] The plot on the right is quite different: on average, the sample standard deviation $s$ is *smaller* than the population standard deviation $\sigma$. It is a ***biased estimator***. In other words, if we want to make a 'best guess' $\hat\sigma$ about the value of the population standard deviation $\sigma$ we should make sure our guess is a little bit larger than the sample standard deviation $s$. 
 
-\begin{figure}[p]
-\begin{center}
-\begin{tabular}{cc}
-\epsfig{file=../img/estimation/biasMean.eps,clip=true,width=7cm} &
-\epsfig{file=../img/estimation/biasSD.eps,clip=true,width=7cm} \\
-(a) & (b) 
-\end{tabular}
-\caption{An illustration of the fact that the sample mean is an unbiased estimator of the population mean (panel a), but the sample standard deviation is a biased estimator of the population standard deviation (panel b). For the figure I generated 10,000 simulated data sets with 1 observation each, 10,000 more with 2 observations, and so on up to a sample size of 10. Each data set consisted of fake IQ data, that is the data were normally distributed with a true population mean of 100 and standard deviation 15. *On average*, the sample means turn out to be 100, regardless of sample size (panel a). However, the sample standard deviations turn out to be systematically too small (panel b), especially for small sample sizes.} 
-\label{fig:estimatorbias}
-\HR
-\end{center}
-\end{figure}
+```{r estimatorbias, fig.cap="An illustration of the fact that the sample mean is an unbiased estimator of the population mean (panel a), but the sample standard deviation is a biased estimator of the population standard deviation (panel b). For the figure I generated 10,000 simulated data sets with 1 observation each, 10,000 more with 2 observations, and so on up to a sample size of 10. Each data set consisted of fake IQ data, that is the data were normally distributed with a true population mean of 100 and standard deviation 15. *On average*, the sample means turn out to be 100, regardless of sample size (panel a). However, the sample standard deviations turn out to be systematically too small (panel b), especially for small sample sizes.", echo=FALSE, fig.align="center", out.width="50%", fig.show = "hold"}
+
+knitr::include_graphics("img/estimation/biasMean.png", error = TRUE)
+knitr::include_graphics("img/estimation/biasSD.png", error = TRUE)
+
+```
+
+
+
 
 :::: {.blackbox data-latex=""}
 ::: {.center data-latex=""}
@@ -457,27 +327,25 @@ One final point. In practice, a lot of people tend to refer to $\hat{\sigma}$ (i
 
 To finish this section off, here's another couple of tables to help keep things clear.
 
-\begin{center}
-\small 
-\begin{tabular}{cll}
-Symbol & What is it? & Do we know what it is? \\ \hline \\[-6pt]
-$s$ & Sample standard deviation & Yes, calculated from the raw data \\
-$\sigma$ & Population standard deviation & Almost never known for sure \\
-$\hat{\sigma}$ & Estimate of the population  & Yes, but not the same as the  \\
- & standard deviation & sample standard deviation
-\end{tabular}
-\end{center}\vspace{0.5cm}
+```{r echo = FALSE}
+knitr::kable(data.frame(stringsAsFactors=FALSE,
+                   Symbol = c("$s$", "$\\sigma$", "$\\hat{\\sigma}$", "$s^2$",
+                              "$\\sigma^2$", "$\\hat{\\sigma}^2$"),
+              What.is.it = c("Sample standard deviation",
+                              "Population standard deviation",
+                              "Estimate of the population standard deviation", "Sample variance",
+                              "Population variance",
+                              "Estimate of the population variance"),
+   Do.we.know.what.it.is = c("Yes - calculated from the raw data",
+                              "Almost never known for sure",
+                              "Yes - but not the same as the sample standard deviation",
+                              "Yes - calculated from the raw data",
+                              "Almost never known for sure",
+                              "Yes -  but not the same as the sample variance")
+), col.names = c("Symbol", "What is it?", "Do we know what it is?"))
 
-\begin{center}
-\small 
-\begin{tabular}{cll}
-Symbol & What is it? & Do we know what it is? \\ \hline \\[-6pt]
-$s^2$ & Sample variance & Yes, calculated from the raw data \\
-$\sigma^2$ & Population variance & Almost never known for sure \\
-$\hat{\sigma}^2$ & Estimate of the population  & Yes, but not the same as the  \\
- & variance & sample variance
-\end{tabular}
-\end{center}\vspace{0.5cm}
+
+```
 
 
 ## Estimating a confidence interval{#ci}
@@ -525,17 +393,12 @@ The hardest thing about confidence intervals is understanding what they *mean*. 
 
 Okay, so if that's not the right answer, what is? Remember what we said about frequentist probability. The only way we are allowed to make 'probability statements' is to talk about a sequence of events, and to count up the frequencies of different kinds of events. From that perspective, the interpretation of a 95\% confidence interval must have something to do with replication. Specifically, if we replicated the experiment over and over again and computed a 95\% confidence interval for each replication, then 95\% of those *intervals* would contain the true mean. More generally, 95\% of all confidence intervals constructed using this procedure should contain the true population mean. This idea is illustrated in Figure \@ref(fig:cirep), which shows 50 confidence intervals constructed for a 'measure 10 IQ scores' experiment (top panel) and another 50 confidence intervals for a 'measure 25 IQ scores' experiment (bottom panel). A bit fortuitously, across the 100 replications that I simulated, it turned out that exactly 95 of them contained the true mean. 
 
-\begin{figure}[p]
-\begin{center}
-\begin{tabular}{cc}
-\raisebox{5cm}{(a)} & \epsfig{file=../img/estimation/confIntReplicated.eps,clip=true,width=14cm} \\ \\ \\
-\raisebox{5cm}{(b)} & \epsfig{file=../img/estimation/confIntReplicated2.eps,clip=true,width=14cm} 
-\end{tabular}
-\caption{95\% confidence intervals. The top (panel a) shows 50 simulated replications of an experiment in which we measure the IQs of 10 people. The dot marks the location of the sample mean and the line shows the 95\% confidence interval. In total 47 of the 50 confidence intervals do contain the true mean (i.e., 100), but the three intervals marked with asterisks do not. The lower graph (panel b) shows a similar simulation, but this time we simulate replications of an experiment that measures the IQs of 25 people.}
-\label{fig:cirep}
-\HR
-\end{center}
-\end{figure}
+```{r cirep, fig.cap="95% confidence intervals. The top (panel a) shows 50 simulated replications of an experiment in which we measure the IQs of 10 people. The dot marks the location of the sample mean and the line shows the 95% confidence interval. In total 47 of the 50 confidence intervals do contain the true mean (i.e., 100), but the three intervals marked with asterisks do not. The lower graph (panel b) shows a similar simulation, but this time we simulate replications of an experiment that measures the IQs of 25 people.", echo=FALSE, fig.align="center", out.width="100%", fig.show = "hold"}
+knitr::include_graphics("img/estimation/confIntReplicated.png", error = TRUE)
+knitr::include_graphics("img/estimation/confIntReplicated2.png", error = TRUE)
+
+```
+
 
 The critical difference here is that the Bayesian claim makes a probability statement about the population mean (i.e., it refers to our uncertainty about the population mean), which is not allowed under the frequentist interpretation of probability because you can't 'replicate' a population! In the frequentist claim, the population mean is fixed and no probabilistic claims can be made about it. Confidence intervals, however, are repeatable so we can replicate experiments. Therefore a frequentist is allowed to talk about the probability that the *confidence interval* (a random variable) contains the true mean,  but is not allowed to talk about the probability that the *true population mean* (not a repeatable event) falls within the confidence interval. 
 
