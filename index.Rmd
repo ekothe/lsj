@@ -9,7 +9,8 @@ biblio-style: apalike
 link-citations: yes
 description: "*learning statistics with jamovi* covers the contents of an introductory statistics class, as typically taught to undergraduate psychology students. The book discusses how to get started in jamovi as well as giving an introduction to data manipulation. From a statistical perspective, the book discusses descriptive statistics and graphing first, followed by chapters on probability theory, sampling and estimation, and null hypothesis testing. After introducing the theory, the book covers the analysis of contingency tables, correlation, $t$-tests, regression, ANOVA and factor analysis. Bayesian statistics are covered at the end of the book. "
 output:
-  bookdown::gitbook
+  bookdown::gitbook:
+    pandoc_args: ["--lua-filter=color-text.lua"]
 ---
 
 # Overview{-}
@@ -26,6 +27,19 @@ This book is published under a Creative Commons BY-SA license (CC BY-SA) version
 *This book was brought to you today by the letter ‘R’ and the word ‘jamovi’*
 
 # Preface{-}
+
+## Preface to Version 0.70.1
+This is a minor update that makes just a few small but important changes. Specifically, 
+where possible the text has been updated to avoid misgendering/deadnaming Danielle Navarro. As this is a work in progress, there may be some places (e.g. associated datafiles) that do not reflect this change. I apologise for any confusion that this may cause.
+
+The text is now also available in a larger variety of formats, in addition to being available as a PDF you can now also access the book online in "bookdown" format or on your ebook reader in both .mobi (used by Amazon Kindle) or .epub (used by most other ebook readers).
+
+If you notice any errors in this version that are not present in Version 0.70 please report them at https://github.com/ekothe/lsj/issues
+
+Emily Kothe
+\
+November 3rd, 2021
+
 ## Preface to Version 0.70
 This update from version 0.65 introduces some new analyses. In the ANOVA chapters we have added sections on repeated measures ANOVA and analysis of covariance (ANCOVA). In a new chapter we have introduced Factor Analysis and related techniques. Hopefully the style of this new material is consistent with the rest of the book, though eagle-eyed readers might spot a bit more of an emphasis on conceptual and practical explanations, and a bit less algebra. I'm not sure this is a good thing, and might add the algebra in a bit later. But it reflects both my approach to understanding and teaching statistics, and also some feedback I have received from students on a course I teach. In line with this, I have also been through the rest of the book and tried to separate out some of the algebra by putting it into a box or frame. It's not that this stuff is not important or useful, but for some students they may wish to skip over it and therefore the boxing of these parts should help some readers. 
 
@@ -60,7 +74,7 @@ Danielle Navarro
 
 Another year, another update. This time around, the update has focused almost entirely on the theory sections of the book. Chapters 9, 10 and 11 have been rewritten, hopefully for the better. Along the same lines, Chapter 17 is entirely new, and focuses on Bayesian statistics. I think the changes have improved the book a great deal. I've always felt uncomfortable about the fact that all the inferential statistics in the book are presented from an orthodox perspective, even though I almost always present Bayesian data analyses in my own work. Now that I've managed to squeeze Bayesian methods into the book somewhere, I'm starting to feel better about the book as a whole. I wanted to get a few other things done in this update, but as usual I'm running into teaching deadlines, so the update has to go out the way it is!
 
-Dan Navarro 
+Danielle Navarro 
 February 16, 2015
 
 ## Preface to Version 0.4
@@ -71,7 +85,7 @@ I wish I'd had more time over the last 12 months to add more content. The absenc
 
 One thing that has surprised me is the number of downloads the book gets. I finally got some basic tracking information from the website a couple of months ago, and (after excluding obvious robots) the book has been averaging about 90 downloads per day. That's encouraging: there's at least a few people who find the book useful!
 
-Dan Navarro 
+Danielle Navarro 
 February 4, 2014
 
 ## Preface to Version 0.3
@@ -98,5 +112,5 @@ as long as they are assured that the assessment standards will be set in a fashi
 
 Sadly, this book isn't the silver bullet that makes all this possible. It's a work in progress, and maybe when it is finished it will be a useful tool. One among many, I would think. There are a number of other books that try to provide a basic introduction to statistics using R, and I'm not arrogant enough to believe that mine is better. Still, I rather like the book, and maybe other people will find it useful, incomplete though it is.
 
-Dan Navarro 
+Danielle Navarro 
 January 13, 2013

@@ -96,7 +96,7 @@ knitr::kable(data.frame(stringsAsFactors=FALSE,
 
 
 
-### The "goodness-of-fit" test statistic
+### The "goodness-of-fit" test statistic{#gofteststat}
 
 At this point, we have our observed frequencies $O$ and a collection of probabilities $P$ corresponding to the null hypothesis that we want to test. What we now want to do is construct a test of the null hypothesis. As always, if we want to test $H_0$ against $H_1$, we're going to need a test statistic. The basic trick that a goodness-of-fit test uses is to construct a test statistic that measures how "close" the data are to the null hypothesis. If the data don't resemble what you'd "expect" to see if the null hypothesis were true, then it probably isn't true. Okay, if the null hypothesis were true, what would we expect to see? Or, to use the correct terminology, what are the ***expected frequencies***. There are $N=200$ observations, and (if the null is true) the probability of any one of them choosing a heart is $P_3 = .25$, so I guess we're expecting $200 \times .25 = 50$ hearts, right? Or, more specifically, if we let $E_i$ refer  to "the number of category $i$ responses that we're expecting if the null is true", then
 $$
@@ -157,7 +157,7 @@ Intuitively, it's clear that if $\chi^2$ is small, then the observed data $O_i$ 
 \
 As we've seen from our calculations, in our cards data set we've got a value of $\chi^2 = 8.44$. So now the question becomes is this a big enough value to reject the null?
 
-### The sampling distribution of the GOF statistic
+### The sampling distribution of the GOF statistic{#chidist}
 
 To determine whether or not a particular value of $\chi^2$ is large enough to justify rejecting the null hypothesis, we're going to need to figure out what the sampling distribution for $\chi^2$ would be if the null hypothesis were true. So that's what I'm going to do in this section. I'll show you in a fair amount of detail how this sampling distribution is constructed, and then, in the next section, use it to build up a hypothesis test. If you want to cut to the chase and are willing to take it on faith that the sampling distribution is a ***$\chi^2$ (chi-square) distribution*** with $k-1$ degrees of freedom, you can skip the rest of this section. However, if you want to understand *why* the goodness-of-fit test works the way it does, read on.
 
@@ -169,7 +169,7 @@ Now, if you remember from our discussion of the central limit theorem (Section \
 
 There's one last detail to talk about, namely the degrees of freedom. If you remember back to Section \@ref(otherdists), I said that if the number of things you're adding up is $k$, then the degrees of freedom for the resulting chi-square distribution is $k$. Yet, what I said at the start of this section is that the actual degrees of freedom for the chi-square goodness-of-fit test is $k-1$. What's up with that? The answer here is that what we're supposed to be looking at is the number of genuinely *independent* things that are getting added together. And, as I'll go on to talk about in the next section, even though there are $k$ things that we're adding only $k-1$ of them are truly independent, and so the degrees of freedom is actually only $k-1$. That's the topic of the next section.^[If you rewrite the equation for the goodness-of-fit statistic as a sum over $k-1$ independent things you get the "proper" sampling distribution, which is chi-square with $k-1$ degrees of freedom. It's beyond the scope of an introductory book to show the maths in that much detail. All I wanted to do is give you a sense of why the goodness-of-fit statistic is associated with the chi-square distribution.]
 
-### Degrees of freedom
+### Degrees of freedom{chidof}
 
 When I introduced the chi-square distribution in Section \@ref(otherdists), I was a bit vague about what "***degrees of freedom***" actually *means*. Obviously, it matters. Looking at Figure \@ref(fig:manychi), you can see that if we change the degrees of freedom then the chi-square distribution changes shape quite substantially. But what exactly *is* it? Again, when I introduced the distribution and explained its relationship to the normal distribution, I did offer an answer: it's the number of "normally distributed variables" that I'm squaring and adding together. But, for most people, that's kind of abstract and not entirely helpful. What we really need to do is try to understand degrees of freedom in terms of our data. So here goes.
 

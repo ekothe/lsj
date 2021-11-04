@@ -1,0 +1,22 @@
+# Index{-}
+
+***Categorical data analysis***, Chapter \@ref(chisquare)
+
+***Cramer's  $V$***, Section \@ref(chisqeffectsize)
+
+***Fisher's exact test***, Section \@ref(fisherexacttest)
+
+***McNemar test of marginal homogeneity***, Section \@ref(mcnemar)
+
+***Pearson's $\chi^2$ (chi-square) goodness-of-fit test***, Section \@ref(goftest)
+
+***Yates correction***, Section \@ref(yates)
+
+***expected frequencies***, Section \@ref(gofteststat)
+
+***goodness-of-fit*** statistic, Section \@ref(gofteststat)
+
+***$\chi^2$ (chi-square) distribution***, Section \@ref(chidist)
+
+***degrees of freedom***, Section \@ref(chidof)
+
