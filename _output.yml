@@ -1,12 +1,18 @@
 bookdown::gitbook:
   css: style.css
   config:
+    edit:
+      link: https://github.com/ekothe/lsj/issues%s
+      text: "Report an error"
     toc:
+      collapse: chapter
       before: |
-        <li><a href="./">Learning Statistics with Jamovi</a></li>
+        <li class="toc-logo"><a href="./"><img src="img/bookcoverA4.png"></a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     download: ["pdf", "epub"]
+  includes:
+    in_header:  header.html
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
