@@ -5,7 +5,7 @@ bookdown::gitbook:
       link: https://github.com/ekothe/lsj/issues%s
       text: "Report an error"
     toc:
-      collapse: chapter
+      collapse: section
       before: |
         <li class="toc-logo"><a href="./"><img src="img/bookcoverA4.png"></a></li>
       after: |
@@ -19,4 +19,5 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
+  classoption: oneside
 bookdown::epub_book: default

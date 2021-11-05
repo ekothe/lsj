@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="regression.html"/>
-<link rel="next" href="index.html"/>
+<link rel="next" href="anova2.html"/>
 <script src="libs/header-attrs-2.10.4/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,6 +53,7 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="book.js"></script>
 
 
 <style type="text/css">
@@ -155,7 +156,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Learning Statistics with Jamovi</a></li>
+<li class="toc-logo"><a href="./"><img src="img/bookcoverA4.png"></a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
@@ -602,6 +603,65 @@ div.csl-indent {
 <li class="chapter" data-level="13.28" data-path="anova.html"><a href="anova.html#Friedman"><i class="fa fa-check"></i><b>13.28</b> The Friedman non-parametric repeated measures ANOVA test</a></li>
 <li class="chapter" data-level="13.29" data-path="anova.html"><a href="anova.html#anovaandt"><i class="fa fa-check"></i><b>13.29</b> On the relationship between ANOVA and the Student <span class="math inline">\(t\)</span>-test</a></li>
 <li class="chapter" data-level="13.30" data-path="anova.html"><a href="anova.html#summary-10"><i class="fa fa-check"></i><b>13.30</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="anova2.html"><a href="anova2.html"><i class="fa fa-check"></i><b>14</b> Factorial ANOVA</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="anova2.html"><a href="anova2.html#factorialanovasimple"><i class="fa fa-check"></i><b>14.1</b> Factorial ANOVA 1: balanced designs, no interactions</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="anova2.html"><a href="anova2.html#factanovahyp"><i class="fa fa-check"></i><b>14.1.1</b> What hypotheses are we testing?</a></li>
+<li class="chapter" data-level="14.1.2" data-path="anova2.html"><a href="anova2.html#running-the-analysis-in-jamovi"><i class="fa fa-check"></i><b>14.1.2</b> Running the analysis in jamovi</a></li>
+<li class="chapter" data-level="14.1.3" data-path="anova2.html"><a href="anova2.html#how-are-the-sum-of-squares-calculated"><i class="fa fa-check"></i><b>14.1.3</b> How are the sum of squares calculated?</a></li>
+<li class="chapter" data-level="14.1.4" data-path="anova2.html"><a href="anova2.html#what-are-our-degrees-of-freedom"><i class="fa fa-check"></i><b>14.1.4</b> What are our degrees of freedom?</a></li>
+<li class="chapter" data-level="14.1.5" data-path="anova2.html"><a href="anova2.html#factorial-anova-versus-one-way-anovas"><i class="fa fa-check"></i><b>14.1.5</b> Factorial ANOVA versus one-way ANOVAs</a></li>
+<li class="chapter" data-level="14.1.6" data-path="anova2.html"><a href="anova2.html#what-kinds-of-outcomes-does-this-analysis-capture"><i class="fa fa-check"></i><b>14.1.6</b> What kinds of outcomes does this analysis capture?</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="anova2.html"><a href="anova2.html#interactions"><i class="fa fa-check"></i><b>14.2</b> Factorial ANOVA 2: balanced designs, interactions allowed</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="anova2.html"><a href="anova2.html#what-exactly-is-an-interaction-effect"><i class="fa fa-check"></i><b>14.2.1</b> What exactly <strong><em>is</em></strong> an interaction effect?</a></li>
+<li class="chapter" data-level="14.2.3" data-path="anova2.html"><a href="anova2.html#degrees-of-freedom-for-the-interaction"><i class="fa fa-check"></i><b>14.2.3</b> Degrees of freedom for the interaction</a></li>
+<li class="chapter" data-level="14.2.4" data-path="anova2.html"><a href="anova2.html#running-the-anova-in-jamovi"><i class="fa fa-check"></i><b>14.2.4</b> Running the ANOVA in jamovi</a></li>
+<li class="chapter" data-level="14.2.5" data-path="anova2.html"><a href="anova2.html#interpreting-the-results"><i class="fa fa-check"></i><b>14.2.5</b> Interpreting the results</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="anova2.html"><a href="anova2.html#effectsizefactorialanova"><i class="fa fa-check"></i><b>14.3</b> Effect size</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="anova2.html"><a href="anova2.html#estimated-group-means"><i class="fa fa-check"></i><b>14.3.1</b> Estimated group means</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="anova2.html"><a href="anova2.html#factorialanovaassumptions"><i class="fa fa-check"></i><b>14.4</b> Assumption checking~</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="anova2.html"><a href="anova2.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>14.4.1</b> Homogeneity of variance</a></li>
+<li class="chapter" data-level="14.4.2" data-path="anova2.html"><a href="anova2.html#normality-of-residuals"><i class="fa fa-check"></i><b>14.4.2</b> Normality of residuals</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="anova2.html"><a href="anova2.html#ancova"><i class="fa fa-check"></i><b>14.5</b> Analysis of Covariance (ANCOVA)</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="anova2.html"><a href="anova2.html#running-ancova-in-jamovi"><i class="fa fa-check"></i><b>14.5.1</b> Running ANCOVA in jamovi</a></li>
+</ul></li>
+<li class="chapter" data-level="14.6" data-path="anova2.html"><a href="anova2.html#anovalm"><i class="fa fa-check"></i><b>14.6</b> ANOVA as a linear model</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="anova2.html"><a href="anova2.html#some-data"><i class="fa fa-check"></i><b>14.6.1</b> Some data</a></li>
+<li class="chapter" data-level="14.6.2" data-path="anova2.html"><a href="anova2.html#anova-with-binary-factors-as-a-regression-model"><i class="fa fa-check"></i><b>14.6.2</b> ANOVA with binary factors as a regression model</a></li>
+<li class="chapter" data-level="14.6.3" data-path="anova2.html"><a href="anova2.html#how-to-encode-non-binary-factors-as-contrasts"><i class="fa fa-check"></i><b>14.6.3</b> How to encode non binary factors as contrasts</a></li>
+<li class="chapter" data-level="14.6.4" data-path="anova2.html"><a href="anova2.html#the-equivalence-between-anova-and-regression-for-non-binary-factors"><i class="fa fa-check"></i><b>14.6.4</b> The equivalence between ANOVA and regression for non-binary factors</a></li>
+<li class="chapter" data-level="14.6.5" data-path="anova2.html"><a href="anova2.html#degrees-of-freedom-as-parameter-counting"><i class="fa fa-check"></i><b>14.6.5</b> Degrees of freedom as parameter counting!</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="anova2.html"><a href="anova2.html#contrasts"><i class="fa fa-check"></i><b>14.7</b> Different ways to specify contrasts</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="anova2.html"><a href="anova2.html#treatment-contrasts"><i class="fa fa-check"></i><b>14.7.1</b> Treatment contrasts</a></li>
+<li class="chapter" data-level="14.7.2" data-path="anova2.html"><a href="anova2.html#helmert-contrasts"><i class="fa fa-check"></i><b>14.7.2</b> Helmert contrasts</a></li>
+<li class="chapter" data-level="14.7.3" data-path="anova2.html"><a href="anova2.html#sum-to-zero-contrasts"><i class="fa fa-check"></i><b>14.7.3</b> Sum to zero contrasts</a></li>
+<li class="chapter" data-level="14.7.4" data-path="anova2.html"><a href="anova2.html#optional-contrasts-in-jamovi"><i class="fa fa-check"></i><b>14.7.4</b> Optional contrasts in jamovi</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="anova2.html"><a href="anova2.html#posthoc2"><i class="fa fa-check"></i><b>14.8</b> Post hoc tests</a></li>
+<li class="chapter" data-level="14.9" data-path="anova2.html"><a href="anova2.html#plannedcomparisons"><i class="fa fa-check"></i><b>14.9</b> The method of planned comparisons</a></li>
+<li class="chapter" data-level="14.10" data-path="anova2.html"><a href="anova2.html#unbalancedanova"><i class="fa fa-check"></i><b>14.10</b> Factorial ANOVA 3: unbalanced designs</a>
+<ul>
+<li class="chapter" data-level="14.10.1" data-path="anova2.html"><a href="anova2.html#the-coffee-data"><i class="fa fa-check"></i><b>14.10.1</b> The coffee data</a></li>
+<li class="chapter" data-level="14.10.2" data-path="anova2.html"><a href="anova2.html#standard-anova-does-not-exist-for-unbalanced-designs"><i class="fa fa-check"></i><b>14.10.2</b> “Standard ANOVA” does not exist for unbalanced designs</a></li>
+<li class="chapter" data-level="14.10.3" data-path="anova2.html"><a href="anova2.html#type-i-sum-of-squares"><i class="fa fa-check"></i><b>14.10.3</b> Type I sum of squares</a></li>
+<li class="chapter" data-level="14.10.4" data-path="anova2.html"><a href="anova2.html#type-iii-sum-of-squares"><i class="fa fa-check"></i><b>14.10.4</b> Type III sum of squares</a></li>
+<li class="chapter" data-level="14.10.5" data-path="anova2.html"><a href="anova2.html#type-ii-sum-of-squares"><i class="fa fa-check"></i><b>14.10.5</b> Type II sum of squares</a></li>
+<li class="chapter" data-level="14.10.6" data-path="anova2.html"><a href="anova2.html#effect-sizes-and-non-additive-sums-of-squares"><i class="fa fa-check"></i><b>14.10.6</b> Effect sizes (and non-additive sums of squares)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.11" data-path="anova2.html"><a href="anova2.html#summary-11"><i class="fa fa-check"></i><b>14.11</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#index"><i class="fa fa-check"></i>Index</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -1299,7 +1359,7 @@ Figure 13.4: Uncorrected pairwise <span class="math inline">\(t\)</span>-tests a
 <h2><span class="header-section-number">13.13</span> Corrections for multiple testing</h2>
 <p>In the previous section I hinted that there’s a problem with just running lots and lots of <span class="math inline">\(t\)</span>-tests. The concern is that, when running these analyses, what we’re doing is going on a “fishing expedition.” We’re running lots and lots of tests without much theoretical guidance in the hope that some of them come up significant. This kind of theory-free search for group differences is referred to as <span style="color: #F58231;"><strong>post hoc analysis</strong></span> (“post hoc” being Latin for “after this”).<a href="#fn113" class="footnote-ref" id="fnref113"><sup>113</sup></a></p>
 <p>It’s okay to run post hoc analyses, but a lot of care is required. For instance, the analysis that I ran in the previous section should be avoided, as each <em>individual</em> <span class="math inline">\(t\)</span>-test is designed to have a 5% Type I error rate (i.e., <span class="math inline">\(\alpha = .05\)</span>) and I ran three of these tests. Imagine what would have happened if my ANOVA involved 10 different groups, and I had decided to run 45 “post hoc” <span class="math inline">\(t\)</span>-tests to try to find out which ones were significantly different from each other, you’d expect 2 or 3 of them to come up significant <em>by chance alone</em>. As we saw in Chapter <a href="hypothesistesting.html#hypothesistesting">9</a>, the central organising principle behind null hypothesis testing is that we seek to control our Type I error rate, but now that I’m running lots of <span class="math inline">\(t\)</span>-tests at once in order to determine the source of my ANOVA results, my actual Type I error rate across this whole <em>family</em> of tests has gotten completely out of control.</p>
-<p>The usual solution to this problem is to introduce an adjustment to the <span class="math inline">\(p\)</span>-value, which aims to control the total error rate across the family of tests <span class="citation">(see <a href="#ref-Shaffer1995" role="doc-biblioref">Shaffer 1995</a>)</span>. An adjustment of this form, which is usually (but not always) applied because one is doing post hoc analysis, is often referred to as a <span style="color: #F58231;"><strong>correction for multiple comparisons</strong></span>, though it is sometimes referred to as “simultaneous inference.” In any case, there are quite a few different ways of doing this adjustment. I’ll discuss a few of them in this section and in Section <a href="#posthoc2"><strong>??</strong></a>, but you should be aware that there are many other methods out there [see, e.g., Hsu1996].</p>
+<p>The usual solution to this problem is to introduce an adjustment to the <span class="math inline">\(p\)</span>-value, which aims to control the total error rate across the family of tests <span class="citation">(see <a href="#ref-Shaffer1995" role="doc-biblioref">Shaffer 1995</a>)</span>. An adjustment of this form, which is usually (but not always) applied because one is doing post hoc analysis, is often referred to as a <span style="color: #F58231;"><strong>correction for multiple comparisons</strong></span>, though it is sometimes referred to as “simultaneous inference.” In any case, there are quite a few different ways of doing this adjustment. I’ll discuss a few of them in this section and in Section <a href="anova2.html#posthoc2">14.8</a>, but you should be aware that there are many other methods out there [see, e.g., Hsu1996].</p>
 </div>
 <div id="bonferroni-corrections" class="section level2" number="13.14">
 <h2><span class="header-section-number">13.14</span> Bonferroni corrections</h2>
@@ -1657,7 +1717,7 @@ Figure 13.14: The ‘Repeated Measures ANOVA (Non-parametric)’ dialogue box in
 </div>
 <div id="summary-10" class="section level2" number="13.30">
 <h2><span class="header-section-number">13.30</span> Summary</h2>
-<p>There’s a fair bit covered in this chapter, but there’s still a lot missing. Most obviously, I haven’t discussed how to run an ANOVA when you are interested in more than one grouping variable, but that will be discussed in a lot of detail in Chapter <a href="#anova2"><strong>??</strong></a>. In terms of what we have discussed, the key topics were:</p>
+<p>There’s a fair bit covered in this chapter, but there’s still a lot missing. Most obviously, I haven’t discussed how to run an ANOVA when you are interested in more than one grouping variable, but that will be discussed in a lot of detail in Chapter <a href="anova2.html#anova2">14</a>. In terms of what we have discussed, the key topics were:</p>
 <ul>
 <li>The basic logic behind how ANOVA works (Section <a href="anova.html#anovaintro">13.2</a>) and how to run one in jamovi (Section <a href="anova.html#introduceaov">13.8</a>).</li>
 <li>How to compute an effect size for an ANOVA (Section <a href="anova.html#etasquared">13.10</a>)</li>
@@ -1709,12 +1769,12 @@ Shaffer, J. P. 1995. <span>“Multiple Hypothesis Testing.”</span> <em>Annual 
 <ol start="106">
 <li id="fn106"><p>When all groups have the same number of observations, the experimental design is said to be “balanced.” Balance isn’t such a big deal for one-way ANOVA, which is the topic of this chapter. It becomes more important when you start doing more complicated ANOVAs.<a href="anova.html#fnref106" class="footnote-back">↩︎</a></p></li>
 <li id="fn107"><p><span class="math inline">\(\mbox{SS}_{w}\)</span> is also referred to in an independent ANOVA as the error variance, or <span class="math inline">\(\mbox{SS}_{error}\)</span><a href="anova.html#fnref107" class="footnote-back">↩︎</a></p></li>
-<li id="fn108"><p>If you read ahead to Chapter <a href="#anova2"><strong>??</strong></a> and look at how the “treatment effect” at level <span class="math inline">\(k\)</span> of a factor is defined in terms of the <span class="math inline">\(\alpha_k\)</span> values (see Section <a href="#interactions"><strong>??</strong></a>), it turns out that <span class="math inline">\(Q\)</span> refers to a weighted mean of the squared treatment effects, <span class="math inline">\(Q=(\sum_{k=1}^G N_k \alpha_k^2)/(G-1)\)</span>. <a href="anova.html#fnref108" class="footnote-back">↩︎</a></p></li>
+<li id="fn108"><p>If you read ahead to Chapter <a href="anova2.html#anova2">14</a> and look at how the “treatment effect” at level <span class="math inline">\(k\)</span> of a factor is defined in terms of the <span class="math inline">\(\alpha_k\)</span> values (see Section <a href="anova2.html#interactions">14.2</a>), it turns out that <span class="math inline">\(Q\)</span> refers to a weighted mean of the squared treatment effects, <span class="math inline">\(Q=(\sum_{k=1}^G N_k \alpha_k^2)/(G-1)\)</span>. <a href="anova.html#fnref108" class="footnote-back">↩︎</a></p></li>
 <li id="fn109"><p>Or, if we want to be sticklers for accuracy, <span class="math inline">\(1 + \frac{2}{df_2 - 2}\)</span>.<a href="anova.html#fnref109" class="footnote-back">↩︎</a></p></li>
 <li id="fn110"><p>Or, to be precise, party like “it’s 1899 and we’ve got no friends and nothing better to do with our time than do some calculations that wouldn’t have made any sense in 1899 because ANOVA didn’t exist until about the 1920s.”<a href="anova.html#fnref110" class="footnote-back">↩︎</a></p></li>
 <li id="fn111"><p>In the Excel <strong><code>clinicaltrial_anova.xls</code></strong> the value for <span class="math inline">\(SS_b\)</span> worked out to be very slightly different, 3.45, than that shown in the text above (rounding errors!)<a href="anova.html#fnref111" class="footnote-back">↩︎</a></p></li>
 <li id="fn112"><p>The jamovi results are more accurate than the ones in the text above, due to rounding errors.<a href="anova.html#fnref112" class="footnote-back">↩︎</a></p></li>
-<li id="fn113"><p>If you <em>do</em> have some theoretical basis for wanting to investigate some comparisons but not others, it’s a different story. In those circumstances you’re not really running “post hoc” analyses at all, you’re making “planned comparisons.” I do talk about this situation later in the book (Section <a href="#plannedcomparisons"><strong>??</strong></a>), but for now I want to keep things simple.<a href="anova.html#fnref113" class="footnote-back">↩︎</a></p></li>
+<li id="fn113"><p>If you <em>do</em> have some theoretical basis for wanting to investigate some comparisons but not others, it’s a different story. In those circumstances you’re not really running “post hoc” analyses at all, you’re making “planned comparisons.” I do talk about this situation later in the book (Section <a href="anova2.html#plannedcomparisons">14.9</a>), but for now I want to keep things simple.<a href="anova.html#fnref113" class="footnote-back">↩︎</a></p></li>
 <li id="fn114"><p>It’s worth noting in passing that not all adjustment methods try to do this. What I’ve described here is an approach for controlling “family wise Type I error rate.” However, there are other post hoc tests that seek to control the “false discovery rate,” which is a somewhat different thing.<a href="anova.html#fnref114" class="footnote-back">↩︎</a></p></li>
 <li id="fn115"><p>A technical term.<a href="anova.html#fnref115" class="footnote-back">↩︎</a></p></li>
 <li id="fn116"><p>(n - k) : (number of subjects - number of groups)<a href="anova.html#fnref116" class="footnote-back">↩︎</a></p></li>
@@ -1726,7 +1786,7 @@ Shaffer, J. P. 1995. <span>“Multiple Hypothesis Testing.”</span> <em>Annual 
         </div>
       </div>
 <a href="regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="index.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="anova2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1758,8 +1818,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/ekothe/lsj/issues04.13.anova.Rmd",
+"text": "Report an error"
 },
 "history": {
 "link": null,
@@ -1775,7 +1835,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });

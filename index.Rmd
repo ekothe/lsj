@@ -114,3 +114,8 @@ Sadly, this book isn't the silver bullet that makes all this possible. It's a wo
 
 Danielle Navarro 
 January 13, 2013
+
+```{js, echo = FALSE}
+title=document.getElementById('header');
+title.innerHTML = '<img src="img/bookcoverA4.png" alt="Book cover">' + title.innerHTML
+```
