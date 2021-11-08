@@ -22,6 +22,7 @@ fig:kurtosis
 tab:unnamed-chunk-3
 fig:clinicaltrial
 fig:clinicaltrialgrouping
+fig:snowmap1
 fig:jamovihistogram
 fig:histogram2
 fig:boxplot1
