@@ -83,3 +83,7 @@ a.anchor {
 visibility: hidden;
   }
 }
+
+h1 {
+  text-align: center;
+}

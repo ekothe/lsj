@@ -9,7 +9,6 @@ fig:fileopen
 fig:modules
 fig:aflsmall
 fig:histogram1
-tab:unnamed-chunk-2
 fig:descriptivesdefault
 fig:meanmedian
 fig:aflsmallfinalists
@@ -227,13 +226,6 @@ fig:type1
 fig:bayes1
 fig:bayes2
 fig:bayes3
-preface-to-version-0.70.1
-preface-to-version-0.70
-preface-to-version-0.65
-preface-to-version-0.6
-preface-to-version-0.5
-preface-to-version-0.4
-preface-to-version-0.3
 why-do-we-learn-statistics
 whywhywhy
 the-curse-of-belief-bias

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Pragmatic matters | Learning statistics with jamovi: a tutorial for psychology students and other beginners (Version 0.70)</title>
+  <title>Book Index | Learning statistics with jamovi: a tutorial for psychology students and other beginners (Version 0.70)</title>
   <meta name="description" content="learning statistics with jamovi covers the contents of an introductory statistics class, as typically taught to undergraduate psychology students. The book discusses how to get started in jamovi as well as giving an introduction to data manipulation. From a statistical perspective, the book discusses descriptive statistics and graphing first, followed by chapters on probability theory, sampling and estimation, and null hypothesis testing. After introducing the theory, the book covers the analysis of contingency tables, correlation, \(t\)-tests, regression, ANOVA and factor analysis. Bayesian statistics are covered at the end of the book." />
   <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Pragmatic matters | Learning statistics with jamovi: a tutorial for psychology students and other beginners (Version 0.70)" />
+  <meta property="og:title" content="Book Index | Learning statistics with jamovi: a tutorial for psychology students and other beginners (Version 0.70)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Pragmatic matters | Learning statistics with jamovi: a tutorial for psychology students and other beginners (Version 0.70)" />
+  <meta name="twitter:title" content="Book Index | Learning statistics with jamovi: a tutorial for psychology students and other beginners (Version 0.70)" />
   
   <meta name="twitter:description" content="learning statistics with jamovi covers the contents of an introductory statistics class, as typically taught to undergraduate psychology students. The book discusses how to get started in jamovi as well as giving an introduction to data manipulation. From a statistical perspective, the book discusses descriptive statistics and graphing first, followed by chapters on probability theory, sampling and estimation, and null hypothesis testing. After introducing the theory, the book covers the analysis of contingency tables, correlation, \(t\)-tests, regression, ANOVA and factor analysis. Bayesian statistics are covered at the end of the book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="graphics.html"/>
-<link rel="next" href="probability.html"/>
+<link rel="prev" href="epilogue.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.10.4/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -751,406 +751,27 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datahandling" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Pragmatic matters</h1>
-<blockquote>
-<p><em>The garden of life never seems to confine itself to the plots philosophers have laid out for its convenience. Maybe a few more tractors would do the trick.</em></p>
-<p>– Roger Zelazny<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a></p>
-</blockquote>
-<p>This is a somewhat strange chapter, even by my standards. My goal in this chapter is to talk a bit more honestly about the realities of working with data than you’ll see anywhere else in the book. The problem with real world data sets is that they are <em>messy</em>. Very often the data file that you start out with doesn’t have the variables stored in the right format for the analysis you want to do. Sometimes there might be a lot of missing values in your data set. Sometimes you only want to analyse a subset of the data. Et cetera. In other words, there’s a lot of <strong><em>data manipulation</em></strong> that you need to do just to get the variables in your data set into the format that you need it. The purpose of this chapter is to provide a basic introduction to these pragmatic topics. Although the chapter is motivated by the kinds of practical issues that arise when manipulating real data, I’ll stick with the practice that I’ve adopted through most of the book and rely on very small, toy data sets that illustrate the underlying issue. Because this chapter is essentially a collection of techniques and doesn’t tell a single coherent story, it may be useful to start with a list of topics:</p>
-<ul>
-<li>Section <a href="datahandling.html#freqtables">6.1</a>. Tabulating data.</li>
-<li>Section <a href="datahandling.html#logicals">6.2</a>. Using logical expressions.</li>
-<li>Section <a href="datahandling.html#transform">6.3</a>. Transforming or recoding a variable.</li>
-<li>Section <a href="datahandling.html#mathfunc">6.4</a>. Some useful mathematical functions.</li>
-<li>Section <a href="datahandling.html#subset">6.5</a>. Extracting a subset of a data set.</li>
-</ul>
-<p>As you can see, the list of topics that the chapter covers is pretty broad, and there’s a <em>lot</em> of content there. Even though this is one of the longest and hardest chapters in the book, I’m really only scratching the surface of several fairly different and important topics. My advice, as usual, is to read through the chapter once and try to follow as much of it as you can. Don’t worry too much if you can’t grasp it all at once, especially the later sections. The rest of the book is only lightly reliant on this chapter so you can get away with just understanding the basics. However, what you’ll probably find is that later on you’ll need to flick back to this chapter in order to understand some of the concepts that I refer to here.</p>
-<div id="freqtables" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Tabulating and cross-tabulating data</h2>
-<p>A very common task when analysing data is the construction of frequency tables, or cross-tabulation of one variable against another. These tasks can be achieved in jamovi and I’ll show you how in this section.</p>
-<div id="creating-tables-for-single-variables" class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Creating tables for single variables</h3>
-<p>Let’s start with a simple example. As the father of a small child I naturally spend a lot of time watching TV shows like <em>In the Night Garden</em>. In the <code>nightgarden.csv</code> file, I’ve transcribed a short section of the dialogue. The file contains two variables of interest, <code>speaker</code> and <code>utterance</code>. Open up this data set in jamovi and take a look at the data in the ‘spreadsheet’ view. You will see that the data looks something like this:</p>
-<p>‘speaker’ variable:
-<code>upsy-daisy upsy-daisy upsy-daisy upsy-daisy tombliboo tombliboo makka-pakka makka-pakka makka-pakka makka-pakka</code></p>
-<p>‘utterance’ variable:
-<code>pip pip onk onk ee oo pip pip onk onk</code></p>
-<p>Looking at this it becomes very clear what happened to my sanity! With these as my data, one task I might find myself needing to do is construct a frequency count of the number of words each character speaks during the show. The jamovi ‘Descriptives’ screen has a check box called `Frequency tables’ which does just this, see Figure <a href="datahandling.html#fig:freqtable">6.1</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:freqtable"></span>
-<img src="img/mechanics/freqtable.png" alt="Frequency table for the `speaker` variable" width="100%" />
-<p class="caption">
-Figure 6.1: Frequency table for the <code>speaker</code> variable
-</p>
-</div>
-<p>The output here tells us on the first line that what we’re looking at is a tabulation of the <code>speaker</code> variable. In the ‘Levels’ column it lists all the different speakers that exist in the data, and in the ‘Counts’ column it tells you how many times that speaker appears in the data. In other words, it’s a frequency table.</p>
-<p>In jamovi, the ‘Frequency tables’ check box will only produce a table for single variables. For a table of two variables, for example combining <code>speaker</code> and <code>utterance</code> so that we can see how many times each speaker said a particular utterance, we need a cross-tabulation or contingency table. In jamovi you can do this by selecting the ‘Frequencies’ - ‘Contingency Tables’ - ‘Independent Samples’ analysis, and moving the <code>speaker</code> variable into the ‘Rows’ box, and the <code>utterances</code> variable into the ‘Columns’ box. You then should have a contingency table like the one shown in Figure <a href="datahandling.html#fig:contingencytable">6.2</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:contingencytable"></span>
-<img src="img/mechanics/contingencytable.png" alt="Contingency table for the `speaker` and `utterances` variables" width="100%" />
-<p class="caption">
-Figure 6.2: Contingency table for the <code>speaker</code> and <code>utterances</code> variables
-</p>
-</div>
-<p>Don’t worry about the “<span class="math inline">\(\chi^2\)</span> Tests” table that is produced. We are going to cover this later on in chapter <a href="chisquare.html#chisquare">10</a>. When interpreting the contingency table remember that these are counts, so the fact that the first row and second column of numbers corresponds to a value of 2 indicates that Makka-Pakka (row 1) says ‘onk’ (column 2) twice in this data set.</p>
-</div>
-<div id="adding-percentages-to-a-contingency-table" class="section level3" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Adding percentages to a contingency table</h3>
-<p>The contingency table shown in Figure <a href="datahandling.html#fig:contingencytable">6.2</a> shows a table of raw frequencies. That is, a count of the total number of cases for different combinations of levels of the specified variables. However, often you want your data to be organised in terms of percentages as well as counts. You can find the check boxes for different percentages under the ‘Cells’ option in the ‘Contingency Tables’ window. First, click on the ‘Row’ check box and the Contingency Table in the output window will change to the one in Figure <a href="datahandling.html#fig:contingencyrow">6.3</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:contingencyrow"></span>
-<img src="img/mechanics/contingencyrow.png" alt="Contingency table for the `speaker` and `utterances` variables, with row percentages" width="100%" />
-<p class="caption">
-Figure 6.3: Contingency table for the <code>speaker</code> and <code>utterances</code> variables, with row percentages
-</p>
-</div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:contingencycol"></span>
-<img src="img/mechanics/contingencycol.png" alt="Contingency table for the `speaker` and `utterances` variables, with column percentages" width="100%" />
-<p class="caption">
-Figure 6.4: Contingency table for the <code>speaker</code> and <code>utterances</code> variables, with column percentages
-</p>
-</div>
-<p>What we’re looking at here is the percentage of utterances made by each character. In other words, 50% of Makka-Pakka’s utterances are ‘pip,’ and the other 50% are onk’. Let’s contrast this with the table we get when we calculate column percentages (uncheck ‘Row’ and check ‘Column’ in the Cells options window), see Figure <a href="datahandling.html#fig:contingencycol">6.4</a>. In this version, what we’re seeing is the percentage of characters associated with each utterance. For instance, whenever the utterance ‘ee’ is made (in this data set), 100% of the time it’s a Tombliboo saying it.</p>
-</div>
-</div>
-<div id="logicals" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Logical expressions in jamovi</h2>
-<p>A key concept that a lot of data transformations in jamovi rely on is the idea of a <strong><em>logical value</em></strong>. A logical value is an assertion about whether something is true or false. This is implemented in jamovi in a pretty straightforward way. There are two logical values, namely <code>TRUE</code> and <code>FALSE</code>. Despite the simplicity, logical values are very useful things. Let’s see how they work.</p>
-<div id="assessing-mathematical-truths" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Assessing mathematical truths</h3>
-<p>In George Orwell’s classic book <em>1984</em> one of the slogans used by the totalitarian Party was ‘two plus two equals five.’ The idea being that the political domination of human freedom becomes complete when it is possible to subvert even the most basic of truths. It’s a terrifying thought, especially when the protagonist Winston Smith finally breaks down under torture and agrees to the proposition. ‘Man is infinitely malleable,’ the book says. I’m pretty sure that this isn’t true of humans<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a> and it’s definitely not true of jamovi. jamovi is not infinitely malleable, it has rather firm opinions on the topic of what is and isn’t true, at least as regards basic mathematics. If I ask it to calculate <code>2 + 2</code><a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a>, it always gives the same answer, and it’s not bloody 5!</p>
-<p>Of course, so far jamovi is just doing the calculations. I haven’t asked it to explicitly assert that <span class="math inline">\(2+2 = 4\)</span> is a true statement. If I want jamovi to make an explicit judgement, I can use a command like this: <code>2 + 2 == 4</code></p>
-<p>What I’ve done here is use the <strong><em>equality operator</em></strong>, <code>==</code>, to force jamovi to make a “true or false” judgement.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> Okay, let’s see what jamovi thinks of the Party slogan, so type this into the compute new variable ‘formula’ box:</p>
-<p><code>2 + 2 == 5</code></p>
-<p>And what do you get? It should be a whole set of ‘false’ values in the spreadsheet column for your newly computed variable. Booyah! Freedom and ponies for all! Or something like that. Anyway, it was worth having a look at what happens if I try to <em>force</em> jamovi to believe that two plus two is five by making a statement like <code>2 + 2 = 5</code>. I know that if I do this in another program, say , then it throws up an error message. But wait, if you do this in jamovi you get a whole set of ‘false’ values. So what is going on? Well, it seems that jamovi is being pretty smart and realises that you are testing whether it is TRUE or FALSE that <code>2 + 2 = 5</code>, regardless of whether you use the correct <strong><em>equality operator</em></strong>, <code>==</code>, or the equals sign <code>=</code>.</p>
-</div>
-<div id="logical-operations" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Logical operations</h3>
-<p>So now we’ve seen logical operations at work. But so far we’ve only seen the simplest possible example. You probably won’t be surprised to discover that we can combine logical operations with other operations and functions in a more complicated way, like this:</p>
-<p><code>3*3 + 4*4 == 5*5</code></p>
-<p>or this</p>
-<p><code>SQRT(25) == 5</code></p>
-<p>Not only that, but as Table <a href="datahandling.html#logicals">6.2</a> illustrates, there are several other logical operators that you can use corresponding to some basic mathematical concepts. Hopefully these are all pretty self-explanatory. For example, the <strong><em>less than</em></strong> operator <code>&lt;</code> checks to see if the number on the left is less than the number on the right. If it’s less, then jamovi returns an answer of <code>TRUE</code>, but if the two numbers are equal, or if the one on the right is larger, then jamovi returns an answer of <code>FALSE</code>.</p>
-<p>In contrast, the <strong><em>less than or equal to</em></strong> operator <code>&lt;=</code> will do exactly what it says. It returns a value of <code>TRUE</code> if the number of the left hand side is less than or equal to the number on the right hand side. At this point I hope it’s pretty obvious what the <strong><em>greater than</em></strong> operator <code>&gt;</code> and the <strong><em>greater than or equal to</em></strong> operator <code>&gt;=</code> do!</p>
-<p>Next on the list of logical operators is the <strong><em>not equal to</em></strong> operator <code>!=</code> which, as with all the others, does what it says it does. It returns a value of <code>TRUE</code> when things on either side are not identical to each other. Therefore, since <span class="math inline">\(2+2\)</span> isn’t equal to <span class="math inline">\(5\)</span>, we would get ‘true’ as the value for our newly computed variable. Try it and see:</p>
-<p><code>2 + 2 != 5</code></p>
-<table>
-<caption><span id="tab:logicals">Table 6.1: </span>Some logical operators. Technically I should be calling these “binary relational operators,” but quite frankly I don’t want to. It’s my book so no-one can make me.</caption>
-<thead>
-<tr class="header">
-<th align="left">operation</th>
-<th align="left">operator</th>
-<th align="left">example input</th>
-<th align="left">answer</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">less than</td>
-<td align="left">&lt;</td>
-<td align="left">2 &lt; 3</td>
-<td align="left"><code>TRUE</code></td>
-</tr>
-<tr class="even">
-<td align="left">less than or equal to</td>
-<td align="left">&lt;=</td>
-<td align="left">2 &lt;= 2</td>
-<td align="left"><code>TRUE</code></td>
-</tr>
-<tr class="odd">
-<td align="left">greater than</td>
-<td align="left">&gt;</td>
-<td align="left">2 &gt; 3</td>
-<td align="left"><code>FALSE</code></td>
-</tr>
-<tr class="even">
-<td align="left">greater than or equal to</td>
-<td align="left">&gt;=</td>
-<td align="left">2 &gt;= 2</td>
-<td align="left"><code>TRUE</code></td>
-</tr>
-<tr class="odd">
-<td align="left">equal to</td>
-<td align="left">==</td>
-<td align="left">2 == 3</td>
-<td align="left"><code>FALSE</code></td>
-</tr>
-<tr class="even">
-<td align="left">not equal to</td>
-<td align="left">!=</td>
-<td align="left">2 != 3</td>
-<td align="left"><code>TRUE</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<caption><span id="tab:logicals2">Table 6.2: </span>Some more logical operators.</caption>
-<thead>
-<tr class="header">
-<th align="left">operation</th>
-<th align="left">operator</th>
-<th align="left">example input</th>
-<th align="left">answer</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">not</td>
-<td align="left">NOT</td>
-<td align="left">NOT(1==1)</td>
-<td align="left"><code>FALSE</code></td>
-</tr>
-<tr class="even">
-<td align="left">or</td>
-<td align="left">or</td>
-<td align="left">(1==1) or (2==3)</td>
-<td align="left"><code>TRUE</code></td>
-</tr>
-<tr class="odd">
-<td align="left">and</td>
-<td align="left">and</td>
-<td align="left">(1==1) and (2==3)</td>
-<td align="left"><code>FALSE</code></td>
-</tr>
-</tbody>
-</table>
-<p>We’re not quite done yet. There are three more logical operations that are worth knowing about, listed in Table <a href="datahandling.html#tab:logicals2">6.2</a>. These are the <strong><em>not</em></strong> operator <code>!</code>, the <strong><em>and</em></strong> operator <code>and</code>, and the <strong><em>or</em></strong> operator <code>or</code>. Like the other logical operators, their behaviour is more or less exactly what you’d expect given their names. For instance, if I ask you to assess the claim that ‘either <span class="math inline">\(2+2 = 4\)</span> <em>or</em> <span class="math inline">\(2+2 = 5\)</span>’ you’d say that it’s true. Since it’s an ‘either-or’ statement, all we need is for one of the two parts to be true. That’s what the <code>or</code> operator does:<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a></p>
-<p><code>(2+2 == 4) or (2+2 == 5)</code></p>
-<p>On the other hand, if I ask you to assess the claim that ‘both <span class="math inline">\(2+2 = 4\)</span> <em>and</em> <span class="math inline">\(2+2 = 5\)</span>’ you’d say that it’s false. Since this is an <em>and</em> statement we need both parts to be true. And that’s what the <code>and</code> operator does:</p>
-<p><code>(2+2 == 4) and (2+2 == 5)</code></p>
-<p>Finally, there’s the <em>not</em> operator, which is simple but annoying to describe in English. If I ask you to assess my claim that ‘it is not true that <span class="math inline">\(2+2 = 5\)</span>’ then you would say that my claim is true, because actually my claim is that “<span class="math inline">\(2+2 = 5\)</span> is false.” And I’m right. If we write this in jamovi we use this:</p>
-<p><code>NOT(2+2 == 5)</code></p>
-<p>In other words, since <code>2+2 == 5</code> is a <code>FALSE</code> statement, it must be the case that <code>NOT(2+2 == 5)</code> is a <code>TRUE</code> one. Essentially, what we’ve really done is claim that “not false” is the same thing as “true.” Obviously, this isn’t really quite right in real life. But jamovi lives in a much more black or white world. For jamovi everything is either true or false. No shades of grey are allowed.</p>
-<p>Of course, in our <span class="math inline">\(2+2 = 5\)</span> example, we didn’t really need to use the ‘not’ operator <code>NOT</code> and the “equals to” operator <code>==</code> as two separate operators. We could have just used the ‘not equals to’ operator <code>!=</code> like this:</p>
-<p><code>2+2 != 5</code></p>
-</div>
-<div id="logictext" class="section level3" number="6.2.3">
-<h3><span class="header-section-number">6.2.3</span> Applying logical operation to text</h3>
-<p>I also want to briefly point out that you can apply these logical operators to text as well as to logical data. It’s just that we need to be a bit more careful in understanding how jamovi interprets the different operations. In this section I’ll talk about how the equal to operator <code>==</code> applies to text, since this is the most important one. Obviously, the not equal to operator <code>!=</code> gives the exact opposite answers to <code>==</code> so I’m implicitly talking about that one too, but I won’t give specific commands showing the use of <code>!=</code>.</p>
-<p>Okay, let’s see how it works. In one sense, it’s very simple. For instance, I can ask jamovi if the word <code>"cat"</code> is the same as the word <code>"dog"</code>, like this:</p>
-<p><code>"cat" == "dog"</code></p>
-<p>That’s pretty obvious, and it’s good to know that even jamovi can figure that out. Similarly, jamovi does recognise that a <code>"cat" is a</code>“cat”`</p>
-<p><code>"cat" == "cat"</code></p>
-<p>Again, that’s exactly what we’d expect. However, what you need to keep in mind is that jamovi is not at all tolerant when it comes to grammar and spacing. If two strings differ in any way whatsoever, jamovi will say that they’re not equal to each other, as with the following:</p>
-<p><code>" cat" == "cat"</code>
-<code>"cat" == "CAT"</code>
-<code>"cat" == "c a t"</code></p>
-<p>You can also use other logical operators too. For instance jamovi also allows you to use the <code>&lt;</code> and <code>&gt;</code> operators to determine which of two text ‘strings’ comes first, alphabetically speaking. Sort of. Actually, it’s a bit more complicated than that, but let’s start with a simple example:</p>
-<p><code>"cat" &lt; "dog"</code></p>
-<p>In jamovi, this example evaluates to ‘true.’ This is because <code>"cat"</code> does does come before <code>"dog"</code> alphabetically, so jamovi judges the statement to be true. However, if we ask jamovi to tell us if <code>"cat"</code> comes before <code>"anteater"</code> then it will evaluate the expression as false. So far, so good. But text data is a bit more complicated than the dictionary suggests. What about <code>"cat"</code> and <code>"CAT"</code>? Which of these comes first? Try it and find out:</p>
-<p><code>"CAT" &lt; "cat"</code></p>
-<p>This in fact evaluates to ‘true.’ In other words, jamovi assumes that uppercase letters come before lowercase ones. Fair enough. No-one is likely to be surprised by that. What you might find surprising is that jamovi assumes that <em>all</em> uppercase letters come before <em>all</em> lowercase ones. That is, while <code>"anteater" &lt; "zebra"</code> is a true statement, and the uppercase equivalent <code>"ANTEATER" &lt; "ZEBRA"</code> is also true, it is <em>not</em> true to say that <code>"anteater" &lt; "ZEBRA"</code>, as the following extract illustrates. Try this:</p>
-<p><code>"anteater" &lt; "ZEBRA"</code></p>
-<p>This evaluates to ‘false,’ and this may seem slightly counterintuitive. With that in mind, it may help to have a quick look at Table <a href="datahandling.html#tab:asciiorder">6.3</a> which lists various text characters in the order that jamovi processes them.</p>
-<table>
-<caption><span id="tab:asciiorder">Table 6.3: </span>The ordering of various text characters used by the &lt; and &gt; operators, as well as by the sort() function. Not shown is the “space” character, which actually comes &lt;U+FB01&gt;rst on the list.</caption>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Characters</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">! " # $ % &amp; ’ ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ ] ^ _ ‘ a b c d e f g h i j k l m n o p q r s t u v w x y z } | {</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="transform" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Transforming and recoding a variable</h2>
-<p>It’s not uncommon in real world data analysis to find that one of your variables isn’t quite equivalent to the variable that you really want. For instance, it’s often convenient to take a continuous-valued variable (e.g., age) and break it up into a smallish number of categories (e.g., younger, middle, older). At other times, you may need to convert a numeric variable into a different numeric variable (e.g., you may want to analyse at the absolute value of the original variable). In this section I’ll describe a few key ways you can do these things in jamovi.</p>
-<div id="creating-a-transformed-variable" class="section level3" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> Creating a transformed variable</h3>
-<p>The first trick to discuss is the idea of <strong><em>transforming</em></strong> a variable. Taken literally, <em>anything</em> you do to a variable is a transformation, but in practice what it usually means is that you apply a relatively simple mathematical function to the original variable in order to create a new variable that either (a) provides a better way of describing the thing you’re actually interested in, or (b) is more closely in agreement with the assumptions of the statistical tests you want to do. Since, at this stage, I haven’t talked about statistical tests or their assumptions, I’ll show you an example based on the first case.</p>
-<p>Suppose I’ve run a short study in which I ask 10 people a single question:</p>
-<blockquote>
-<p>On a scale of 1 (strongly disagree) to 7 (strongly agree), to what extent do you agree with the proposition that “Dinosaurs are awesome?”</p>
-</blockquote>
-<p>Now let’s load and look at the data. The data file <code>likert.omv</code> contains a single variable that contains raw Likert-scale responses for these 10 people. However, if you think about it, this isn’t the best way to represent these responses. Because of the fairly symmetric way that we set up the response scale, there’s a sense in which the midpoint of the scale should have been coded as 0 (no opinion), and the two endpoints should be <span class="math inline">\(+3\)</span> (strongly agree) and <span class="math inline">\(-3\)</span> (strongly disagree). By recoding the data in this way it’s a bit more reflective of how we really think about the responses. The recoding here is pretty straightforward, we just subtract 4 from the raw scores. In jamovi you can do this by computing a new variable: click on the ‘Data’ - ‘Compute’ button and you will see that a new variable has been added to the spreadsheet. Let’s call this new variable <code>likert.centred</code> (go ahead and type that in) and then add the following in the formula box, like in Figure <a href="datahandling.html#fig:likertraw">6.5</a>: ‘<code>likert.raw - 4</code>’</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:likertraw"></span>
-<img src="img/mechanics/likertraw.png" alt="Creating a new computed variable in jamovi" width="100%" />
-<p class="caption">
-Figure 6.5: Creating a new computed variable in jamovi
-</p>
-</div>
-<p>One reason why it might be useful to have the data in this format is that there are a lot of situations where you might prefer to analyse the <em>strength</em> of the opinion separately from the <em>direction</em> of the opinion. We can do two different transformations on this <code>likert.centred</code> variable in order to distinguish between these two different concepts. First, to compute an <code>opinion.strength</code> variable, we want to take the absolute value of the centred data (using the ‘ABS’ function).<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a> In jamovi, create another new variable using the ‘Compute’ button. Name the variable <code>opinion.strength</code> and this time click on the <em>f<sub>x</sub></em> button next to the ‘Formula’ box. This shows the different ‘Functions’ and ‘Variables’ that you can add to the ‘Formula’ box, so double click on ‘ABS’ and then double click on ‘likert.centred’ and you will see that the `Formula’ box is populated with ABS(likert.centred) and a new variable has been created in the spreadsheet view, as in Figure <a href="datahandling.html#fig:opinionstrength">6.6</a></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:opinionstrength"></span>
-<img src="img/mechanics/opinionstrength.png" alt="Using the *f~x~* button to select functions and variables" width="100%" />
-<p class="caption">
-Figure 6.6: Using the <em>f<sub>x</sub></em> button to select functions and variables
-</p>
-</div>
-<p>Second, to compute a variable that contains only the direction of the opinion and ignores the strength, we want to calculate the ‘sign’ of the variable. In jamovi we can use the ‘IF’ function to do this. Create another new variable using the ‘Compute’ button, name this one <code>opinion.sign</code>, and then type the following into the function box:</p>
-<p><code>IF(likert.centred == 0, 0, likert.centred / opinion.strength)</code></p>
-<p>When done, you’ll see that all negative numbers from the <code>likert.centred</code> variable are converted to <span class="math inline">\(-1\)</span>, all positive numbers are converted to <span class="math inline">\(1\)</span> and zero stays as <span class="math inline">\(0\)</span>, like so:</p>
-<p><code>-1  1 -1  0  0  0 -1  1  1  1</code></p>
-<p>Let’s break down what this ‘IF’ command is doing. In jamovi there are three parts to an ‘IF’ statement, written as ‘IF(expression, value, else).’ The first part, ‘expression’ can be a logical or mathematical statement. In our example, we have specified ‘likert.centred == 0,’ which is TRUE for values where likert.centred is zero. The next part, ‘value,’ is the new value where the expression in part one is TRUE. In our example, we have said that for all those values where likert.centred is zero, keep them zero. In the next part, ‘else,’ we can enter another logical or mathematical statement to be used if part one evaluates to FALSE, i.e. where <code>likert.centred</code> is not zero. In our example we have divided likert.centred by opinion.strength to give ‘-1’ or ‘+1’ depending of the sign of the original value in likert.centred.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a></p>
-<p>And we’re done. We now have three shiny new variables, all of which are useful transformations of the original <code>likert.raw</code> data.</p>
-</div>
-<div id="collapsing-a-variable-into-a-smaller-number-of-discrete-levels-or-categories" class="section level3" number="6.3.2">
-<h3><span class="header-section-number">6.3.2</span> Collapsing a variable into a smaller number of discrete levels or categories</h3>
-<p>One pragmatic task that comes up quite often is the problem of collapsing a variable into a smaller number of discrete levels or categories. For instance, suppose I’m interested in looking at the age distribution of people at a social gathering:</p>
-<p><code>60,58,24,26,34,42,31,30,33,2,9</code></p>
-<p>In some situations it can be quite helpful to group these into a smallish number of categories. For example, we could group the data into three broad categories: young (0-20), adult (21-40) and older (41-60). This is a quite coarse-grained classification, and the labels that I’ve attached only make sense in the context of this data set (e.g., viewed more generally, a 42 year old wouldn’t consider themselves as ‘older’). We can slice this variable up quite easily using the jamovi ‘IF’ function that we have already used. This time we have to specify nested ‘IF’ statements, meaning simply that IF the first logical expression is TRUE, insert a first value, but IF a second logical expression is TRUE, insert a second value, but IF a third logical expression is TRUE, then insert a third value. This can be written as:</p>
-<pre><code>IF(Age &gt;= 0 and Age &lt;= 20, 1,
-IF(Age &gt;= 21 and Age &lt;= 40, 2,
-IF(Age &gt;= 41 and Age &lt;= 60, 3 )))</code></pre>
-<p>Note that there are three left parentheses used during the nesting, so the whole statement has to end with three right parentheses otherwise you will get an error message. The jamovi screen shot for this data manipulation, along with an accompanying frequency table, is shown in Figure <a href="datahandling.html#fig:agecats">6.7</a></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:agecats"></span>
-<img src="img/mechanics/agecats.png" alt="Collapsing a variable into a smaller number of discrete levels using the jamovi 'IF' function" width="100%" />
-<p class="caption">
-Figure 6.7: Collapsing a variable into a smaller number of discrete levels using the jamovi ‘IF’ function
-</p>
-</div>
-<p>It’s important to take the time to figure out whether or not the resulting categories make any sense at all in terms of your research project. If they don’t make any sense to you as meaningful categories, then any data analysis that uses those categories is likely to be just as meaningless. More generally, in practice I’ve noticed that people have a very strong desire to carve their (continuous and messy) data into a few (discrete and simple) categories, and then run analyses using the categorised data instead of the original data.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> I wouldn’t go so far as to say that this is an inherently bad idea, but it does have some fairly serious drawbacks at times, so I would advise some caution if you are thinking about doing it.</p>
-</div>
-<div id="creating-a-transformation-that-can-be-applied-to-multiple-variables" class="section level3" number="6.3.3">
-<h3><span class="header-section-number">6.3.3</span> Creating a transformation that can be applied to multiple variables</h3>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:transform1"></span>
-<img src="img/mechanics/transform1.png" alt="Creating a new variable transformation using the jamovi `Transform' command" width="100%" />
-<p class="caption">
-Figure 6.8: Creating a new variable transformation using the jamovi `Transform’ command
-</p>
-</div>
-<p>Sometimes you want to apply the same transformation to more than one variable, for example when you have multiple questionnaire items that all need to be recalculated or recoded in the same way. And one of the neat features in jamovi is that you can create a transformation, using the ‘Data’ - ‘Transform’ button, that can then be saved and applied to multiple variables. Let’s go back to the first example above, using the data file <code>likert.omv</code> that contains a single variable with raw Likert-scale responses for 10 people. To create a transformation that you can save and then apply across multiple variables (assuming you had more variables like this in your data file), first in the spreadsheet editor select (i.e., click) the variable you want to use to initially create the transformation. In our example this is <code>likert.raw</code>. Next click the ‘Transform’ button in the jamovi ‘Data’ ribbon, and you’ll see something like Figure <a href="datahandling.html#fig:transform1">6.8</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:transform2"></span>
-<img src="img/mechanics/transform2.png" alt="Specifying a transformation in jamovi, to be saved as the imaginatively named 'Transform 1'" width="100%" />
-<p class="caption">
-Figure 6.9: Specifying a transformation in jamovi, to be saved as the imaginatively named ‘Transform 1’
-</p>
-</div>
-<p>Give your new variable a name, let’s call it <code>opinion.strength</code> and then click on the ‘using transform’ selection box and select ‘Create New Transform….’ This is where you will create, and name, the transformation that can be re-applied to as many variables as you like. The transformation is automatically named for us as ‘Transform 1’ (imaginative, huh. You can change this if you like). Then type the expression ‘<code>ABS(\$source - 4)</code>’ into the function text box, as in Figure <a href="datahandling.html#fig:transform2">6.9</a>, press Enter or Return on your keyboard and, hey presto, you have created a new transformation and applied it to the <code>likert.raw</code> variable! Good, eh. Note that instead of using the variable label in the expression, we have instead used ‘<code>\$source</code>.’ This is so that we can then use the same transformation with as many different variables as we like - jamovi requires you to use ‘<code>\$source</code>’ to refer to the source variable you are transforming. Your transformation has also been saved and can be re-used any time you like (providing you save the dataset as an ‘.omv’ file, otherwise you’ll lose it!).</p>
-<p>You can also create a transformation with the second example we looked at, the age distribution of people at a social gathering. Go on, you know you want to! Remember that we collapsed this variable into three groups: younger, adult and older. This time we will achieve the same thing, but using the jamovi ‘Transform’ - ‘Add condition’ button. With this data set (go back to it or create it again if you didn’t save it) set up a new variable transformation. Call the transformed variable <code>AgeCats</code> and the transformation you will create <code>Agegroupings</code>. Then click on the big “+” sign next to the function box. This is the ‘Add condition’ button and I’ve stuck a big red arrow onto Figure <a href="datahandling.html#fig:transform3">6.10</a> so you can see exactly where this is. Re-create the transformation shown in Figure <a href="datahandling.html#fig:transform3">6.10</a> and when you have done, you will see the new values appear in the spreadsheet window. What’s more, the <code>Agegroupings</code> transformation has been saved and can be re-applied any time you like. Ok, so I know that it’s unlikely you will have more than one ‘Age’ variable, but you get the idea now of how to set up transformations in jamovi, so you can follow this idea with other sorts of variables. A typical scenario for this is when you have a questionnaire scale with, say, 20 items (variables) and each item was originally scored from 1 to 6 but, for some reason or quirk of the data you decide to recode all the items as 1 to 3. You can easily do this in jamovi by creating and then re-applying your transformation for each variable that you want to recode.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:transform3"></span>
-<img src="img/mechanics/transform3.png" alt="jamovi transformation into three age categories, using the 'Add condition' button" width="100%" />
-<p class="caption">
-Figure 6.10: jamovi transformation into three age categories, using the ‘Add condition’ button
-</p>
-</div>
-</div>
-</div>
-<div id="mathfunc" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> A few more mathematical functions and operations</h2>
-<p>In Section <a href="datahandling.html#transform">6.3</a> I discussed the ideas behind variable transformations and showed that a lot of the transformations that you might want to apply to your data are based on fairly simple mathematical functions and operations. In this section I want to return to that discussion and mention several other mathematical functions and arithmetic operations that are actually quite useful for a lot of real world data analysis. Table <a href="datahandling.html#tab:mathfunc">6.4</a> gives a brief overview of the various mathematical functions I want to talk about here, or later.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> Obviously this doesn’t even come close to cataloguing the range of possibilities available, but it does cover a range of functions that are used regularly in data analysis and that are available in jamovi.</p>
-<table>
-<caption><span id="tab:mathfunc">Table 6.4: </span>Some of the mathematical functions available in jamovi</caption>
-<thead>
-<tr class="header">
-<th align="left">mathematical.function</th>
-<th align="left">R.function</th>
-<th align="left">example.input</th>
-<th align="left">answer</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">square root</td>
-<td align="left">SQRT(x)</td>
-<td align="left">SQRT(25)</td>
-<td align="left">5</td>
-</tr>
-<tr class="even">
-<td align="left">absolute value</td>
-<td align="left">ABS(x)</td>
-<td align="left">ABS(-23)</td>
-<td align="left">23</td>
-</tr>
-<tr class="odd">
-<td align="left">logarithm (base 10)</td>
-<td align="left">LOG10(x)</td>
-<td align="left">LOG10(1000)</td>
-<td align="left">3</td>
-</tr>
-<tr class="even">
-<td align="left">logarithm (base e)</td>
-<td align="left">LN(x)</td>
-<td align="left">LN(1000)</td>
-<td align="left">6.908</td>
-</tr>
-<tr class="odd">
-<td align="left">exponentiation</td>
-<td align="left">EXP(x)</td>
-<td align="left">EXP(6.908)</td>
-<td align="left">1000.245</td>
-</tr>
-<tr class="even">
-<td align="left">box-cox</td>
-<td align="left">BOXCOX(x, lamda)</td>
-<td align="left">BOXCOX(6.908, 3)</td>
-<td align="left">109.551</td>
-</tr>
-</tbody>
-</table>
-<div id="logarithms-and-exponentials" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Logarithms and exponentials</h3>
-<p>As I’ve mentioned earlier, jamovi has an useful range of mathematical functions built into it and there really wouldn’t be much point in trying to describe or even list all of them. For the most part, I’ve focused only on those functions that are strictly necessary for this book. However I do want to make an exception for logarithms and exponentials. Although they aren’t needed anywhere else in this book, they are <em>everywhere</em> in statistics more broadly. And not only that, there are a *lot} of situations in which it is convenient to analyse the logarithm of a variable (i.e., to take a ‘log-transform’ of the variable). I suspect that many (maybe most) readers of this book will have encountered logarithms and exponentials before, but from past experience I know that there’s a substantial proportion of students who take a social science statistics class who haven’t touched logarithms since high school, and would appreciate a bit of a refresher.</p>
-<p>In order to understand logarithms and exponentials, the easiest thing to do is to actually calculate them and see how they relate to other simple calculations. There are three jamovi functions in particular that I want to talk about, namely <code>LN()</code>, <code>LOG10()</code> and <code>EXP()</code>. To start with, let’s consider <code>LOG10()</code>, which is known as the ‘llogarithm in base 10.’ The trick to understanding a <strong><em>logarithm</em></strong> is to understand that it’s basically the “opposite” of taking a power. Specifically, the logarithm in base 10 is closely related to the powers of 10. So let’s start by noting that 10-cubed is 1000. Mathematically, we would write this:
-<span class="math display">\[ 
-10^3 = 1000
-\]</span>
-The trick to understanding a logarithm is to recognise that the statement that “10 to the power of 3 is equal to 1000” is equivalent to the statement that “the logarithm (in base 10) of 1000 is equal to 3.” Mathematically, we write this as follows,
-<span class="math display">\[
-\log_{10}( 1000 ) = 3
-\]</span></p>
-<p>Okay, since the <code>LOG10()</code> function is related to the powers of 10, you might expect that there are other logarithms (in bases other than 10) that are related to other powers too. And of course that’s true: there’s not really anything mathematically special about the number 10. You and I happen to find it useful because decimal numbers are built around the number 10, but the big bad world of mathematics scoffs at our decimal numbers. Sadly, the universe doesn’t actually care how we write down numbers. Anyway, the consequence of this cosmic indifference is that there’s nothing particularly special about calculating logarithms in base 10. You could, for instance, calculate your logarithms in base 2. Alternatively, a third type of logarithm, and one we see a lot more of in statistics than either base 10 or base 2, is called the <strong><em>natural logarithm</em></strong>, and corresponds to the logarithm in base <span class="math inline">\(e\)</span>. Since you might one day run into it, I’d better explain what <span class="math inline">\(e\)</span> is. The number <span class="math inline">\(e\)</span>, known as <strong><em>Euler’s number</em></strong>, is one of those annoying “irrational” numbers whose decimal expansion is infinitely long, and is considered one of the most important numbers in mathematics. The first few digits of <span class="math inline">\(e\)</span> are:
-<span class="math display">\[
-e = 2.718282 
-\]</span>
-There are quite a few situation in statistics that require us to calculate powers of <span class="math inline">\(e\)</span>, though none of them appear in this book. Raising <span class="math inline">\(e\)</span> to the power <span class="math inline">\(x\)</span> is called the <strong><em>exponential</em></strong> of <span class="math inline">\(x\)</span>, and so it’s very common to see <span class="math inline">\(e^x\)</span> written as <span class="math inline">\(\exp(x)\)</span>. And so it’s no surprise that jamovi has a function that calculates exponentials, called <code>EXP()</code>. Because the number <span class="math inline">\(e\)</span> crops up so often in statistics, the natural logarithm (i.e., logarithm in base <span class="math inline">\(e\)</span>) also tends to turn up. Mathematicians often write it as <span class="math inline">\(\log_e(x)\)</span> or <span class="math inline">\(\ln(x)\)</span>. In fact, jamovi works the same way: the <code>LN()</code> function corresponds to the natural logarithm.</p>
-<p>And with that, I think we’ve had quite enough exponentials and logarithms for this book!</p>
-</div>
-</div>
-<div id="subset" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Extracting a subset of the data</h2>
-<p>One very important kind of data handling is being able to extract a particular subset of the data. For instance, you might be interested only in analysing the data from one experimental condition, or you may want to look closely at the data from people over 50 years in age. To do this, the first step is getting jamovi to filter the subset of the data corresponding to the observations that you’re interested in.</p>
-<p>This section returns to the <code>nightgarden.csv</code> data set. If you’re reading this whole chapter in one sitting, then you should already have this data set loaded into a jamovi window. For this section, let’s focus on the two variables <code>speaker</code> and <code>utterance</code> (see Section <a href="datahandling.html#freqtables">6.1</a> if you’ve forgotten what those variables look like). Suppose that what I want to do is pull out only those utterances that were made by Makka-Pakka. To that end, we need to specify a filter in jamovi. First open up a filter window by clicking on ‘Filters’ on the main jamovi ‘Data’ toolbar. Then, in the ‘Filter 1’ text box, next to the ‘=’ sign, type the following:</p>
-<p><code>speaker == 'makka-pakka'</code></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:subset1"></span>
-<img src="img/mechanics/subset1.png" alt="Creating a subset of the `nightgarden` data using the jamovi 'Filters' option" width="100%" />
-<p class="caption">
-Figure 6.11: Creating a subset of the <code>nightgarden</code> data using the jamovi ‘Filters’ option
-</p>
-</div>
-<p>When you have done this, you will see that a new column has been added to the spreadsheet window (see Figure <a href="datahandling.html#fig:subset1">6.11</a>), labelled ‘Filter 1,’ with the cases where <code>speaker</code> <strong>is not</strong> ‘makka-pakka’ greyed-out (i.e., filtered out) and, conversely, the cases where <code>speaker</code> <strong><em>is</em></strong> ‘makka-pakka’ have a green check mark indicating they are filtered in. You can test this by running ‘Exploration’ - ‘Descriptives’ - <code>Frequency tables' for the</code>speaker` variable and seeing what that shows. Go on, try it!</p>
-<p>Following on from this simple example, you can also build up more complex filters using logical expressions in jamovi. For instance, suppose I wanted to keep only those cases when the utterance is either ‘pip’ or ‘oo.’ In this case in the ‘Filter 1’ text box, next to the ‘=’ sign, you would type the following:</p>
-<p><code>utterance == 'pip' or utterance == 'oo'</code></p>
-</div>
-<div id="summary-3" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Summary</h2>
-<p>Obviously, there’s no real coherence to this chapter. It’s just a grab bag of topics and tricks that can be handy to know about, so the best wrap up I can give here is just to repeat this list:</p>
-<ul>
-<li>Section <a href="datahandling.html#freqtables">6.1</a>. Tabulating data.</li>
-<li>Section <a href="datahandling.html#logicals">6.2</a>. Using logical expressions.</li>
-<li>Section <a href="datahandling.html#transform">6.3</a>. Transforming or recoding a variable.</li>
-<li>Section <a href="datahandling.html#mathfunc">6.4</a>. Some useful mathematical functions.</li>
-<li>Section <a href="datahandling.html#subset">6.5</a>. Extracting a subset of a data set.</li>
-</ul>
+<div id="book-index" class="section level1 unnumbered">
+<h1>Book Index</h1>
+<p><strong><em>Categorical data analysis</em></strong>, Chapter <a href="chisquare.html#chisquare">10</a></p>
+<p><strong><em>Cramer’s <span class="math inline">\(V\)</span></em></strong>, Section <a href="chisquare.html#chisqeffectsize">10.4</a></p>
+<p><strong><em>Fisher’s exact test</em></strong>, Section <a href="chisquare.html#fisherexacttest">10.6</a></p>
+<p><strong><em>McNemar test of marginal homogeneity</em></strong>, Section <a href="chisquare.html#mcnemar">10.7</a></p>
+<p><strong><em>Pearson’s <span class="math inline">\(\chi^2\)</span> (chi-square) goodness-of-fit test</em></strong>, Section <a href="chisquare.html#goftest">10.1</a></p>
+<p><strong><em>Yates correction</em></strong>, Section <a href="chisquare.html#yates">10.3</a></p>
+<p><strong><em>expected frequencies</em></strong>, Section <a href="chisquare.html#gofteststat">10.1.3</a></p>
+<p><strong><em>goodness-of-fit</em></strong> statistic, Section <a href="chisquare.html#gofteststat">10.1.3</a></p>
+<p><strong><em><span class="math inline">\(\chi^2\)</span> (chi-square) distribution</em></strong>, Section <a href="chisquare.html#chidist">10.1.4</a></p>
+<p><strong><em>degrees of freedom</em></strong>, Section <a href="#chidof"><strong>??</strong></a></p>
 
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="29">
-<li id="fn29"><p>The quote comes from <em>Home is the Hangman</em>, published in 1975.<a href="datahandling.html#fnref29" class="footnote-back">↩︎</a></p></li>
-<li id="fn30"><p>I offer up my teenage attempts to be “cool” as evidence that some things just can’t be done.<a href="datahandling.html#fnref30" class="footnote-back">↩︎</a></p></li>
-<li id="fn31"><p>You can do this in the Compute new variable screen, though just calculating <code>2 + 2</code> for every cell of a new variable is not very useful!<a href="datahandling.html#fnref31" class="footnote-back">↩︎</a></p></li>
-<li id="fn32"><p>Note that this is a very different operator to the equals operator <code>=</code>. A common typo that people make when trying to write logical commands in jamovi (or other languages, since the <code>=</code> versus <code>==</code> distinction is important in many computer and statistical programs) is to accidentally type <code>=</code> when you really mean <code>==</code>. Be especially cautious with this, I’ve been programming in various languages since I was a teenager and I <em>still</em> screw this up a lot. Hmm. I think I see why I wasn’t cool as a teenager. And why I’m still not cool.<a href="datahandling.html#fnref32" class="footnote-back">↩︎</a></p></li>
-<li id="fn33"><p>Now, here’s a quirk in jamovi. When you have simple logical expressions like the ones we have already met, e.g. <code>2 + 2 == 5</code> then jamovi neatly states ‘false’ (or ‘true’) in the corresponding spreadsheet column. Underneath the hood, jamovi stores ‘false’ as <code>0</code> and ‘true’ as <code>1</code>. When we have more complex logical expressions, such as <code>(2+2 == 4) or (2+2 == 5)</code>, then jamovi just displays either <code>0</code> or <code>1</code>, depending whether the logical expression is evaluated as false, or true. <a href="datahandling.html#fnref33" class="footnote-back">↩︎</a></p></li>
-<li id="fn34"><p>The absolute value of a number is its distance from zero, regardless of whether it’s sign is negative or positive.<a href="datahandling.html#fnref34" class="footnote-back">↩︎</a></p></li>
-<li id="fn35"><p>The reason we have to use the ‘IF’ command and keep zero as zero is that you cannot just use likert.centred / opinion.strength to calculate the sign of likert.centred, because mathematically dividing zero by zero does not work. Try it and see<a href="datahandling.html#fnref35" class="footnote-back">↩︎</a></p></li>
-<li id="fn36"><p>If you’ve read further into the book, and are re-reading this section, then a good example of this would be someone choosing to do an ANOVA using <code>AgeCats</code> as the grouping variable, instead of running a regression using <code>Age</code> as a predictor. There are sometimes good reasons for doing this. For instance, if the relationship between <code>Age</code> and your outcome variable is highly non-linear and you aren’t comfortable with trying to run non-linear regression! However, unless you really do have a good rationale for doing this, it’s best not to. It tends to introduce all sorts of other problems (e.g., the data will probably violate the normality assumption) and you can lose a lot of statistical power.<a href="datahandling.html#fnref36" class="footnote-back">↩︎</a></p></li>
-<li id="fn37"><p>We’ll leave the box-cox function until later on, see Subsection <a href="#boxcox"><strong>??</strong></a><a href="datahandling.html#fnref37" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="graphics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="probability.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="epilogue.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1182,7 +803,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ekothe/lsj/issues03.06-pragmatics.Rmd",
+"link": "https://github.com/ekothe/lsj/issues06-bookindex.Rmd",
 "text": "Report an error"
 },
 "history": {

@@ -1,4 +1,4 @@
-# Index{-}
+# Book Index{-}
 
 ***Categorical data analysis***, Chapter \@ref(chisquare)
 
