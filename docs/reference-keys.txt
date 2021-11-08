@@ -83,7 +83,7 @@ fig:binomialtest
 fig:crit3
 fig:crit4
 fig:powerfunction
-tab:unnamed-chunk-12
+tab:unnamed-chunk-11
 fig:powerfunctionsample
 fig:manychi
 fig:goftest
