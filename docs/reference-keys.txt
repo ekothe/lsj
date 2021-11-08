@@ -37,7 +37,7 @@ fig:freqtable
 fig:contingencytable
 fig:contingencyrow
 fig:contingencycol
-tab:logicals
+tab:logicaltab
 tab:logicals2
 tab:asciiorder
 fig:likertraw
@@ -53,8 +53,7 @@ fig:pantsprob
 tab:probrules
 tab:distformulas
 fig:binomial1
-fig:binomial2a
-fig:binomial2b
+fig:binomial2
 fig:normdist
 fig:normmean
 fig:normsd
