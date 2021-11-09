@@ -431,6 +431,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="9.10" data-path="hypothesistesting.html"><a href="hypothesistesting.html#summary-6"><i class="fa fa-check"></i><b>9.10</b> Summary</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="part-v.-statistical-tools.html"><a href="part-v.-statistical-tools.html"><i class="fa fa-check"></i>Part V. Statistical Tools</a></li>
 <li class="chapter" data-level="10" data-path="chisquare.html"><a href="chisquare.html"><i class="fa fa-check"></i><b>10</b> Categorical data analysis</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="chisquare.html"><a href="chisquare.html#goftest"><i class="fa fa-check"></i><b>10.1</b> The <span class="math inline">\(\chi^2\)</span> (chi-square) goodness-of-fit test</a>
@@ -439,7 +440,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.1.2" data-path="chisquare.html"><a href="chisquare.html#the-null-hypothesis-and-the-alternative-hypothesis"><i class="fa fa-check"></i><b>10.1.2</b> The null hypothesis and the alternative hypothesis</a></li>
 <li class="chapter" data-level="10.1.3" data-path="chisquare.html"><a href="chisquare.html#gofteststat"><i class="fa fa-check"></i><b>10.1.3</b> The “goodness-of-fit” test statistic</a></li>
 <li class="chapter" data-level="10.1.4" data-path="chisquare.html"><a href="chisquare.html#chidist"><i class="fa fa-check"></i><b>10.1.4</b> The sampling distribution of the GOF statistic</a></li>
-<li class="chapter" data-level="10.1.5" data-path="chisquare.html"><a href="chisquare.html#degrees-of-freedomchidof"><i class="fa fa-check"></i><b>10.1.5</b> Degrees of freedom{chidof}</a></li>
+<li class="chapter" data-level="10.1.5" data-path="chisquare.html"><a href="chisquare.html#chidof"><i class="fa fa-check"></i><b>10.1.5</b> Degrees of freedom</a></li>
 <li class="chapter" data-level="10.1.6" data-path="chisquare.html"><a href="chisquare.html#testing-the-null-hypothesis"><i class="fa fa-check"></i><b>10.1.6</b> Testing the null hypothesis</a></li>
 <li class="chapter" data-level="10.1.7" data-path="chisquare.html"><a href="chisquare.html#gofTestInjamovi"><i class="fa fa-check"></i><b>10.1.7</b> Doing the test in jamovi</a></li>
 <li class="chapter" data-level="10.1.8" data-path="chisquare.html"><a href="chisquare.html#specifying-a-different-null-hypothesis"><i class="fa fa-check"></i><b>10.1.8</b> Specifying a different null hypothesis</a></li>
@@ -503,14 +504,14 @@ div.csl-indent {
 <li class="chapter" data-level="11.7" data-path="ttest.html"><a href="ttest.html#cohensd"><i class="fa fa-check"></i><b>11.7</b> Effect size</a>
 <ul>
 <li class="chapter" data-level="11.7.1" data-path="ttest.html"><a href="ttest.html#cohens-d-from-one-sample"><i class="fa fa-check"></i><b>11.7.1</b> Cohen’s d from one sample</a></li>
-<li class="chapter" data-level="11.7.2" data-path="ttest.html"><a href="ttest.html#cohens-d-from-a-students-t-test"><i class="fa fa-check"></i><b>11.7.2</b> Cohen’s <span class="math inline">\(d\)</span> from a Student’s <span class="math inline">\(t\)</span> test}</a></li>
+<li class="chapter" data-level="11.7.2" data-path="ttest.html"><a href="ttest.html#cohens-d-from-a-students-t-test"><i class="fa fa-check"></i><b>11.7.2</b> Cohen’s <span class="math inline">\(d\)</span> from a Student’s <span class="math inline">\(t\)</span> test</a></li>
 <li class="chapter" data-level="11.7.3" data-path="ttest.html"><a href="ttest.html#cohens-d-from-a-paired-samples-test"><i class="fa fa-check"></i><b>11.7.3</b> Cohen’s <span class="math inline">\(d\)</span> from a paired-samples test</a></li>
 </ul></li>
 <li class="chapter" data-level="11.8" data-path="ttest.html"><a href="ttest.html#shapiro"><i class="fa fa-check"></i><b>11.8</b> Checking the normality of a sample</a>
 <ul>
 <li class="chapter" data-level="11.8.1" data-path="ttest.html"><a href="ttest.html#qq-plots"><i class="fa fa-check"></i><b>11.8.1</b> QQ plots</a></li>
 <li class="chapter" data-level="11.8.2" data-path="ttest.html"><a href="ttest.html#shapiro-wilk-tests"><i class="fa fa-check"></i><b>11.8.2</b> Shapiro-Wilk tests</a></li>
-<li class="chapter" data-level="11.8.3" data-path="ttest.html"><a href="ttest.html#example"><i class="fa fa-check"></i><b>11.8.3</b> Example}</a></li>
+<li class="chapter" data-level="11.8.3" data-path="ttest.html"><a href="ttest.html#example"><i class="fa fa-check"></i><b>11.8.3</b> Example</a></li>
 </ul></li>
 <li class="chapter" data-level="11.9" data-path="ttest.html"><a href="ttest.html#wilcox"><i class="fa fa-check"></i><b>11.9</b> Testing non-normal data with Wilcoxon tests</a>
 <ul>
@@ -785,14 +786,14 @@ H_0 &amp;:&amp; \mbox{it is true that } \mu_P = \mu_A = \mu_J
 As a consequence, our alternative hypothesis is that at least one of the three different treatments is different from the others. It’s a bit tricky to write this mathematically, because (as we’ll discuss) there are quite a few different ways in which the null hypothesis can be false. So for now we’ll just write the alternative hypothesis like this:
 <span class="math display">\[
 \begin{array}{rcl}
-H_1 &amp;:&amp; \mbox{it is \underline{not} true that } \mu_P = \mu_A = \mu_J
+H_1 &amp;:&amp; \mbox{it is not true that } \mu_P = \mu_A = \mu_J
 \end{array}
 \]</span>
 This null hypothesis is a lot trickier to test than any of the ones we’ve seen previously. How shall we do it? A sensible guess would be to “do an ANOVA,” since that’s the title of the chapter, but it’s not particularly clear why an “analysis of <em>variances</em>” will help us learn anything useful about the <em>means</em>. In fact, this is one of the biggest conceptual difficulties that people have when first encountering ANOVA. To see how this works, I find it most helpful to start by talking about variances. In fact, what I’m going to do is start by playing some mathematical games with the formula that describes the variance. That is, we’ll start out by playing around with variances and it will turn out that this gives us a useful tool for investigating means.</p>
 </div>
 <div id="two-formulas-for-the-variance-of-y" class="section level2" number="13.3">
 <h2><span class="header-section-number">13.3</span> Two formulas for the variance of <span class="math inline">\(Y\)</span></h2>
-<p>First, let’s start by introducing some notation. We’ll use <span class="math inline">\(G\)</span> to refer to the total number of groups. For our data set there are three drugs, so there are <span class="math inline">\(G=3\)</span> groups. Next, we’ll use <span class="math inline">\(N\)</span> to refer to the total sample size; there are a total of <span class="math inline">\(N=18\)</span> people in our data set. Similarly, let’s use <span class="math inline">\(N_k\)</span> to denote the number of people in the <span class="math inline">\(k\)</span>-th group. In our fake clinical trial, the sample size is <span class="math inline">\(N_k = 6\)</span> for all three groups.<a href="#fn108" class="footnote-ref" id="fnref108"><sup>108</sup></a> Finally, we’ll use <span class="math inline">\(Y\)</span> to denote the outcome variable. In our case, <span class="math inline">\(Y\)</span> refers to mood change. Specifically, we’ll use <span class="math inline">\(Y_{ik}\)</span> to refer to the mood change experienced by the <span class="math inline">\(i\)</span>-th member of the <span class="math inline">\(k\)</span>-th group. Similarly, we’ll use <span class="math inline">\(\bar{Y}\)</span> to be the average mood change, taken across all 18 people in the experiment, and <span class="math inline">\(\bar{Y}_k\)</span> to refer to the average mood change experienced by the 6 people in group <span class="math inline">\(k\)</span>.</p>
+<p>First, let’s start by introducing some notation. We’ll use <span class="math inline">\(G\)</span> to refer to the total number of groups. For our data set there are three drugs, so there are <span class="math inline">\(G=3\)</span> groups. Next, we’ll use <span class="math inline">\(N\)</span> to refer to the total sample size; there are a total of <span class="math inline">\(N=18\)</span> people in our data set. Similarly, let’s use <span class="math inline">\(N_k\)</span> to denote the number of people in the <span class="math inline">\(k\)</span>-th group. In our fake clinical trial, the sample size is <span class="math inline">\(N_k = 6\)</span> for all three groups.<a href="#fn110" class="footnote-ref" id="fnref110"><sup>110</sup></a> Finally, we’ll use <span class="math inline">\(Y\)</span> to denote the outcome variable. In our case, <span class="math inline">\(Y\)</span> refers to mood change. Specifically, we’ll use <span class="math inline">\(Y_{ik}\)</span> to refer to the mood change experienced by the <span class="math inline">\(i\)</span>-th member of the <span class="math inline">\(k\)</span>-th group. Similarly, we’ll use <span class="math inline">\(\bar{Y}\)</span> to be the average mood change, taken across all 18 people in the experiment, and <span class="math inline">\(\bar{Y}_k\)</span> to refer to the average mood change experienced by the 6 people in group <span class="math inline">\(k\)</span>.</p>
 <div class="blackbox">
 <div class="center">
 
@@ -809,60 +810,60 @@ This formula looks pretty much identical to the formula for the variance in Sect
 <col width="5%" />
 <col width="13%" />
 <col width="7%" />
-<col width="17%" />
-<col width="22%" />
+<col width="16%" />
+<col width="21%" />
 <col width="33%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">name</th>
-<th align="left">person (<span class="math inline">\(p\)</span>)</th>
-<th align="left">group</th>
-<th align="left">group num (<span class="math inline">\(k\)</span>)</th>
-<th align="left">index in group (<span class="math inline">\(i\)</span>)</th>
-<th align="left">grumpiness (<span class="math inline">\(Y_{ik}\)</span> or <span class="math inline">\(Y_p\)</span>)</th>
+<th align="center">name</th>
+<th align="center">person <span class="math inline">\((p)\)</span></th>
+<th align="center">group</th>
+<th align="center">group num <span class="math inline">\((k)\)</span></th>
+<th align="center">index in group <span class="math inline">\((i)\)</span></th>
+<th align="center">grumpiness <span class="math inline">\((Y_{ik})\)</span> or <span class="math inline">\((Y_p)\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Ann</td>
-<td align="left">1</td>
-<td align="left">cool</td>
-<td align="left">1</td>
-<td align="left">1</td>
-<td align="left">20</td>
+<td align="center">Ann</td>
+<td align="center">1</td>
+<td align="center">cool</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">20</td>
 </tr>
 <tr class="even">
-<td align="left">Ben</td>
-<td align="left">2</td>
-<td align="left">cool</td>
-<td align="left">1</td>
-<td align="left">2</td>
-<td align="left">55</td>
+<td align="center">Ben</td>
+<td align="center">2</td>
+<td align="center">cool</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">55</td>
 </tr>
 <tr class="odd">
-<td align="left">Cat</td>
-<td align="left">3</td>
-<td align="left">cool</td>
-<td align="left">1</td>
-<td align="left">3</td>
-<td align="left">21</td>
+<td align="center">Cat</td>
+<td align="center">3</td>
+<td align="center">cool</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">21</td>
 </tr>
 <tr class="even">
-<td align="left">Dan</td>
-<td align="left">4</td>
-<td align="left">uncool</td>
-<td align="left">2</td>
-<td align="left">1</td>
-<td align="left">91</td>
+<td align="center">Dan</td>
+<td align="center">4</td>
+<td align="center">uncool</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">91</td>
 </tr>
 <tr class="odd">
-<td align="left">Egg</td>
-<td align="left">5</td>
-<td align="left">uncool</td>
-<td align="left">2</td>
-<td align="left">2</td>
-<td align="left">22</td>
+<td align="center">Egg</td>
+<td align="center">5</td>
+<td align="center">uncool</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">22</td>
 </tr>
 </tbody>
 </table>
@@ -926,11 +927,11 @@ Yay.</p>
 Figure 13.2: Graphical illustration of “between groups” variation (panel a) and “within groups” variation (panel b). On the left the arrows show the differences in the group means. On the right the arrows highlight the variability within each group
 </p>
 </div>
-<p>Okay, so what have we found out? We’ve discovered that the total variability associated with the outcome variable (<span class="math inline">\(\mbox{SS}_{tot}\)</span>) can be mathematically carved up into the sum of “the variation due to the differences in the sample means for the different groups” (<span class="math inline">\(\mbox{SS}_{b}\)</span>) plus “all the rest of the variation” (<span class="math inline">\(\mbox{SS}_{w}\)</span>)<a href="#fn109" class="footnote-ref" id="fnref109"><sup>109</sup></a>. How does that help me find out whether the groups have different population means? Um. Wait. Hold on a second. Now that I think about it, this is <em>exactly</em> what we were looking for. If the null hypothesis is true then you’d expect all the sample means to be pretty similar to each other, right? And that would imply that you’d expect <span class="math inline">\(\mbox{SS}_{b}\)</span> to be really small, or at least you’d expect it to be a lot smaller than “the variation associated with everything else,” <span class="math inline">\(\mbox{SS}_{w}\)</span>. Hmm. I detect a hypothesis test coming on.</p>
+<p>Okay, so what have we found out? We’ve discovered that the total variability associated with the outcome variable (<span class="math inline">\(\mbox{SS}_{tot}\)</span>) can be mathematically carved up into the sum of “the variation due to the differences in the sample means for the different groups” (<span class="math inline">\(\mbox{SS}_{b}\)</span>) plus “all the rest of the variation” (<span class="math inline">\(\mbox{SS}_{w}\)</span>)<a href="#fn111" class="footnote-ref" id="fnref111"><sup>111</sup></a>. How does that help me find out whether the groups have different population means? Um. Wait. Hold on a second. Now that I think about it, this is <em>exactly</em> what we were looking for. If the null hypothesis is true then you’d expect all the sample means to be pretty similar to each other, right? And that would imply that you’d expect <span class="math inline">\(\mbox{SS}_{b}\)</span> to be really small, or at least you’d expect it to be a lot smaller than “the variation associated with everything else,” <span class="math inline">\(\mbox{SS}_{w}\)</span>. Hmm. I detect a hypothesis test coming on.</p>
 </div>
 <div id="from-sums-of-squares-to-the-f-test" class="section level2" number="13.5">
 <h2><span class="header-section-number">13.5</span> From sums of squares to the <span class="math inline">\(F\)</span>-test</h2>
-<p>As we saw in the last section, the <em>qualitative</em> idea behind ANOVA is to compare the two sums of squares values <span class="math inline">\(\mbox{SS}_b\)</span> and <span class="math inline">\(\mbox{SS}_w\)</span> to each other. If the between-group variation <span class="math inline">\(\mbox{SS}_b\)</span> is large relative to the within-group variation <span class="math inline">\(\mbox{SS}_w\)</span> then we have reason to suspect that the population means for the different groups aren’t identical to each other. In order to convert this into a workable hypothesis test, there’s a little bit of “fiddling around” needed. What I’ll do is first show you <em>what</em> we do to calculate our test statistic, the [<span style="color: #F58231;"><strong><span class="math inline">\(F\)</span> ratio</strong></span>, and then try to give you a feel for <em>why</em> we do it this way.</p>
+<p>As we saw in the last section, the <em>qualitative</em> idea behind ANOVA is to compare the two sums of squares values <span class="math inline">\(\mbox{SS}_b\)</span> and <span class="math inline">\(\mbox{SS}_w\)</span> to each other. If the between-group variation <span class="math inline">\(\mbox{SS}_b\)</span> is large relative to the within-group variation <span class="math inline">\(\mbox{SS}_w\)</span> then we have reason to suspect that the population means for the different groups aren’t identical to each other. In order to convert this into a workable hypothesis test, there’s a little bit of “fiddling around” needed. What I’ll do is first show you <em>what</em> we do to calculate our test statistic, the <span style="color: #F58231;"><strong><span class="math inline">\(F\)</span> ratio</strong></span>, and then try to give you a feel for <em>why</em> we do it this way.</p>
 <p>In order to convert our SS values into an <span class="math inline">\(F\)</span>-ratio the first thing we need to calculate is the <span style="color: #F58231;"><strong>degrees of freedom</strong></span> associated with the SS<span class="math inline">\(_b\)</span> and SS<span class="math inline">\(_w\)</span> values. As usual, the degrees of freedom corresponds to the number of unique “data points” that contribute to a particular calculation, minus the number of “constraints” that they need to satisfy. For the within-groups variability what we’re calculating is the variation of the individual observations (<span class="math inline">\(N\)</span> data points) around the group means (<span class="math inline">\(G\)</span> constraints). In contrast, for the between groups variability we’re interested in the variation of the group means (<span class="math inline">\(G\)</span> data points) around the grand mean (1 constraint). Therefore, the degrees of freedom here are:
 <span class="math display">\[
 \begin{array}{lcl}
@@ -977,7 +978,7 @@ At a very general level, the intuition behind the <span class="math inline">\(F\
 <tr class="odd">
 <td align="left">between groups</td>
 <td align="left"><span class="math inline">\(\mbox{df}_b = G-1\)</span></td>
-<td align="left"><span class="math inline">\(\mbox{SS}_b = \mbox{\sum_{k=1}^G} N_k (\bar{Y}_k - \bar{Y})^2\)</span></td>
+<td align="left"><span class="math inline">\(\mbox{SS}_b = \sum_{k=1}^G N_k (\bar{Y}_k - \bar{Y})^2\)</span></td>
 <td align="left"><span class="math inline">\(\mbox{MS}_b = \frac{\mbox{SS}_b}{\mbox{df}_b}\)</span></td>
 <td align="left"><span class="math inline">\(F = \frac{\mbox{MS}_b }{ \mbox{MS}_w }\)</span></td>
 <td align="left">[complicated]</td>
@@ -1011,22 +1012,19 @@ where we make the <em>assumption</em> (discussed later) that the residual values
 <span class="math display">\[
 Y_{ik} = \mu_k + \epsilon_{ik}
 \]</span>
-where, once again, we assume that the error terms are normally distributed with mean 0 and standard deviation <span class="math inline">\(\sigma\)</span>. That is, the alternative hypothesis also assumes that
-<span class="math display">\[
-\epsilon \sim \mbox{Normal}(0, \sigma^2)
-\]</span></p>
-<p>Okay, now that we’ve described the statistical models underpinning <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span> in more detail, it’s now pretty straightforward to say what the mean square values are measuring, and what this means for the interpretation of <span class="math inline">\(F\)</span>. I won’t bore you with the proof of this but it turns out that the within-groups mean square, MS<span class="math inline">\(_w\)</span>, can be viewed as an estimator (in the technical sense, Chapter <a href="estimation.html#estimation">8</a>) of the error variance <span class="math inline">\(\sigma^2\)</span>. The between-groups mean square MS<span class="math inline">\(_b\)</span> is also an estimator, but what it estimates is the error variance <em>plus</em> a quantity that depends on the true differences among the group means. If we call this quantity <span class="math inline">\(Q\)</span>, then we can see that the <span class="math inline">\(F\)</span>-statistic is basically<a href="#fn110" class="footnote-ref" id="fnref110"><sup>110</sup></a>
+where, once again, we assume that the error terms are normally distributed with mean 0 and standard deviation <span class="math inline">\(\sigma\)</span>. That is, the alternative hypothesis also assumes that <span class="math inline">\(\epsilon \sim \mbox{Normal}(0, \sigma^2)\)</span></p>
+<p>Okay, now that we’ve described the statistical models underpinning <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span> in more detail, it’s now pretty straightforward to say what the mean square values are measuring, and what this means for the interpretation of <span class="math inline">\(F\)</span>. I won’t bore you with the proof of this but it turns out that the within-groups mean square, MS<span class="math inline">\(_w\)</span>, can be viewed as an estimator (in the technical sense, Chapter <a href="estimation.html#estimation">8</a>) of the error variance <span class="math inline">\(\sigma^2\)</span>. The between-groups mean square MS<span class="math inline">\(_b\)</span> is also an estimator, but what it estimates is the error variance <em>plus</em> a quantity that depends on the true differences among the group means. If we call this quantity <span class="math inline">\(Q\)</span>, then we can see that the <span class="math inline">\(F\)</span>-statistic is basically<a href="#fn112" class="footnote-ref" id="fnref112"><sup>112</sup></a>
 <span class="math display">\[
 F = \frac{\hat{Q} + \hat\sigma^2}{\hat\sigma^2}
 \]</span>
-where the true value <span class="math inline">\(Q=0\)</span> if the null hypothesis is true, and <span class="math inline">\(Q &gt; 0\)</span> if the alternative hypothesis is true <span class="citation">(e.g. <a href="#ref-Hays1994" role="doc-biblioref">Hays 1994</a> ch. 10)</span>. Therefore, at a bare minimum <em>the <span class="math inline">\(F\)</span> value must be larger than 1</em> to have any chance of rejecting the null hypothesis. Note that this <em>doesn’t</em> mean that it’s impossible to get an <span class="math inline">\(F\)</span>-value less than 1. What it means is that if the null hypothesis is true the sampling distribution of the <span class="math inline">\(F\)</span> ratio has a mean of 1,<a href="#fn111" class="footnote-ref" id="fnref111"><sup>111</sup></a> and so we need to see <span class="math inline">\(F\)</span>-values larger than 1 in order to safely reject the null.</p>
+where the true value <span class="math inline">\(Q=0\)</span> if the null hypothesis is true, and <span class="math inline">\(Q &gt; 0\)</span> if the alternative hypothesis is true <span class="citation">(e.g. <a href="#ref-Hays1994" role="doc-biblioref">Hays 1994</a> ch. 10)</span>. Therefore, at a bare minimum <em>the <span class="math inline">\(F\)</span> value must be larger than 1</em> to have any chance of rejecting the null hypothesis. Note that this <em>doesn’t</em> mean that it’s impossible to get an <span class="math inline">\(F\)</span>-value less than 1. What it means is that if the null hypothesis is true the sampling distribution of the <span class="math inline">\(F\)</span> ratio has a mean of 1,<a href="#fn113" class="footnote-ref" id="fnref113"><sup>113</sup></a> and so we need to see <span class="math inline">\(F\)</span>-values larger than 1 in order to safely reject the null.</p>
 <p>To be a bit more precise about the sampling distribution, notice that if the null hypothesis is true, both MS<span class="math inline">\(_b\)</span> and MS<span class="math inline">\(_w\)</span> are estimators of the variance of the residuals <span class="math inline">\(\epsilon_{ik}\)</span>. If those residuals are normally distributed, then you might suspect that the estimate of the variance of <span class="math inline">\(\epsilon_{ik}\)</span> is chi-square distributed, because (as discussed in Section <a href="probability.html#otherdists">7.6</a>) that’s what a chi-square distribution <em>is</em>: it’s what you get when you square a bunch of normally-distributed things and add them up. And since the <span class="math inline">\(F\)</span> distribution is (again, by definition) what you get when you take the ratio between two things that are <span class="math inline">\(\chi^2\)</span> distributed, we have our sampling distribution. Obviously, I’m glossing over a whole lot of stuff when I say this, but in broad terms, this really is where our sampling distribution comes from.</p>
 </div>
 </div>
 </div>
 <div id="anovacalc" class="section level2" number="13.7">
 <h2><span class="header-section-number">13.7</span> A worked example</h2>
-<p>The previous discussion was fairly abstract and a little on the technical side, so I think that at this point it might be useful to see a worked example. For that, let’s go back to the clinical trial data that I introduced at the start of the chapter. The descriptive statistics that we calculated at the beginning tell us our group means: an average mood gain of 0.45 for the placebo, 0.72 for Anxifree, and 1.48 for Joyzepam. With that in mind, let’s party like it’s 1899<a href="#fn112" class="footnote-ref" id="fnref112"><sup>112</sup></a> and start doing some pencil and paper calculations. I’ll only do this for the first 5 observations because it’s not bloody 1899 and I’m very lazy. Let’s start by calculating <span class="math inline">\(\mbox{SS}_{w}\)</span>, the within-group sums of squares. First, let’s draw up a nice table to help us with our calculations:</p>
+<p>The previous discussion was fairly abstract and a little on the technical side, so I think that at this point it might be useful to see a worked example. For that, let’s go back to the clinical trial data that I introduced at the start of the chapter. The descriptive statistics that we calculated at the beginning tell us our group means: an average mood gain of 0.45 for the placebo, 0.72 for Anxifree, and 1.48 for Joyzepam. With that in mind, let’s party like it’s 1899<a href="#fn114" class="footnote-ref" id="fnref114"><sup>114</sup></a> and start doing some pencil and paper calculations. I’ll only do this for the first 5 observations because it’s not bloody 1899 and I’m very lazy. Let’s start by calculating <span class="math inline">\(\mbox{SS}_{w}\)</span>, the within-group sums of squares. First, let’s draw up a nice table to help us with our calculations:</p>
 <table>
 <thead>
 <tr class="header">
@@ -1244,7 +1242,7 @@ where the true value <span class="math inline">\(Q=0\)</span> if the null hypoth
 &amp;=&amp; 3.48
 \end{array}
 \]</span>
-As you can see, the between group calculations are a lot shorter<a href="#fn113" class="footnote-ref" id="fnref113"><sup>113</sup></a>. Now that we’ve calculated our sums of squares values, <span class="math inline">\(\mbox{SS}_b\)</span> and <span class="math inline">\(\mbox{SS}_w\)</span>, the rest of the ANOVA is pretty painless. The next step is to calculate the degrees of freedom. Since we have <span class="math inline">\(G = 3\)</span> groups and <span class="math inline">\(N = 18\)</span> observations in total our degrees of freedom can be calculated by simple subtraction:
+As you can see, the between group calculations are a lot shorter<a href="#fn115" class="footnote-ref" id="fnref115"><sup>115</sup></a>. Now that we’ve calculated our sums of squares values, <span class="math inline">\(\mbox{SS}_b\)</span> and <span class="math inline">\(\mbox{SS}_w\)</span>, the rest of the ANOVA is pretty painless. The next step is to calculate the degrees of freedom. Since we have <span class="math inline">\(G = 3\)</span> groups and <span class="math inline">\(N = 18\)</span> observations in total our degrees of freedom can be calculated by simple subtraction:
 <span class="math display">\[
 \begin{array}{lclcl}
 \mbox{df}_b &amp;=&amp; G - 1 &amp;=&amp; 2 \\
@@ -1297,7 +1295,7 @@ Woohooo! This is terribly exciting, yes? Now that we have our test statistic, th
 </table>
 <p>These days, you’ll probably never have much reason to want to construct one of these tables yourself, but you <strong><em>will</em></strong> find that almost all statistical software (jamovi included) tends to organise the output of an ANOVA into a table like this, so it’s a good idea to get used to reading them. However, although the software will output a full ANOVA table, there’s almost never a good reason to include the whole table in your write up. A pretty standard way of reporting this result would be to write something like this:</p>
 <blockquote>
-<p>One-way ANOVA showed a significant effect of drug on mood gain (<span class="math inline">\(F(2,15) = 19.3, p&lt;.001\)</span>).</p>
+<p>One-way ANOVA showed a significant effect of drug on mood gain <span class="math inline">\((F(2,15) = 19.3, p&lt;.001)\)</span>.</p>
 </blockquote>
 <p>Sigh. So much work for one short sentence.</p>
 </div>
@@ -1307,7 +1305,7 @@ Woohooo! This is terribly exciting, yes? Now that we have our test statistic, th
 </div>
 <div id="using-jamovi-to-specify-your-anova" class="section level2" number="13.9">
 <h2><span class="header-section-number">13.9</span> Using jamovi to specify your ANOVA</h2>
-<p>To make life easier for you, jamovi can do ANOVA..hurrah! Go to the ‘ANOVA’ - ‘ANOVA’ analysis, and move the <strong><code>mood.gain</code></strong> variable across so it is in the ‘Dependent Variable’ box, and then move the <strong><code>drug</code></strong> variable across so it is in the ‘Fixed Factors’ box. This should give the results as shown in Figure <a href="anova.html#fig:anova2">13.3</a>.<a href="#fn114" class="footnote-ref" id="fnref114"><sup>114</sup></a> Note I have also checked the <span class="math inline">\(\eta^2\)</span> checkbox, pronounced “eta” squared, under the ‘Effect Size’ option and this is also shown on the results table. We will come back to effect sizes a bit later.</p>
+<p>To make life easier for you, jamovi can do ANOVA..hurrah! Go to the ‘ANOVA’ - ‘ANOVA’ analysis, and move the <strong><code>mood.gain</code></strong> variable across so it is in the ‘Dependent Variable’ box, and then move the <strong><code>drug</code></strong> variable across so it is in the ‘Fixed Factors’ box. This should give the results as shown in Figure <a href="anova.html#fig:anova2">13.3</a>.<a href="#fn116" class="footnote-ref" id="fnref116"><sup>116</sup></a> Note I have also checked the <span class="math inline">\(\eta^2\)</span> checkbox, pronounced “eta” squared, under the ‘Effect Size’ option and this is also shown on the results table. We will come back to effect sizes a bit later.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:anova2"></span>
 <img src="img/anova/anova2.png" alt="jamovi results table for ANOVA of mood gain by drug administered" width="100%" />
 <p class="caption">
@@ -1429,13 +1427,13 @@ Figure 13.4: Uncorrected pairwise <span class="math inline">\(t\)</span>-tests a
 </div>
 <div id="corrections-for-multiple-testing" class="section level2" number="13.13">
 <h2><span class="header-section-number">13.13</span> Corrections for multiple testing</h2>
-<p>In the previous section I hinted that there’s a problem with just running lots and lots of <span class="math inline">\(t\)</span>-tests. The concern is that, when running these analyses, what we’re doing is going on a “fishing expedition.” We’re running lots and lots of tests without much theoretical guidance in the hope that some of them come up significant. This kind of theory-free search for group differences is referred to as <span style="color: #F58231;"><strong>post hoc analysis</strong></span> (“post hoc” being Latin for “after this”).<a href="#fn115" class="footnote-ref" id="fnref115"><sup>115</sup></a></p>
+<p>In the previous section I hinted that there’s a problem with just running lots and lots of <span class="math inline">\(t\)</span>-tests. The concern is that, when running these analyses, what we’re doing is going on a “fishing expedition.” We’re running lots and lots of tests without much theoretical guidance in the hope that some of them come up significant. This kind of theory-free search for group differences is referred to as <span style="color: #F58231;"><strong>post hoc analysis</strong></span> (“post hoc” being Latin for “after this”).<a href="#fn117" class="footnote-ref" id="fnref117"><sup>117</sup></a></p>
 <p>It’s okay to run post hoc analyses, but a lot of care is required. For instance, the analysis that I ran in the previous section should be avoided, as each <em>individual</em> <span class="math inline">\(t\)</span>-test is designed to have a 5% Type I error rate (i.e., <span class="math inline">\(\alpha = .05\)</span>) and I ran three of these tests. Imagine what would have happened if my ANOVA involved 10 different groups, and I had decided to run 45 “post hoc” <span class="math inline">\(t\)</span>-tests to try to find out which ones were significantly different from each other, you’d expect 2 or 3 of them to come up significant <em>by chance alone</em>. As we saw in Chapter <a href="hypothesistesting.html#hypothesistesting">9</a>, the central organising principle behind null hypothesis testing is that we seek to control our Type I error rate, but now that I’m running lots of <span class="math inline">\(t\)</span>-tests at once in order to determine the source of my ANOVA results, my actual Type I error rate across this whole <em>family</em> of tests has gotten completely out of control.</p>
 <p>The usual solution to this problem is to introduce an adjustment to the <span class="math inline">\(p\)</span>-value, which aims to control the total error rate across the family of tests <span class="citation">(see <a href="#ref-Shaffer1995" role="doc-biblioref">Shaffer 1995</a>)</span>. An adjustment of this form, which is usually (but not always) applied because one is doing post hoc analysis, is often referred to as a <span style="color: #F58231;"><strong>correction for multiple comparisons</strong></span>, though it is sometimes referred to as “simultaneous inference.” In any case, there are quite a few different ways of doing this adjustment. I’ll discuss a few of them in this section and in Section <a href="anova2.html#posthoc2">14.8</a>, but you should be aware that there are many other methods out there [see, e.g., Hsu1996].</p>
 </div>
 <div id="bonferroni-corrections" class="section level2" number="13.14">
 <h2><span class="header-section-number">13.14</span> Bonferroni corrections</h2>
-<p>The simplest of these adjustments is called the <span style="color: #F58231;"><strong>Bonferroni correction</strong></span> <span class="citation">(<a href="#ref-Dunn1961" role="doc-biblioref">Dunn 1961</a>)</span>, and it’s very very simple indeed. Suppose that my post hoc analysis consists of <span class="math inline">\(m\)</span> separate tests, and I want to ensure that the total probability of making <em>any</em> Type I errors at all is at most <span class="math inline">\(\alpha\)</span>.<a href="#fn116" class="footnote-ref" id="fnref116"><sup>116</sup></a> If so, then the Bonferroni correction just says “multiply all your raw <span class="math inline">\(p\)</span>-values by <span class="math inline">\(m\)</span>.” If we let <span class="math inline">\(p\)</span> denote the original <span class="math inline">\(p\)</span>-value, and let <span class="math inline">\(p^\prime_j\)</span> be the corrected value, then the Bonferroni correction tells that:
+<p>The simplest of these adjustments is called the <span style="color: #F58231;"><strong>Bonferroni correction</strong></span> <span class="citation">(<a href="#ref-Dunn1961" role="doc-biblioref">Dunn 1961</a>)</span>, and it’s very very simple indeed. Suppose that my post hoc analysis consists of <span class="math inline">\(m\)</span> separate tests, and I want to ensure that the total probability of making <em>any</em> Type I errors at all is at most <span class="math inline">\(\alpha\)</span>.<a href="#fn118" class="footnote-ref" id="fnref118"><sup>118</sup></a> If so, then the Bonferroni correction just says “multiply all your raw <span class="math inline">\(p\)</span>-values by <span class="math inline">\(m\)</span>.” If we let <span class="math inline">\(p\)</span> denote the original <span class="math inline">\(p\)</span>-value, and let <span class="math inline">\(p^\prime_j\)</span> be the corrected value, then the Bonferroni correction tells that:
 <span class="math display">\[
 p^\prime_j = m \times p
 \]</span>
@@ -1518,8 +1516,8 @@ whichever one is <strong><em>larger</em></strong>. This might sound a little con
 </div>
 <p>If you remember back to Section <a href="anova.html#anovamodel">13.6</a>, which I hope you at least skimmed even if you didn’t read the whole thing, I described the statistical models underpinning ANOVA in this way:
 <span class="math display">\[
-\begin{array}{lrcl}
-H_0: \hspace*{.5cm} &amp; Y_{ik} &amp;=&amp; \mu + \epsilon_{ik} \\
+\begin{array}
+&amp;H_0: &amp; Y_{ik} &amp;=&amp; \mu + \epsilon_{ik} \\
 H_1: &amp; Y_{ik} &amp;=&amp; \mu_k + \epsilon_{ik} 
 \end{array}
 \]</span>
@@ -1531,17 +1529,15 @@ None of the maths works properly without this bit. Or, to be precise, you can st
 </div>
 <p>So, how do we check whether the assumption about the residuals is accurate? Well, as I indicated above, there are three distinct claims buried in this one statement, and we’ll consider them separately.</p>
 <ul>
-<li><span style="color: #F58231;">*<strong>Homogeneity of variance</strong></span>. Notice that we’ve only got the one value for the population standard deviation (i.e., <span class="math inline">\(\sigma\)</span>), rather than allowing each group to have it’s own value (i.e., <span class="math inline">\(\sigma_k\)</span>). This is referred to as the homogeneity of variance (sometimes called homoscedasticity) assumption. ANOVA assumes that the population standard deviation is the same for all groups. We’ll talk about this extensively in Section <a href="anova.html#levene">13.18</a>.</li>
-<li><span style="color: #F58231;">*<strong>Normality</strong></span>. The residuals are assumed to be normally distributed. As we saw in Section <a href="ttest.html#shapiro">11.8</a>, we can assess this by looking at QQ plots (or running a Shapiro-Wilk test. I’ll talk about this more in an ANOVA context in Section <a href="anova.html#anovanormality">13.21</a>.</li>
-<li><span style="color: #F58231;">*<strong>Independence</strong></span>. The independence assumption is a little trickier. What it basically means is that, knowing one residual tells you nothing about any other residual. All of the <span class="math inline">\(\epsilon_{ik}\)</span> values are assumed to have been generated without any “regard for” or “relationship to” any of the other ones. There’s not an obvious or simple way to test for this, but there are some situations that are clear violations of this. For instance, if you have a repeated-measures design, where each participant in your study appears in more than one condition, then independence doesn’t hold. There’s a special relationship between some observations, namely those that correspond to the same person! When that happens, you need to use something like repeated measures ANOVA (see Section <a href="anova.html#RManova">13.26</a>).</li>
+<li><span style="color: #F58231;"><strong>Homogeneity of variance</strong></span>. Notice that we’ve only got the one value for the population standard deviation (i.e., <span class="math inline">\(\sigma\)</span>), rather than allowing each group to have it’s own value (i.e., <span class="math inline">\(\sigma_k\)</span>). This is referred to as the homogeneity of variance (sometimes called homoscedasticity) assumption. ANOVA assumes that the population standard deviation is the same for all groups. We’ll talk about this extensively in Section <a href="anova.html#levene">13.18</a>.</li>
+<li><span style="color: #F58231;"><strong>Normality</strong></span>. The residuals are assumed to be normally distributed. As we saw in Section <a href="ttest.html#shapiro">11.8</a>, we can assess this by looking at QQ plots (or running a Shapiro-Wilk test. I’ll talk about this more in an ANOVA context in Section <a href="anova.html#anovanormality">13.21</a>.</li>
+<li><span style="color: #F58231;"><strong>Independence</strong></span>. The independence assumption is a little trickier. What it basically means is that, knowing one residual tells you nothing about any other residual. All of the <span class="math inline">\(\epsilon_{ik}\)</span> values are assumed to have been generated without any “regard for” or “relationship to” any of the other ones. There’s not an obvious or simple way to test for this, but there are some situations that are clear violations of this. For instance, if you have a repeated-measures design, where each participant in your study appears in more than one condition, then independence doesn’t hold. There’s a special relationship between some observations, namely those that correspond to the same person! When that happens, you need to use something like repeated measures ANOVA (see Section <a href="anova.html#RManova">13.26</a>).</li>
 </ul>
 </div>
 <div id="levene" class="section level2" number="13.18">
 <h2><span class="header-section-number">13.18</span> Checking the homogeneity of variance assumption</h2>
-<blockquote>
-<p><em>To make the preliminary test on variances is rather like putting to sea in a rowing boat to find out whether conditions are sufficiently calm for an ocean liner to leave port!</em>
-– George Box <span class="citation">(<a href="#ref-Box1953" role="doc-biblioref">G. E. P. Box 1953</a>)</span></p>
-</blockquote>
+<div class="line-block">      <em>To make the preliminary test on variances is rather like putting to sea in a rowing boat to find out whether conditions are sufficiently calm for an ocean liner to leave port!</em><br />
+                              – George Box <span class="citation">(<a href="#ref-Box1953" role="doc-biblioref">G. E. P. Box 1953</a>)</span></div>
 <p>There’s more than one way to skin a cat, as the saying goes, and more than one way to test the homogeneity of variance assumption, too (though for some reason no-one made a saying out of that). The most commonly used test for this that I’ve seen in the literature is the <span style="color: #F58231;"><strong>Levene test</strong></span> <span class="citation">(<a href="#ref-Levene1960" role="doc-biblioref">Levene 1960</a>)</span>, and the closely related <span style="color: #F58231;"><strong>Brown-Forsythe test</strong></span> <span class="citation">(<a href="#ref-BrownForsythe1974" role="doc-biblioref">Brown and Forsythe 1974</a>)</span>.</p>
 <p>Regardless of whether you’re doing the standard Levene test or the Brown-Forsythe test, the test statistic, which is sometimes denoted <span class="math inline">\(F\)</span> but also sometimes written as <span class="math inline">\(W\)</span>, is calculated in exactly the same way that the <span class="math inline">\(F\)</span>-statistic for the regular ANOVA is calculated, just using a <span class="math inline">\(Z_{ik}\)</span> rather than <span class="math inline">\(Y_{ik}\)</span>. With that in mind, we can go on to look at how to run the test in jamovi.</p>
 <div class="blackbox">
@@ -1595,7 +1591,7 @@ Figure 13.7: QQ plot produced from jamovi one way ANOVA options
 </div>
 <div id="kruskalwallis" class="section level2" number="13.22">
 <h2><span class="header-section-number">13.22</span> Removing the normality assumption</h2>
-<p>Now that we’ve seen how to check for normality, we are led naturally to ask what we can do to address violations of normality. In the context of a one-way ANOVA, the easiest solution is probably to switch to a non-parametric test (i.e., one that doesn’t rely on any particular assumption about the kind of distribution involved). We’ve seen non-parametric tests before, in Chapter <a href="ttest.html#ttest">11</a>. When you only have two groups, the Mann-Whitney or the Wilcoxon test provides the non-parametric alternative that you need. When you’ve got three or more groups, you can use the <span style="color: #F58231;"><strong>Kruskal-Wallis rank sum test</strong></span> [@{KruskalWallis1952]. So that’s the test we’ll talk about next.</p>
+<p>Now that we’ve seen how to check for normality, we are led naturally to ask what we can do to address violations of normality. In the context of a one-way ANOVA, the easiest solution is probably to switch to a non-parametric test (i.e., one that doesn’t rely on any particular assumption about the kind of distribution involved). We’ve seen non-parametric tests before, in Chapter <a href="ttest.html#ttest">11</a>. When you only have two groups, the Mann-Whitney or the Wilcoxon test provides the non-parametric alternative that you need. When you’ve got three or more groups, you can use the <span style="color: #F58231;"><strong>Kruskal-Wallis rank sum test</strong></span> <span class="citation">(<a href="#ref-KruskalWallis1952" role="doc-biblioref">Kruskal and Wallis 1952</a>)</span>. So that’s the test we’ll talk about next.</p>
 </div>
 <div id="the-logic-behind-the-kruskal-wallis-test" class="section level2" number="13.23">
 <h2><span class="header-section-number">13.23</span> The logic behind the Kruskal-Wallis test</h2>
@@ -1630,7 +1626,7 @@ K = (N - 1) \times \frac{\mbox{RSS}_b}{\mbox{RSS}_{tot}}
 and if the null hypothesis is true, then the sampling distribution of <span class="math inline">\(K\)</span> is <em>approximately</em> chi-square with <span class="math inline">\(G-1\)</span> degrees of freedom (where <span class="math inline">\(G\)</span> is the number of groups). The larger the value of <span class="math inline">\(K\)</span>, the less consistent the data are with the null hypothesis, so this is a one-sided test. We reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(K\)</span> is sufficiently large.</p>
 <div id="additional-details" class="section level2" number="13.24">
 <h2><span class="header-section-number">13.24</span> Additional details</h2>
-<p>The description in the previous section illustrates the logic behind the Kruskal-Wallis test. At a conceptual level, this is the right way to think about how the test works. However, from a purely mathematical perspective it’s needlessly complicated. I won’t show you the derivation, but you can use a bit of algebraic jiggery-pokery<a href="#fn117" class="footnote-ref" id="fnref117"><sup>117</sup></a> to show that the equation for <span class="math inline">\(K\)</span> can be rewritten as
+<p>The description in the previous section illustrates the logic behind the Kruskal-Wallis test. At a conceptual level, this is the right way to think about how the test works. However, from a purely mathematical perspective it’s needlessly complicated. I won’t show you the derivation, but you can use a bit of algebraic jiggery-pokery<a href="#fn119" class="footnote-ref" id="fnref119"><sup>119</sup></a> to show that the equation for <span class="math inline">\(K\)</span> can be rewritten as
 <span class="math display">\[
 K = \frac{12}{N(N-1)} \sum_k N_k {\bar{R}_k}^2    -  3(N+1)
 \]</span>
@@ -1668,12 +1664,13 @@ F = \displaystyle\frac{ \mbox{MS}_b }{ \mbox{MS}_w }
 \mbox{Independent ANOVA: } \mbox{SS}_{error} = \mbox{SS}_w \\ 
 \mbox{Repeated Measures ANOVA: } \mbox{SS}_{error} = \mbox{SS}_w - \mbox{SS}_{subjects}
 \]</span></p>
-<p>This change in <span class="math inline">\(\mbox{SS}_{error}\)</span> term often leads to a more powerful statistical test, but this does depend on whether the reduction in the <span class="math inline">\(\mbox{SS}_{error}\)</span> more than compensates for the reduction in degrees of freedom for the error term (as degrees of freedom go from (n - k)<a href="#fn118" class="footnote-ref" id="fnref118"><sup>118</sup></a> to (n - 1)(k - 1) (remembering that there are more subjects in the independent ANOVA design).</p>
+<p>This change in <span class="math inline">\(\mbox{SS}_{error}\)</span> term often leads to a more powerful statistical test, but this does depend on whether the reduction in the <span class="math inline">\(\mbox{SS}_{error}\)</span> more than compensates for the reduction in degrees of freedom for the error term (as degrees of freedom go from (n - k)<a href="#fn120" class="footnote-ref" id="fnref120"><sup>120</sup></a> to (n - 1)(k - 1) (remembering that there are more subjects in the independent ANOVA design).</p>
 </div>
 <div id="repeated-measures-anova-in-jamovi" class="section level2" number="13.27">
 <h2><span class="header-section-number">13.27</span> Repeated measures ANOVA in jamovi</h2>
 <p>First, we need some data. <span class="citation"><a href="#ref-Geschwind1972" role="doc-biblioref">Geschwind</a> (<a href="#ref-Geschwind1972" role="doc-biblioref">1972</a>)</span> has suggested that the exact nature of a patient’s language deficit following a stroke can be used to diagnose the specific region of the brain that has been damaged. A researcher is concerned with identifying the specific communication difficulties experienced by six patients suffering from Broca’s Aphasia (a language deficit commonly experienced following a stroke).</p>
 <table>
+<caption><span id="tab:rmanovatab">Table 13.2: </span>Number of attempts successfully completed on three experimental tasks</caption>
 <thead>
 <tr class="header">
 <th align="center">Participant</th>
@@ -1721,7 +1718,7 @@ F = \displaystyle\frac{ \mbox{MS}_b }{ \mbox{MS}_w }
 </tr>
 </tbody>
 </table>
-<p>The patients were required to complete three word recognition tasks. On the first (speech production) task, patients were required to repeat single words read out aloud by the researcher. On the second (conceptual) task, designed to test word comprehension, patients were required to match a series of pictures with their correct name. On the third (syntax) task, designed to test knowledge of correct word order, patients were asked to reorder syntactically incorrect sentences. Each patient completed all three tasks. The order in which patients attempted the tasks was counterbalanced between participants. Each task consisted of a series of 10 attempts. The number of attempts successfully completed by each patient are shown in Table <a href="#tab:RManova"><strong>??</strong></a>. Enter these data into jamovi ready for analysis (or take a short-cut and load up the <strong><code>broca.csv</code></strong> file).</p>
+<p>The patients were required to complete three word recognition tasks. On the first (speech production) task, patients were required to repeat single words read out aloud by the researcher. On the second (conceptual) task, designed to test word comprehension, patients were required to match a series of pictures with their correct name. On the third (syntax) task, designed to test knowledge of correct word order, patients were asked to reorder syntactically incorrect sentences. Each patient completed all three tasks. The order in which patients attempted the tasks was counterbalanced between participants. Each task consisted of a series of 10 attempts. The number of attempts successfully completed by each patient are shown in Table <a href="anova.html#tab:rmanovatab">13.2</a>. Enter these data into jamovi ready for analysis (or take a short-cut and load up the <strong><code>broca.csv</code></strong> file).</p>
 <p>To perform a one-way related ANOVA in jamovi, open the one-way repeated measures ANOVA dialogue box, as in Figure <a href="anova.html#fig:RManova1">13.9</a>, via ‘ANOVA - Repeated Measures ANOVA.’ Then:</p>
 <ul>
 <li>Enter a Repeated Measures Factor Name. This should be a label that you choose to describe the conditions repeated by all participants. For example, to describe the speech, conceptual and syntax tasks completed by all participants a suitable label would be ‘Task.’ Note that this new factor name represents the independent variable in the analysis.</li>
@@ -1823,6 +1820,9 @@ Hays, W. L. 1994. <em>Statistics</em>. 5th ed. Fort Worth, TX: Harcourt Brace.
 <div id="ref-Holm1979" class="csl-entry">
 Holm, S. 1979. <span>“A Simple Sequentially Rejective Multiple Test Procedure.”</span> <em>Scandinavian Journal of Statistics</em> 6: 65–70.
 </div>
+<div id="ref-KruskalWallis1952" class="csl-entry">
+Kruskal, W. H., and W. A. Wallis. 1952. <span>“Use of Ranks in One-Criterion Variance Analysis.”</span> <em>Journal of the American Statistical Association</em> 47: 583–621.
+</div>
 <div id="ref-Levene1960" class="csl-entry">
 Levene, H. 1960. <span>“Robust Tests for Equality of Variances.”</span> In <em>Contributions to Probability and Statistics: Essays in Honor of Harold Hotelling</em>, edited by I. Olkin et al, 278–92. Palo Alto, CA: Stanford University Press.
 </div>
@@ -1838,18 +1838,18 @@ Shaffer, J. P. 1995. <span>“Multiple Hypothesis Testing.”</span> <em>Annual 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="108">
-<li id="fn108"><p>When all groups have the same number of observations, the experimental design is said to be “balanced.” Balance isn’t such a big deal for one-way ANOVA, which is the topic of this chapter. It becomes more important when you start doing more complicated ANOVAs.<a href="anova.html#fnref108" class="footnote-back">↩︎</a></p></li>
-<li id="fn109"><p><span class="math inline">\(\mbox{SS}_{w}\)</span> is also referred to in an independent ANOVA as the error variance, or <span class="math inline">\(\mbox{SS}_{error}\)</span><a href="anova.html#fnref109" class="footnote-back">↩︎</a></p></li>
-<li id="fn110"><p>If you read ahead to Chapter <a href="anova2.html#anova2">14</a> and look at how the “treatment effect” at level <span class="math inline">\(k\)</span> of a factor is defined in terms of the <span class="math inline">\(\alpha_k\)</span> values (see Section <a href="anova2.html#interactions">14.2</a>), it turns out that <span class="math inline">\(Q\)</span> refers to a weighted mean of the squared treatment effects, <span class="math inline">\(Q=(\sum_{k=1}^G N_k \alpha_k^2)/(G-1)\)</span>. <a href="anova.html#fnref110" class="footnote-back">↩︎</a></p></li>
-<li id="fn111"><p>Or, if we want to be sticklers for accuracy, <span class="math inline">\(1 + \frac{2}{df_2 - 2}\)</span>.<a href="anova.html#fnref111" class="footnote-back">↩︎</a></p></li>
-<li id="fn112"><p>Or, to be precise, party like “it’s 1899 and we’ve got no friends and nothing better to do with our time than do some calculations that wouldn’t have made any sense in 1899 because ANOVA didn’t exist until about the 1920s.”<a href="anova.html#fnref112" class="footnote-back">↩︎</a></p></li>
-<li id="fn113"><p>In the Excel <strong><code>clinicaltrial_anova.xls</code></strong> the value for <span class="math inline">\(SS_b\)</span> worked out to be very slightly different, 3.45, than that shown in the text above (rounding errors!)<a href="anova.html#fnref113" class="footnote-back">↩︎</a></p></li>
-<li id="fn114"><p>The jamovi results are more accurate than the ones in the text above, due to rounding errors.<a href="anova.html#fnref114" class="footnote-back">↩︎</a></p></li>
-<li id="fn115"><p>If you <em>do</em> have some theoretical basis for wanting to investigate some comparisons but not others, it’s a different story. In those circumstances you’re not really running “post hoc” analyses at all, you’re making “planned comparisons.” I do talk about this situation later in the book (Section <a href="anova2.html#plannedcomparisons">14.9</a>), but for now I want to keep things simple.<a href="anova.html#fnref115" class="footnote-back">↩︎</a></p></li>
-<li id="fn116"><p>It’s worth noting in passing that not all adjustment methods try to do this. What I’ve described here is an approach for controlling “family wise Type I error rate.” However, there are other post hoc tests that seek to control the “false discovery rate,” which is a somewhat different thing.<a href="anova.html#fnref116" class="footnote-back">↩︎</a></p></li>
-<li id="fn117"><p>A technical term.<a href="anova.html#fnref117" class="footnote-back">↩︎</a></p></li>
-<li id="fn118"><p>(n - k) : (number of subjects - number of groups)<a href="anova.html#fnref118" class="footnote-back">↩︎</a></p></li>
+<ol start="110">
+<li id="fn110"><p>When all groups have the same number of observations, the experimental design is said to be “balanced.” Balance isn’t such a big deal for one-way ANOVA, which is the topic of this chapter. It becomes more important when you start doing more complicated ANOVAs.<a href="anova.html#fnref110" class="footnote-back">↩︎</a></p></li>
+<li id="fn111"><p><span class="math inline">\(\mbox{SS}_{w}\)</span> is also referred to in an independent ANOVA as the error variance, or <span class="math inline">\(\mbox{SS}_{error}\)</span><a href="anova.html#fnref111" class="footnote-back">↩︎</a></p></li>
+<li id="fn112"><p>If you read ahead to Chapter <a href="anova2.html#anova2">14</a> and look at how the “treatment effect” at level <span class="math inline">\(k\)</span> of a factor is defined in terms of the <span class="math inline">\(\alpha_k\)</span> values (see Section <a href="anova2.html#interactions">14.2</a>), it turns out that <span class="math inline">\(Q\)</span> refers to a weighted mean of the squared treatment effects, <span class="math inline">\(Q=(\sum_{k=1}^G N_k \alpha_k^2)/(G-1)\)</span>. <a href="anova.html#fnref112" class="footnote-back">↩︎</a></p></li>
+<li id="fn113"><p>Or, if we want to be sticklers for accuracy, <span class="math inline">\(1 + \frac{2}{df_2 - 2}\)</span>.<a href="anova.html#fnref113" class="footnote-back">↩︎</a></p></li>
+<li id="fn114"><p>Or, to be precise, party like “it’s 1899 and we’ve got no friends and nothing better to do with our time than do some calculations that wouldn’t have made any sense in 1899 because ANOVA didn’t exist until about the 1920s.”<a href="anova.html#fnref114" class="footnote-back">↩︎</a></p></li>
+<li id="fn115"><p>In the Excel <strong><code>clinicaltrial_anova.xls</code></strong> the value for <span class="math inline">\(SS_b\)</span> worked out to be very slightly different, 3.45, than that shown in the text above (rounding errors!)<a href="anova.html#fnref115" class="footnote-back">↩︎</a></p></li>
+<li id="fn116"><p>The jamovi results are more accurate than the ones in the text above, due to rounding errors.<a href="anova.html#fnref116" class="footnote-back">↩︎</a></p></li>
+<li id="fn117"><p>If you <em>do</em> have some theoretical basis for wanting to investigate some comparisons but not others, it’s a different story. In those circumstances you’re not really running “post hoc” analyses at all, you’re making “planned comparisons.” I do talk about this situation later in the book (Section <a href="anova2.html#plannedcomparisons">14.9</a>), but for now I want to keep things simple.<a href="anova.html#fnref117" class="footnote-back">↩︎</a></p></li>
+<li id="fn118"><p>It’s worth noting in passing that not all adjustment methods try to do this. What I’ve described here is an approach for controlling “family wise Type I error rate.” However, there are other post hoc tests that seek to control the “false discovery rate,” which is a somewhat different thing.<a href="anova.html#fnref118" class="footnote-back">↩︎</a></p></li>
+<li id="fn119"><p>A technical term.<a href="anova.html#fnref119" class="footnote-back">↩︎</a></p></li>
+<li id="fn120"><p>(n - k) : (number of subjects - number of groups)<a href="anova.html#fnref120" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

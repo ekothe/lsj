@@ -32,7 +32,7 @@ $$
 As a consequence, our alternative hypothesis is that at least one of the three different treatments is different from the others. It's a bit tricky to write this mathematically, because (as we'll discuss) there are quite a few different ways in which the null hypothesis can be false. So for now we'll just write the alternative hypothesis like this:
 $$
 \begin{array}{rcl}
-H_1 &:& \mbox{it is \underline{not} true that } \mu_P = \mu_A = \mu_J
+H_1 &:& \mbox{it is not true that } \mu_P = \mu_A = \mu_J
 \end{array}
 $$
 This null hypothesis is a lot trickier to test than any of the ones we've seen previously. How shall we do it? A sensible guess would be to "do an ANOVA", since that's the title of the chapter, but it's not particularly clear why an "analysis of *variances*" will help us learn anything useful about the *means*. In fact, this is one of the biggest conceptual difficulties that people have when first encountering ANOVA. To see how this works, I find it most helpful to start by talking about variances. In fact, what I'm going to do is start by playing some mathematical games with the formula that describes the variance. That is, we'll start out by playing around with variances and it will turn out that this gives us a useful tool for investigating means.
@@ -62,7 +62,7 @@ knitr::kable(tibble::tribble(
    "Cat",      "3",   "cool",          "1",              "3",                "21",
    "Dan",      "4", "uncool",          "2",              "1",                "91",
    "Egg",      "5", "uncool",          "2",              "2",                "22"
-  ), col.names = c("name", "person ($p$)",  "group", "group num ($k$)", "index in group ($i$)",        "grumpiness ($Y_{ik}$ or $Y_p$)"))
+  ), col.names = c("name", "person $(p)$",  "group", "group num $(k)$", "index in group $(i)$",        "grumpiness $(Y_{ik})$ or $(Y_p)$"), align = "c")
 ```
 
 
@@ -138,7 +138,7 @@ Okay, so what have we found out? We've discovered that the total variability ass
 
 ## From sums of squares to the $F$-test
 
-As we saw in the last section, the *qualitative* idea behind ANOVA is to compare the two sums of squares values $\mbox{SS}_b$ and $\mbox{SS}_w$ to each other. If the between-group variation $\mbox{SS}_b$ is large relative to the within-group variation $\mbox{SS}_w$ then we have reason to suspect that the population means for the different groups aren't identical to each other. In order to convert this into a workable hypothesis test, there's a little bit of "fiddling around" needed. What I'll do is first show you *what* we do to calculate our test statistic, the [[**$F$ ratio**]{color="#F58231"}, and then try to give you a feel for *why* we do it this way. 
+As we saw in the last section, the *qualitative* idea behind ANOVA is to compare the two sums of squares values $\mbox{SS}_b$ and $\mbox{SS}_w$ to each other. If the between-group variation $\mbox{SS}_b$ is large relative to the within-group variation $\mbox{SS}_w$ then we have reason to suspect that the population means for the different groups aren't identical to each other. In order to convert this into a workable hypothesis test, there's a little bit of "fiddling around" needed. What I'll do is first show you *what* we do to calculate our test statistic, the [**$F$ ratio**]{color="#F58231"}, and then try to give you a feel for *why* we do it this way. 
 
 In order to convert our SS values into an $F$-ratio the first thing we need to calculate is the [**degrees of freedom**]{color="#F58231"} associated with the SS$_b$ and SS$_w$ values. As usual, the degrees of freedom corresponds to the number of unique "data points" that contribute to a particular calculation, minus the number of "constraints" that they need to satisfy. For the within-groups variability what we're calculating is the variation of the individual observations ($N$ data points) around the group means ($G$ constraints). In contrast, for the between groups variability we're interested in the variation of the group means ($G$ data points) around the grand mean (1 constraint). Therefore, the degrees of freedom here are:
 $$
@@ -169,7 +169,7 @@ A summary of all the key quantities involved in a one-way ANOVA, including the f
 knitr::kable(data.frame(stringsAsFactors=FALSE,
              type = c("between groups", "within groups"),
                df = c("$\\mbox{df}_b = G-1$", "$\\mbox{df}_w = N-G$"),
-   sum.of.squares = c("$\\mbox{SS}_b = \\mbox{\\sum_{k=1}^G} N_k (\\bar{Y}_k - \\bar{Y})^2$", 
+   sum.of.squares = c("$\\mbox{SS}_b = \\sum_{k=1}^G N_k (\\bar{Y}_k - \\bar{Y})^2$", 
                       "SS$_w = \\sum_{k=1}^G \\sum_{i = 1}^{N_k} ( {Y}_{ik} - \\bar{Y}_k)^2$
 "),
      mean.squares = c("$\\mbox{MS}_b = \\frac{\\mbox{SS}_b}{\\mbox{df}_b}$
@@ -204,10 +204,7 @@ What about the alternative hypothesis, $H_1$? The only difference between the nu
 $$
 Y_{ik} = \mu_k + \epsilon_{ik}
 $$
-where, once again, we assume that the error terms are normally distributed with mean 0 and standard deviation $\sigma$. That is, the alternative hypothesis also assumes that 
-$$
-\epsilon \sim \mbox{Normal}(0, \sigma^2)
-$$
+where, once again, we assume that the error terms are normally distributed with mean 0 and standard deviation $\sigma$. That is, the alternative hypothesis also assumes that $\epsilon \sim \mbox{Normal}(0, \sigma^2)$
 
 Okay, now that we've described the statistical models underpinning $H_0$ and $H_1$ in more detail, it's now pretty straightforward to say what the mean square values are measuring, and what this means for the interpretation of $F$. I won't bore you with the proof of this but it turns out that the within-groups mean square, MS$_w$, can be viewed as an estimator (in the technical sense, Chapter \@ref(estimation)) of the error variance $\sigma^2$. The between-groups mean square MS$_b$ is also an estimator, but what it estimates is the error variance *plus* a quantity that depends on the true differences among the group means. If we call this quantity $Q$, then we can see that the $F$-statistic is basically^[If you read ahead to Chapter \@ref(anova2) and look at how the "treatment effect" at level $k$ of a factor is defined in terms of the $\alpha_k$ values (see Section \@ref(interactions)), it turns out that $Q$ refers to a weighted mean of the squared treatment effects, $Q=(\sum_{k=1}^G N_k \alpha_k^2)/(G-1)$. ]
 $$
@@ -330,7 +327,7 @@ knitr::kable(tibble::tribble(
 
 These days, you'll probably never have much reason to want to construct one of these tables yourself, but you ***will*** find that almost all statistical software (jamovi included) tends to organise the output of an ANOVA into a table like this, so it's a good idea to get used to reading them. However, although the software will output a full ANOVA table, there's almost never a good reason to include the whole table in your write up. A pretty standard way of reporting this result would be to write something like this:
 
->One-way ANOVA showed a significant effect of drug on mood gain ($F(2,15) = 19.3, p<.001$).
+>One-way ANOVA showed a significant effect of drug on mood gain $(F(2,15) = 19.3, p<.001)$.
 
 Sigh. So much work for one short sentence.
 
@@ -466,8 +463,8 @@ Like any statistical test, analysis of variance relies on some assumptions about
 :::
 If you remember back to Section \@ref(anovamodel), which I hope you at least skimmed even if you didn't read the whole thing, I described the statistical models underpinning ANOVA in this way:
 $$
-\begin{array}{lrcl}
-H_0: \hspace*{.5cm} & Y_{ik} &=& \mu + \epsilon_{ik} \\
+\begin{array}
+&H_0: & Y_{ik} &=& \mu + \epsilon_{ik} \\
 H_1: & Y_{ik} &=& \mu_k + \epsilon_{ik} 
 \end{array}
 $$
@@ -480,16 +477,16 @@ None of the maths works properly without this bit. Or, to be precise, you can st
 
 So, how do we check whether the assumption about the residuals is accurate? Well, as I indicated above, there are three distinct claims buried in this one statement, and we'll consider them separately.
 
-- [***Homogeneity of variance**]{color="#F58231"}. Notice that we've only got the one value for the population standard deviation (i.e., $\sigma$), rather than allowing each group to have it's own value (i.e., $\sigma_k$). This is referred to as the homogeneity of variance (sometimes called homoscedasticity) assumption. ANOVA assumes that the population standard deviation is the same for all groups. We'll talk about this extensively in Section \@ref(levene). 
-- [***Normality**]{color="#F58231"}. The residuals are assumed to be normally distributed. As we saw in Section \@ref(shapiro), we can assess this by looking at QQ plots (or running a Shapiro-Wilk test. I'll talk about this more in an ANOVA context in Section \@ref(anovanormality). 
-- [***Independence**]{color="#F58231"}. The independence assumption is a little trickier. What it basically means is that, knowing one residual tells you nothing about any other residual. All of the $\epsilon_{ik}$ values are assumed to have been generated without any "regard for" or "relationship to" any of the other ones. There's not an obvious or simple way to test for this, but there are some situations that are clear violations of this. For instance, if you have a repeated-measures design, where each participant in your study appears in more than one condition, then independence doesn't hold. There's a special relationship between some observations, namely those that correspond to the same person! When that happens, you need to use something like repeated measures ANOVA (see Section \@ref(RManova)). 
+- [**Homogeneity of variance**]{color="#F58231"}. Notice that we've only got the one value for the population standard deviation (i.e., $\sigma$), rather than allowing each group to have it's own value (i.e., $\sigma_k$). This is referred to as the homogeneity of variance (sometimes called homoscedasticity) assumption. ANOVA assumes that the population standard deviation is the same for all groups. We'll talk about this extensively in Section \@ref(levene). 
+- [**Normality**]{color="#F58231"}. The residuals are assumed to be normally distributed. As we saw in Section \@ref(shapiro), we can assess this by looking at QQ plots (or running a Shapiro-Wilk test. I'll talk about this more in an ANOVA context in Section \@ref(anovanormality). 
+- [**Independence**]{color="#F58231"}. The independence assumption is a little trickier. What it basically means is that, knowing one residual tells you nothing about any other residual. All of the $\epsilon_{ik}$ values are assumed to have been generated without any "regard for" or "relationship to" any of the other ones. There's not an obvious or simple way to test for this, but there are some situations that are clear violations of this. For instance, if you have a repeated-measures design, where each participant in your study appears in more than one condition, then independence doesn't hold. There's a special relationship between some observations, namely those that correspond to the same person! When that happens, you need to use something like repeated measures ANOVA (see Section \@ref(RManova)). 
 
 
 
 ## Checking the homogeneity of variance assumption{#levene}
 
->*To make the preliminary test on variances is rather like putting to sea in a rowing boat to find out whether conditions are sufficiently calm for an ocean liner to leave port!* 
->-- George Box [@Box1953]
+|       *To make the preliminary test on variances is rather like putting to sea in a rowing boat to find out whether conditions are sufficiently calm for an ocean liner to leave port!* 
+|                               -- George Box [@Box1953]
 
 There's more than one way to skin a cat, as the saying goes, and more than one way to test the homogeneity of variance assumption, too (though for some reason no-one made a saying out of that). The most commonly used test for this that I've seen in the literature is the [**Levene test**]{color="#F58231"} [@Levene1960], and the closely related [**Brown-Forsythe test**]{color="#F58231"} [@BrownForsythe1974]. 
 
@@ -548,7 +545,7 @@ knitr::include_graphics("img/anova/anova5.png", error = TRUE)
 
 ## Removing the normality assumption{#kruskalwallis}
 
-Now that we've seen how to check for normality, we are led naturally to ask what we can do to address violations of normality. In the context of a one-way ANOVA, the easiest solution is probably to switch to a non-parametric test (i.e., one that doesn't rely on any particular assumption about the kind of distribution involved). We've seen non-parametric tests before, in Chapter \@ref(ttest). When you only have two groups, the Mann-Whitney or the Wilcoxon test provides the non-parametric alternative that you need. When you've got three or more groups, you can use the [**Kruskal-Wallis rank sum test**]{color="#F58231"} [@{KruskalWallis1952]. So that's the test we'll talk about next.
+Now that we've seen how to check for normality, we are led naturally to ask what we can do to address violations of normality. In the context of a one-way ANOVA, the easiest solution is probably to switch to a non-parametric test (i.e., one that doesn't rely on any particular assumption about the kind of distribution involved). We've seen non-parametric tests before, in Chapter \@ref(ttest). When you only have two groups, the Mann-Whitney or the Wilcoxon test provides the non-parametric alternative that you need. When you've got three or more groups, you can use the [**Kruskal-Wallis rank sum test**]{color="#F58231"} [@KruskalWallis1952]. So that's the test we'll talk about next.
 
 ## The logic behind the Kruskal-Wallis test
 
@@ -636,7 +633,7 @@ This change in $\mbox{SS}_{error}$ term often leads to a more powerful statistic
 
 First, we need some data. @Geschwind1972 has suggested that the exact nature of a patient’s language deficit following a stroke can be used to diagnose the specific region of the brain that has been damaged. A researcher is concerned with identifying the specific communication difficulties experienced by six patients suffering from Broca’s Aphasia (a language deficit commonly experienced following a stroke). 
 
-```{r RManova, echo = FALSE}
+```{r rmanovatab, echo = FALSE}
 knitr::kable(tibble::tribble(
   ~Participant, ~Speech, ~Conceptual, ~Syntax,
             1L,      8L,          7L,      6L,
@@ -645,12 +642,12 @@ knitr::kable(tibble::tribble(
             4L,      5L,          4L,      5L,
             5L,      6L,          6L,      2L,
             6L,      8L,          7L,      4L
-  ), align = "c")
+  ), align = "c", caption = "Number of attempts successfully completed on three experimental tasks")
 
 ```
 
 
-The patients were required to complete three word recognition tasks. On the first (speech production) task, patients were required to repeat single words read out aloud by the researcher. On the second (conceptual) task, designed to test word comprehension, patients were required to match a series of pictures with their correct name. On the third (syntax) task, designed to test knowledge of correct word order, patients were asked to reorder syntactically incorrect sentences. Each patient completed all three tasks. The order in which patients attempted the tasks was counterbalanced between participants. Each task consisted of a series of 10 attempts. The number of attempts successfully completed by each patient are shown in Table \@ref(tab:RManova). Enter these data into jamovi ready for analysis (or take a short-cut and load up the **`broca.csv`** file). 
+The patients were required to complete three word recognition tasks. On the first (speech production) task, patients were required to repeat single words read out aloud by the researcher. On the second (conceptual) task, designed to test word comprehension, patients were required to match a series of pictures with their correct name. On the third (syntax) task, designed to test knowledge of correct word order, patients were asked to reorder syntactically incorrect sentences. Each patient completed all three tasks. The order in which patients attempted the tasks was counterbalanced between participants. Each task consisted of a series of 10 attempts. The number of attempts successfully completed by each patient are shown in Table \@ref(tab:rmanovatab). Enter these data into jamovi ready for analysis (or take a short-cut and load up the **`broca.csv`** file). 
 
 To perform a one-way related ANOVA in jamovi, open the one-way repeated measures ANOVA dialogue box, as in Figure \@ref(fig:RManova1), via 'ANOVA - Repeated Measures ANOVA'. Then:
  

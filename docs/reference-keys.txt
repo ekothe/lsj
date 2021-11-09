@@ -105,6 +105,7 @@ fig:ttesthyp
 fig:ttestind
 fig:ttesthyp2
 fig:ttestwelch
+fig:ttestpaired
 fig:pairedt
 fig:ttestpaired2
 fig:ttestpaired3
@@ -151,6 +152,7 @@ fig:anova4
 fig:anova4a
 fig:anova5
 fig:anova6
+tab:rmanovatab
 fig:RManova1
 fig:RManova2
 fig:RManova3
@@ -400,7 +402,7 @@ the-cards-data
 the-null-hypothesis-and-the-alternative-hypothesis
 gofteststat
 chidist
-degrees-of-freedomchidof
+chidof
 testing-the-null-hypothesis
 gofTestInjamovi
 specifying-a-different-null-hypothesis

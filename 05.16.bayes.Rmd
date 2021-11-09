@@ -307,7 +307,7 @@ Good rules for statistical testing have to acknowledge human frailty. None of us
 
 ## Bayesian $t$-tests{#ttestbf}
 
-An important type of statistical inference problem discussed in this book is the comparison between two means, discussed in some detail in the chapter on $t$-tests (Chapter \@ref(ch:ttest)). If you can remember back that far, you'll recall that there are several versions of the $t$-test. I'll talk a little about Bayesian versions of the independent samples $t$-tests and the paired samples $t$-test in this section. 
+An important type of statistical inference problem discussed in this book is the comparison between two means, discussed in some detail in the chapter on $t$-tests (Chapter \@ref(ttest)). If you can remember back that far, you'll recall that there are several versions of the $t$-test. I'll talk a little about Bayesian versions of the independent samples $t$-tests and the paired samples $t$-test in this section. 
 
 ### Independent samples $t$-test
 
