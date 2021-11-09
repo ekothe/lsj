@@ -26,7 +26,7 @@ In exploratory factor analysis (EFA), we are essentially exploring the correlati
 
 There are a couple of assumptions that need to be checked as part of the analysis. The first assumption is [**sphericity**]{color="#F58231"}, which essentially checks that the variables in your dataset are correlated with each other to the extent that they can potentially be summarised with a smaller set of factors. Bartlett’s test for sphericity checks whether the observed correlation matrix diverges significantly from a zero (or null) correlation matrix. So, if Bartlett’s test is significant ($p<.05$), this indicates that the observed correlation matrix is significantly divergent from the null, and is therefore suitable for EFA. 
 
-The second assumption is [**sampling adequacy**]{color="#F58231"} and is checked using the Kaiser-Meyer-Olkin (KMO) Measure of Sampling Adequacy (MSA). The KMO index is a measure of the proportion of variance among observed variables that might be common variance. Using partial correlations, it checks for factors that load just two items. We seldom, if ever, want EFA producing a lot of factors loading just two items each. KMO is about sampling adequacy because partial correlations are typically seen with inadequate samples.  If the KMO index is high ($\approx$1), the EFA is efficient whereas if KMO is low ($\approx$0), the EFA is not relevant. KMO values smaller than 0.5 indicates that EFA is not suitable and a KMO value of 0.6 should be present before EFA is considered suitable. Values between 0.5 and 0.7 are considered adequate, values between 0.7 and 0.9 are good and values between 0.9 and 1.0 are excellent.
+The second assumption is [**sampling adequacy**]{color="#F58231"} and is checked using the Kaiser-Meyer-Olkin (KMO) Measure of Sampling Adequacy (MSA). The KMO index is a measure of the proportion of variance among observed variables that might be common variance. Using partial correlations, it checks for factors that load just two items. We seldom, if ever, want EFA producing a lot of factors loading just two items each. KMO is about sampling adequacy because partial correlations are typically seen with inadequate samples.  If the KMO index is high ($\approx$ 1), the EFA is efficient whereas if KMO is low ($\approx$ 0), the EFA is not relevant. KMO values smaller than 0.5 indicates that EFA is not suitable and a KMO value of 0.6 should be present before EFA is considered suitable. Values between 0.5 and 0.7 are considered adequate, values between 0.7 and 0.9 are good and values between 0.9 and 1.0 are excellent.
 
 ### What is EFA good for?
 
@@ -72,7 +72,7 @@ knitr::include_graphics("img/factoranalysis/fa3.png", error = TRUE)
 
 ```
 
-```{r fa4, fig.cap="jamovi EFA assumption checks for the personality questionnaire data", out.width="100%", fig.show = "hold"}
+```{r fa4, fig.cap="jamovi EFA assumption checks for the personality questionnaire data", out.width="100%", fig.show = "hold", echo = FALSE}
 knitr::include_graphics("img/factoranalysis/fa4.png", error = TRUE)
 
 ```
@@ -186,7 +186,7 @@ PCA has been popular in Psychology for a number of reasons, and therefore it's w
 
 ### Performing PCA in jamovi
 
-Once you have loaded up the **`bfi_sample.csv`** data, select **`Factor - Principal Component Analysis`** from the main jamovi button bar to open the PCA analysis window (Figure \@ref(fig:pca1)). Then select the 25 personality questions and transfer them into the ‘Variables’ box. Check appropriate options, including ‘Assumption Checks’, but also Rotation ‘Method’, ‘Number of Factors to extract, and ‘Additional Output’ options. See Figure \@ref(fig:pca1) for suggested options for this  PCA, and please note that the Rotation ‘Method’ and ‘Number of Factors’ extracted is typically adjusted during the analysis to find the best result, as described below.
+Once you have loaded up the **`bfi_sample.csv`** data, select 'Factor - Principal Component Analysis' from the main jamovi button bar to open the PCA analysis window (Figure \@ref(fig:pca1)). Then select the 25 personality questions and transfer them into the ‘Variables’ box. Check appropriate options, including ‘Assumption Checks’, but also Rotation ‘Method’, ‘Number of Factors to extract, and ‘Additional Output’ options. See Figure \@ref(fig:pca1) for suggested options for this  PCA, and please note that the Rotation ‘Method’ and ‘Number of Factors’ extracted is typically adjusted during the analysis to find the best result, as described below.
 
 ```{r pca1, fig.cap="The jamovi PCA analysis window", echo=FALSE, fig.align="center", out.width="100%", fig.show = "hold"}
 knitr::include_graphics("img/factoranalysis/pca1.png", error = TRUE)
@@ -269,7 +269,7 @@ Right, let’s take a look at how we set this CFA analysis up in jamovi.
 Open up the **`bfi_sample2.csv`** file, check that the 25 variables are coded as ordinal (or continuous; it won’t make any difference for this analysis). To perform CFA in jamovi:
 
 
-- Select **`Factor - Confirmatory Factor Analysis`** from the main jamovi button bar to open the CFA analysis window (Figure \@ref(fig:cfa2)).
+- Select 'Factor - Confirmatory Factor Analysis' from the main jamovi button bar to open the CFA analysis window (Figure \@ref(fig:cfa2)).
 - Select the 5 **`A`** variables and transfer them into the ‘Factors’ box and give then the label “Agreeableness”.
 - Create a new Factor in the ‘Factors’ box and label it “Conscientiousness”. Select the 5 **`C`** variables and transfer them into the ‘Factors’ box under the “Conscientiousness” label. 
 - Create another new Factor in the ‘Factors’ box and label it “Extraversion”. Select the 5 **`E`** variables and transfer them into the ‘Factors’ box under the “Extraversion” label.
@@ -396,7 +396,7 @@ At the same time, we should consider whether there is any good, systematic, reas
  
 So, as well as multiple factors, we also have multiple methodological features in the ASQ, where each of Questions 1-6 has a slightly different “method”, but each “method” is shared across the sub-questions a, b and c. In order to incorporate these different methodological features into the model we can specify that certain error terms are correlated with each other. For example, the errors associated with INT1, STAB1 and GLOB1 should be correlated with each other to reflect the distinct and shared methodological variance of Q1a, Q1b and Q1c. Looking at Figure \@ref(fig:MTMM2), this means that as well as the latent factors represented by the columns, we will have correlated measurement errors for the variables in each row of the Table. 
 
-Whilst a basic CFA model like the one shown in Figure \@ref(fig:MTMM3) could be tested against our observed data, we have in fact come up with a more sophisticated model, as shown in the diagram in Figure \@ref(fig:MTMM4}. This more sophisticated CFA model is known as a [**Multi-Trait Multi-Method (MTMM)**]{color="#F58231"} model, and it is the one we will test in jamovi.
+Whilst a basic CFA model like the one shown in Figure \@ref(fig:MTMM3) could be tested against our observed data, we have in fact come up with a more sophisticated model, as shown in the diagram in Figure \@ref(fig:MTMM4). This more sophisticated CFA model is known as a [**Multi-Trait Multi-Method (MTMM)**]{color="#F58231"} model, and it is the one we will test in jamovi.
 
 ```{r MTMM4, fig.cap="Final pre-specification of latent factor structure for the ASQ, including latent factor correlations, and shared method error term correlations for the observed variable INT1, STAB1 and GLOB1, in a CFA MTMM model. For clarity, other pre-specified error term correlations are not shown.", echo=FALSE, fig.align="center", out.width="100%", fig.show = "hold"}
 knitr::include_graphics("img/factoranalysis/MTMM4.png", error = TRUE)
@@ -409,7 +409,7 @@ Open up the **`ASQ.csv`** file and check that the 18 variables (six “Internali
 
 To perform MTMM CFA in jamovi:
 
-- Select **`Factor - Confirmatory Factor Analysis} from the main jamovi button bar to open the CFA analysis window (Figure \@ref(fig:MTMM5)).
+- Select 'Factor - Confirmatory Factor Analysis' from the main jamovi button bar to open the CFA analysis window (Figure \@ref(fig:MTMM5)).
 - Select the 6 INT variables and transfer them into the ‘Factors’ box and give them the label “Internality”.
 - Create a new Factor in the ‘Factors’ box and label it “Stability”. Select the 6 STAB variables and transfer them into the ‘Factors’ box under the “Stability” label. 
 - Create another new Factor in the ‘Factors’ box and label it “Globality”. Select the 6 GLOB variables and transfer them into the ‘Factors’ box under the “Globality” label.
@@ -491,7 +491,7 @@ knitr::include_graphics("img/factoranalysis/rel1.png", error = TRUE)
 
 We have a third sample of personality data to use to undertake reliability analysis: in the **`bfi_sample3.csv`** file. Once again, check that the 25 personality item variables are coded as continuous. To perform reliability analysis in jamovi:
 
-- Select **`Factor - Reliability Analysis} from the main jamovi button bar to open the reliability analysis window (Figure \@ref(fig:rel1)).
+- Select 'Factor - Reliability Analysis' from the main jamovi button bar to open the reliability analysis window (Figure \@ref(fig:rel1)).
 - Select the 5 A variables and transfer them into the ‘Items’ box.
 - Under the “Reverse Scaled Items” option, select variable **`A11** in the “Normal Scaled Items” box and move it across to the “Reverse Scaled Items” box. 
 - Check other appropriate options, as in Figure \@ref(fig:rel1).

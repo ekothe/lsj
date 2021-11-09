@@ -13,11 +13,15 @@ bookdown::gitbook:
     download: ["pdf", "epub"]
   includes:
     in_header:  header.html
+  pandoc_args: [ "--csl", "apa.csl" ]
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
-  citation_package: natbib
+  citation_package: none
   keep_tex: yes
   classoption: oneside
-bookdown::epub_book: default
+  pandoc_args: [ "--csl", "apa.csl" ]
+bookdown::epub_book:
+  pandoc_args: [ "--csl", "apa.csl" ]
+

@@ -169,6 +169,7 @@ fig:factorialanova4
 fig:margmean1
 fig:margmean2
 fig:factorialanova5
+fig:ancovagroups
 fig:ancova1
 fig:ancova2
 fig:ancova3

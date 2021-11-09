@@ -75,25 +75,23 @@ knitr::kable(tibble::tribble(
 
 Now that we have this notation, it is straightforward to formulate and express some hypotheses. Let's suppose that the goal is to find out two things. First, does the choice of drug have any effect on mood? And second, does CBT have any effect on mood? These aren't the only hypotheses that we could formulate of course, and we'll see a really important example of a different kind of hypothesis in Section \@ref(interactions}, but these are the two simplest hypotheses to test, and so we'll start there. Consider the first test. If the drug has no effect then we would expect all of the row means to be identical, right? So that's our null hypothesis. On the other hand, if the drug does matter then we should expect these row means to be different. Formally, we write down our null and alternative hypotheses in terms of the *equality of marginal means*:
 
-```{r echo = FALSE}
-knitr::kable(tibble::tribble(
-                              ~V1,                                                               ~V2,
-         "Null hypothesis $H_0$:", "row means are the same i.e. $\\mu_{1.} = \\mu_{2.} = \\mu_{3.}$",
-  "Alternative hypothesis $H_1$:",                             "at least one row mean is different."
-  ), col.names = c("", ""))
-```
+$$
+\begin{array}{cc}
+\mbox{Null hypothesis H_0: row means are the same i.e. } \mu_{1.} = \mu_{2.} = \mu_{3.} \\
+\mbox{Null hypothesis H_1: at least one row mean is different.}
+\end{array}
+$$
 
 It's worth noting that these are *exactly* the same statistical hypotheses that we formed when we ran a one-way ANOVA on these data back in Chapter \@ref(anova). Back then I used the notation $\mu_P$ to refer to the mean mood gain for the placebo group, with $\mu_A$ and $\mu_J$ corresponding to the group means for the two drugs, and the null hypothesis was $\mu_P = \mu_A = \mu_J$. So we're actually talking about the same hypothesis, it's just that the more complicated ANOVA requires more careful notation due to the presence of multiple grouping variables, so we're now referring to this hypothesis as $\mu_{1.} = \mu_{2.} = \mu_{3.}$. However, as we'll see shortly, although the hypothesis is identical the test of that hypothesis is subtly different due to the fact that we're now acknowledging the existence of the second grouping variable.
 
 Speaking of the other grouping variable, you won't be surprised to discover that our second hypothesis test is formulated the same way. However, since we're talking about the psychological therapy rather than drugs our null hypothesis now corresponds to the equality of the column means:
 
-```{r echo = FALSE}
-knitr::kable(tibble::tribble(
-                              ~V1,                                                               ~V2,
-         "Null hypothesis $H_0$:", "column means are the same, i.e., $\\mu_{.1} = \\mu_{.2}$",
-  "Alternative hypothesis $H_1$:",  "column means are different, i.e., $\\mu_{.1} \\neq \\mu_{.2}$"
-  ), col.names = c("", ""))
-```
+$$
+\begin{array}{cc}
+\mbox{Null hypothesis H_0: column means are the same, i.e. } \mu_{1.} = \mu_{2.}\\
+\mbox{Null hypothesis H_1: column means are different, i.e. } \mu_{.1} \neq \mu_{.2}
+\end{array}
+$$
 
 ### Running the analysis in jamovi
 
@@ -117,13 +115,13 @@ This output is pretty simple to read too. The first row of the table reports a b
 
 Not only are all of the individual quantities pretty familiar, the relationships between these different quantities has remained unchanged, just like we saw with the original one-way ANOVA. Note that the mean square value is calculated by dividing SS by the corresponding $df$. That is, it's still true that
 $$
-\mbox{MS} = \frac{\mbox{SS}{df}
+\mbox{MS} = \frac{\mbox{SS}}{df}
 $$
 regardless of whether we're talking about **`drug`**, **`therapy`** or the residuals. To see this, let's not worry about how the sums of squares values are calculated. Instead, let's take it on faith that jamovi has calculated the SS values correctly, and try to verify that all the rest of the numbers make sense. First, note that for the **`drug`** factor, we divide $3.45$ by $2$ and end up with a mean square value of $1.73$. For the **`therapy`** factor, there's only 1 degree of freedom, so our calculations are even simpler: dividing $0.47$ (the SS value) by 1 gives us an answer of $0.47$ (the MS value). 
 
 Turning to the $F$ statistics and the $p$ values, notice that we have two of each; one corresponding to the **`drug`** factor and the other corresponding to the **`therapy`** factor. Regardless of which one we're talking about, the $F$ statistic is calculated by dividing the mean square value associated with the factor by the mean square value associated with the residuals. If we use "A" as shorthand notation to refer to the first factor (factor A; in this case **`drug`**) and "R" as shorthand notation to refer to the residuals, then the $F$ statistic associated with factor A is denoted $F_A$, and is calculated as follows:
 $$
-F_{A} = \frac{\mbox{MS}_{A}{\mbox{MS}_{R}
+F_{A} = \frac{\mbox{MS}_{A}}{\mbox{MS}_{R}}
 $$
 and an equivalent formula exists for factor B (i.e., **`therapy`**). Note that this use of "R" to refer to residuals is a bit awkward, since we also used the letter R to refer to the number of rows in the table, but I'm only going to use "R" to mean residuals in the context of SS$_R$ and MS$_R$, so hopefully this shouldn't be confusing. Anyway, to apply this formula to the  **`drugs`** factor we take the mean square of $1.73$ and divide it by the residual mean square value of $0.07$, which gives us an $F$-statistic of $26.15$. The corresponding calculation for the **`therapy`** variable would be to divide $0.47$ by $0.07$ which gives $7.08$ as the $F$-statistic. Not surprisingly, of course, these are the same values that jamovi has reported in the ANOVA table above.
 
@@ -197,7 +195,7 @@ Now that we've seen *how* a factorial ANOVA works, it's worth taking a moment to
 
 Why does that happen? The answer lies in understanding how the *residuals* are calculated. Recall that the whole idea behind an $F$-test is to compare the variability that can be attributed to a particular factor with the variability that cannot be accounted for (the residuals). If you run a one-way ANOVA for **`therapy`**, and therefore ignore the effect of **`drug`**, the ANOVA will end up dumping all of the drug-induced variability into the residuals! This has the effect of making the data look more noisy than they really are, and the effect of **`therapy`** which is correctly found to be significant in the two-way ANOVA now becomes non-significant. If we ignore something that actually matters (e.g., **`drug`**) when trying to assess the contribution of something else (e.g., **`therapy`**) then our analysis will be distorted. Of course, it's perfectly okay to ignore variables that are genuinely irrelevant to the phenomenon of interest. If we had recorded the colour of the walls, and that turned out to be a non-significant factor in a three-way ANOVA, it would be perfectly okay to disregard it and just report the simpler two-way ANOVA that doesn't include this irrelevant factor. What you shouldn't do is drop variables that actually make a difference! 
 
-```{r maineffects, fig.cap="The four different outcomes for a $2 \times 2$ ANOVA when no interactions are present. In panel (a) we see a main effect of Factor A and no effect of Factor B. Panel (b) shows a main effect of Factor B but no effect of Factor A. Panel (c) shows main effects of both Factor A and Factor B. Finally, panel (d) shows no effect of either factor.", echo=FALSE, fig.align="center", out.width="50%", fig.show = "hold"}
+```{r maineffects, fig.cap="The four different outcomes for a $2 \\times 2$ ANOVA when no interactions are present. In panel (a) we see a main effect of Factor A and no effect of Factor B. Panel (b) shows a main effect of Factor B but no effect of Factor A. Panel (c) shows main effects of both Factor A and Factor B. Finally, panel (d) shows no effect of either factor.", echo=FALSE, fig.align="center", out.width="50%", fig.show = "hold"}
 knitr::include_graphics("img/factorialanova/maineffectA.png", error = TRUE)
 knitr::include_graphics("img/factorialanova/maineffectB.png", error = TRUE)
 knitr::include_graphics("img/factorialanova/maineffectAB.png", error = TRUE)
@@ -218,8 +216,7 @@ knitr::include_graphics("img/factorialanova/interaction1.png", error = TRUE)
 knitr::include_graphics("img/factorialanova/interaction4.png", error = TRUE)
 
 ```
-
-The four patterns of data shown in Figure \@ref(fig:maineffects) are all quite realistic. There are a great many data sets that produce exactly those patterns. However, they are not the whole story and the ANOVA model that we have been talking about up to this point is not sufficient to fully account for a table of group means. Why not? Well, so far we have the ability to talk about the idea that drugs can influence mood, and therapy can influence mood, but no way of talking about the possibility of an [**interaction**]{color="#F58231"} between the two. An interaction between A and B is said to occur whenever the effect of Factor A is *different*, depending on which level of Factor B we're talking about. Several examples of an interaction effect with the context of a 2$\times$2 ANOVA are shown in Figure \@ref(fig:interaction). To give a more concrete example, suppose that the operation of Anxifree and Joyzepam is governed by quite different physiological mechanisms. One consequence of this is that while Joyzepam has more or less the same effect on mood regardless of whether one is in therapy, Anxifree is actually much more effective when administered in conjunction with CBT. The ANOVA that we developed in the previous section does not capture this idea. To get some idea of whether an interaction is actually happening here, it helps to plot the various group means. In jamovi this is done via the ANOVA 'Estimated Marginal Means' option - just move **`drug`** and **`therapy`** across into the 'Marginal Means' box under 'Term 1'. This should look something like Figure \@ref(fig:interactionplot). Our main concern relates to the fact that the two lines aren't parallel. The effect of CBT (difference between solid line and dotted line) when the drug is Joyzepam (right side) appears to be near zero, even smaller than the effect of CBT when a placebo is used (left side). However, when Anxifree is administered, the effect of CBT is larger than the placebo (middle). Is this effect real, or is this just random variation due to chance? Our original ANOVA cannot answer this question, because we make no allowances for the idea that interactions even exist! In this section, we'll fix this problem.
+context of a 2$\times$2 ANOVA are shown in Figure \@ref(fig:interaction). To give a more concrete example, suppose that the operation of Anxifree and Joyzepam is governed by quite different physiological mechanisms. One consequence of this is that while Joyzepam has more or less the same effect on mood regardless of whether one is in therapy, Anxifree is actually much more effective when administered in conjunction with CBT. The ANOVA that we developed in the previous section does not capture this idea. To get some idea of whether an interaction is actually happening here, it helps to plot the various group means. In jamovi this is done via the ANOVA 'Estimated Marginal Means' option - just move **`drug`** and **`therapy`** across into the 'Marginal Means' box under 'Term 1'. This should look something like Figure \@ref(fig:interactionplot). Our main concern relates to the fact that the two lines aren't parallel. The effect of CBT (difference between solid line and dotted line) when the drug is Joyzepam (right side) appears to be near zero, even smaller than the effect of CBT when a placebo is used (left side). However, when Anxifree is administered, the effect of CBT is larger than the placebo (middle). Is this effect real, or is this just random variation due to chance? Our original ANOVA cannot answer this question, because we make no allowances for the idea that interactions even exist! In this section, we'll fix this problem.
 
 ```{r interactionplot, fig.cap="jamovi screen showing how to generate a descriptive interaction plot in ANOVA using the clinical trial data", echo=FALSE, fig.align="center", out.width="100%", fig.show = "hold"}
 knitr::include_graphics("img/factorialanova/interaction.png", error = TRUE)
@@ -271,10 +268,13 @@ $$
 $$
 Now, if you go back to the formulas that I used to describe the SS values for the two main effects, you'll notice that these effect terms are exactly the quantities that we were squaring and summing! So, what's the analog of this for interaction terms? The answer to this can be found by first rearranging the formula for the group means $\mu_{rc}$ under the alternative hypothesis, so that we get this
 $$
-(\alpha \beta)_{rc} &=& \mu_{rc} - \mu_{..} - \alpha_r - \beta_c \\
-&=& \mu_{rc} - \mu_{..} - (\mu_{r.} - \mu_{..)) - (\mu_{.c} - \mu_{..)) \\
+\begin{array}
+((\alpha \beta)_{rc} &=& \mu_{rc} - \mu_{..} - \alpha_r - \beta_c \\
+&=& \mu_{rc} - \mu_{..} - (\mu_{r.} - \mu_{..}) - (\mu_{.c} - \mu_{..}) \\
 &=& \mu_{rc} - \mu_{r.} - \mu_{.c} + \mu_{..}
+\end{array}
 $$
+
 So, once again if we substitute our sample statistics in place of the population means, we get the following as our estimate of the interaction effect for group $rc$, which is
 $$
 \hat{(\alpha\beta)}_{rc} = \bar{Y}_{rc} - \bar{Y}_{r.} - \bar{Y}_{.c} + \bar{Y}_{..}
@@ -287,7 +287,7 @@ where we multiply by $N$ because there are $N$ observations in each of the group
 
 Now that we have a formula for calculating SS$_{A:B}$, it's important to recognise that the interaction term is part of the model (of course), so the total sum of squares associated with the model, SS$_M$, is now equal to the sum of the three relevant SS values, $\mbox{SS}_A + \mbox{SS}_B + \mbox{SS}_{A:B}$. The residual sum of squares $\mbox{SS}_R$ is still defined as the leftover variation, namely $\mbox{SS}_T - \mbox{SS}_M$, but now that we have the interaction term this becomes
 $$
-\mbox{SS}_R = \mbox{SS}_T - (\mbox{SS}_A + \mbox{SS}_B + \mbox{SS}_{A:B))
+\mbox{SS}_R = \mbox{SS}_T - (\mbox{SS}_A + \mbox{SS}_B + \mbox{SS}_{A:B})
 $$ 
 As a consequence, the residual sum of squares SS$_R$ will be smaller than in our original ANOVA that didn't include interactions.
 :::
@@ -297,9 +297,11 @@ As a consequence, the residual sum of squares SS$_R$ will be smaller than in our
 
 Calculating the degrees of freedom for the interaction is, once again, slightly trickier than the corresponding calculation for the main effects. To start with, let's think about the ANOVA model as a whole. Once we include interaction effects in the model we're allowing every single group to have a unique mean, $\mu_{rc}$. For an $R \times C$ factorial ANOVA, this means that there are $R \times C$ quantities of interest in the model and only the one constraint: all of the group means need to average out to the grand mean. So the model as a whole needs to have $(R\times C) - 1$ degrees of freedom. But the main effect of Factor A has $R-1$ degrees of freedom, and the main effect of Factor B has $C-1$ degrees of freedom. This means that the degrees of freedom associated with the interaction is 
 $$
-df_{A:B} &=& (R\times C - 1) - (R - 1) - (C -1 ) \\
+\begin{array}
+df_{A:B} &=& (R \times C - 1) - (R - 1) - (C -1 ) \\
 &=& RC - R - C + 1 \\
 &=& (R-1)(C-1)
+\end{array}
 $$
 which is just the product of the degrees of freedom associated with the row factor and the column factor.
 
@@ -331,13 +333,13 @@ This sort of thing happens a lot. The main effect are tests of marginal means, a
 
 The effect size calculation for a factorial ANOVA is pretty similar to those used in one way ANOVA (see Section \@ref(etasquared)). Specifically, we can use $\eta^2$ (eta-squared) as a simple way to measure how big the overall effect is for any particular term. As before, $\eta^2$ is defined by dividing the sum of squares associated with that term by the total sum of squares. For instance, to determine the size of the main effect of Factor A, we would use the following formula:
 $$
-\eta_A^2 = \frac{\mbox{SS}_{A}{\mbox{SS}_{T}
+\eta_A^2 = \frac{\mbox{SS}_{A}}{\mbox{SS}_{T}}
 $$
 As before, this can be interpreted in much the same way as $R^2$ in regression.^[This chapter seems to be setting a new record for the number of different things that the letter R can stand for. So far we have R referring to the software package, the number of rows in our table of means, the residuals in the model, and now the correlation coefficient in a regression. Sorry. We clearly don't have enough letters in the alphabet. However, I've tried pretty hard to be clear on which thing R is referring to in each case.]  It tells you the proportion of variance in the outcome variable that can be accounted for by the main effect of Factor A. It is therefore a number that ranges from 0 (no effect at all) to 1 (accounts for *all* of the variability in the outcome). Moreover, the sum of all the $\eta^2$ values, taken across all the terms in the model, will sum to the the total $R^2$ for the ANOVA model. If, for instance, the ANOVA model fits perfectly (i.e., there is no within-groups variability at all!), the $\eta^2$ values will sum to 1. Of course, that rarely if ever happens in real life.
 
 However, when doing a factorial ANOVA, there is a second measure of effect size that people like to report, known as partial $\eta^2$. The idea behind partial $\eta^2$ (which is sometimes denoted $_p\eta^2$ or $\eta^2_p$) is that, when measuring the effect size for a particular term (say, the main effect of Factor A), you want to deliberately ignore the other effects in the model (e.g., the main effect of Factor B). That is, you would pretend that the effect of all these other terms is zero, and then calculate what the $\eta^2$ value would have been. This is actually pretty easy to calculate. All you have to do is remove the sum of squares associated with the other terms from the denominator. In other words, if you want the partial $\eta^2$ for the main effect of Factor A, the denominator is just the sum of the SS values for Factor A and the residuals
 $$
-\mbox{partial } \eta^2_A = \frac{\mbox{SS}_{A}{\mbox{SS}_{A} + \mbox{SS}_{R}
+\mbox{partial } \eta^2_A = \frac{\mbox{SS}_{A}}{\mbox{SS}_{A} + \mbox{SS}_{R}}
 $$
 This will always give you a larger number than $\eta^2$, which the cynic in me suspects accounts for the popularity of partial $\eta^2$. And once again you get a number between 0 and 1, where 0 represents no effect. However, it's slightly trickier to interpret what a large partial $\eta^2$ value means. In particular, you can't actually compare the partial $\eta^2$ values across terms! Suppose, for instance, there is no within-groups variability at all: if so, SS$_R = 0$. What that means is that *every* term has a partial $\eta^2$ value of 1. But that doesn't mean that all terms in your model are equally important, or indeed that they are equally large. All it mean is that all terms in your model have effect sizes that are large *relative to the residual variation*. It is not comparable across terms.
 
@@ -382,7 +384,7 @@ knitr::include_graphics("img/factorialanova/margmean2.png", error = TRUE)
 
 ```
 
-## Assumption checking~{#factorialanovaassumptions} 
+## Assumption checking{#factorialanovaassumptions} 
 
 As with one-way ANOVA, the key assumptions of factorial ANOVA are homogeneity of variance (all groups have the same standard deviation), normality of the residuals, and independence of the observations. The first two are things we can check for. The third is something that you need to assess yourself by asking if there are any special relationships between different observations, for example repeated measures where the independent variable is time so there is a relationship between the observations at time one and time two: observations at different time points are from the *same* people. Additionally, if you aren't using a saturated model (e.g., if you've omitted the interaction terms) then you're also assuming that the omitted terms aren't important. Of course, you can check this last one by running an ANOVA with the omitted terms included and see if they're significant, so that's pretty easy. What about homogeneity of variance and normality of the residuals? As it turns out, these are pretty easy to check. It's no different to the checks we did for a one-way ANOVA.
 
@@ -405,9 +407,9 @@ A variation in ANOVA is when you have an additional continuous variable that you
 
 In ANCOVA the values of the dependent variable are “adjusted” for the influence of the covariate, and then the “adjusted” score means are tested between groups in the usual way. This technique can increase the precision of an experiment, and therefore provide a more “powerful” test of the equality of group means in the dependent variable. How does ANCOVA do this? Well, although the covariate itself is typically not of any experimental interest, adjustment for the covariate can decrease the estimate of experimental error and thus, by reducing error variance, precision is increased. This means that an inappropriate failure to reject the null hypothesis (false negative or type II error) is less likely. 
 
-Despite this advantage, ANCOVA runs the risk of undoing real differences between groups, and this should be avoided. Look at Figure \@ref(fig:ancova_groups), for example, which shows a plot of Statistics anxiety against age and shows two distinct groups – students who have either an Arts or Science background or preference. ANCOVA with age as a covariate might lead to the conclusion that statistics anxiety does not differ in the two groups. Would this conclusion be reasonable – probably not because the ages of the two groups do not overlap and analysis of variance has essentially “extrapolated into a region with no data” [@Everitt1996, p68]. 
+Despite this advantage, ANCOVA runs the risk of undoing real differences between groups, and this should be avoided. Look at Figure \@ref(fig:ancovagroups), for example, which shows a plot of Statistics anxiety against age and shows two distinct groups – students who have either an Arts or Science background or preference. ANCOVA with age as a covariate might lead to the conclusion that statistics anxiety does not differ in the two groups. Would this conclusion be reasonable – probably not because the ages of the two groups do not overlap and analysis of variance has essentially “extrapolated into a region with no data” [@Everitt1996, p68]. 
 
-```{r ancova_groups, fig.cap="Plot of Statistics anxiety against age for two distinct groups", echo=FALSE, fig.align="center", out.width="100%", fig.show = "hold"}
+```{r ancovagroups, fig.cap="Plot of Statistics anxiety against age for two distinct groups", echo=FALSE, fig.align="center", out.width="100%", fig.show = "hold"}
 knitr::include_graphics("img/factorialanova/ancova_groups.png", error = TRUE)
 
 ```
@@ -437,7 +439,7 @@ knitr::include_graphics("img/factorialanova/ancova3.png", error = TRUE)
 
 ```
 
-In Figure \@ref(fig:ancova4} we can see the adjusted, marginal, mean happiness scores when age is a covariate in an ANCOVA. In this analysis there is a significant interaction effect, whereby people with low stress who cycle to work are happier than people with low stress who drive and people with high stress whether they cycle or drive to work. There is also a significant main effect of stress – people with low stress are happier than those with high stress. And there is also a significant main effect of commuting behaviour – people who cycle are happier, on average, than those who drive to work.  
+In Figure \@ref(fig:ancova4) we can see the adjusted, marginal, mean happiness scores when age is a covariate in an ANCOVA. In this analysis there is a significant interaction effect, whereby people with low stress who cycle to work are happier than people with low stress who drive and people with high stress whether they cycle or drive to work. There is also a significant main effect of stress – people with low stress are happier than those with high stress. And there is also a significant main effect of commuting behaviour – people who cycle are happier, on average, than those who drive to work.  
 
 ```{r ancova4, fig.cap="Plot of mean happiness level as a function of stress and commuting method", echo=FALSE, fig.align="center", out.width="100%", fig.show = "hold"}
 knitr::include_graphics("img/factorialanova/ancova4.png", error = TRUE)
@@ -774,7 +776,7 @@ The first kind of ANOVA is conventionally referred to as [**Type I sum of square
 
 ### Type I sum of squares
 
-The Type I method is sometimes referred to as the "sequential" sum of squares, because it involves a process of adding terms to the model one at a time. Consider the coffee data, for instance. Suppose we want to run the full $3 \times 2$ factorial ANOVA, including interaction terms. The full model contains the outcome variable **`babble`**, the predictor variables **`sugar`** and **`milk`**, and the interaction term **`sugar*milk`**. This can be written as **`#babble ~ sugar + milk + sugar*milk`**. The Type I strategy builds this model up sequentially, starting from the simplest possible model and gradually adding terms. 
+The Type I method is sometimes referred to as the "sequential" sum of squares, because it involves a process of adding terms to the model one at a time. Consider the coffee data, for instance. Suppose we want to run the full $3 \times 2$ factorial ANOVA, including interaction terms. The full model contains the outcome variable **`babble`**, the predictor variables **`sugar`** and **`milk`**, and the interaction term **`sugar*milk`**. This can be written as **`babble ~ sugar + milk + sugar*milk`**. The Type I strategy builds this model up sequentially, starting from the simplest possible model and gradually adding terms. 
 
 The simplest possible model for the data would be one in which neither milk nor sugar is assumed to have any effect on babbling. The only term that would be included in such a model is the intercept, written as **`babble ~ 1`**. This is our initial null hypothesis. The next simplest model for the data would be one in which only one of the two main effects is included. In the coffee data, there are two different possible choices here, because we could choose to add milk first or to add sugar first. The order actually turns out to matter, as we'll see later, but for now let's just make a choice arbitrarily and pick sugar. So, the second model in our sequence of models is **`babble ~ sugar`**, and it forms the alternative hypothesis for our first test. We now have our first hypothesis test:
 
@@ -807,7 +809,7 @@ knitr::kable(tibble::tribble(
   ), col.names= c("", ""))
 ```
 
-Type III sum of squares is the default hypothesis testing method used by jamovi ANOVA, so to run a Type I sum of squares analysis we have to select 'Type 1' in the 'Sum of squares' selection box in the jamovi 'ANOVA' - 'Model' options. This gives us the ANOVA table shown in Figure \@ref(fig:factorialanova16}.
+Type III sum of squares is the default hypothesis testing method used by jamovi ANOVA, so to run a Type I sum of squares analysis we have to select 'Type 1' in the 'Sum of squares' selection box in the jamovi 'ANOVA' - 'Model' options. This gives us the ANOVA table shown in Figure \@ref(fig:factorialanova16).
 
 ```{r factorialanova16, fig.cap="ANOVA results table using Type I sum of squares in jamovi", echo=FALSE, fig.align="center", out.width="100%", fig.show = "hold"}
 knitr::include_graphics("img/factorialanova/factorialanova16.png", error = TRUE)
@@ -887,7 +889,7 @@ knitr::include_graphics("img/factorialanova/factorialanova18.png", error = TRUE)
 
 ```
 
-But be aware, one of the perverse features of the Type III testing strategy is that typically the results turn out to depend on the *contrasts* that you use to encode your factors (see Section \@ref(contrasts} if you've forgotten what the different types of contrasts are).^[{However, in jamovi the results for Type III sum of squares ANOVA are the same regardless of the contrast selected, so jamovi is obviously doing something different!]
+But be aware, one of the perverse features of the Type III testing strategy is that typically the results turn out to depend on the *contrasts* that you use to encode your factors (see Section \@ref(contrasts) if you've forgotten what the different types of contrasts are).^[{However, in jamovi the results for Type III sum of squares ANOVA are the same regardless of the contrast selected, so jamovi is obviously doing something different!]
 
 Okay, so if the $p$-values that typically come out of Type III analyses (but not in jamovi) are so sensitive to the choice of contrasts, does that mean that Type III tests are essentially arbitrary and not to be trusted? To some extent that's true, and when we turn to a discussion of Type II tests we'll see that Type II analyses avoid this arbitrariness entirely, but I think that's too strong a conclusion. Firstly, it's important to recognise that some choices of contrasts will always produce the same answers (ah, so this is what is happening in jamovi). Of particular importance is the fact that if the columns of our contrast matrix are all constrained to sum to zero, then the Type III analysis will always give the same answers. 
 
@@ -1005,6 +1007,6 @@ This uncertainty is the reason for the missing variance. The "missing" variance 
 - Effect size, estimated means, and confidence intervals in a factorial ANOVA (Section \@ref(effectsizefactorialanova))
 - Checking assumptions in ANOVA (Section \@ref(factorialanovaassumptions))
 - Analysis of Covariance (ANCOVA) (Section \@ref(ancova))
-- Understanding the linear model underlying ANOVA, including different contrasts (Section \@ref(anovalm} and \@ref(contrasts))
+- Understanding the linear model underlying ANOVA, including different contrasts (Section \@ref(anovalm) and \@ref(contrasts))
 - Post hoc testing using Tukey's HSD (Section \@ref(posthoc2)) and a brief commentary on planned comparisons (Section \@ref(plannedcomparisons))
 - Factorial ANOVA with unbalanced designs (Section \@ref(unbalancedanova))
