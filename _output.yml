@@ -18,7 +18,7 @@ bookdown::pdf_book:
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
-  citation_package: none
+  citation_package: default
   keep_tex: yes
   classoption: oneside
   pandoc_args: [ "--csl", "apa.csl" ]
